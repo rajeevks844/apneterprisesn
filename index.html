@@ -1,0 +1,2122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>A.P. Enterprises – IT Solutions v9</title>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0a1628;--blue:#1565c0;--acc:#00b4d8;--red:#c0392b;--grn:#27ae60;--org:#e67e22;--gold:#f5a623;--lt:#e8f4fd;--wh:#fff;--gr:#6b7a99;--cb:#f0f6ff;--bd:#d0e4f7}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;background:var(--wh);color:var(--navy);overflow-x:hidden;font-size:15px}
+
+/* ─── NAV ─── */
+nav{position:fixed;top:0;left:0;right:0;z-index:999;background:var(--navy);height:66px;display:flex;align-items:center;justify-content:space-between;padding:0 3%;box-shadow:0 2px 18px rgba(10,22,40,.5)}
+.nb{display:flex;align-items:center;gap:11px;cursor:pointer;text-decoration:none;flex-shrink:0}
+.logo-ring{position:relative;width:48px;height:48px;flex-shrink:0}
+.logo-circle{width:48px;height:48px;border-radius:50%;overflow:hidden;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 2.5px var(--red);cursor:pointer;flex-shrink:0}
+.logo-circle img{width:100%;height:100%;object-fit:contain;border-radius:50%}
+.logo-circle svg{width:44px;height:44px;flex-shrink:0}
+.logo-edit-btn{position:absolute;bottom:-3px;right:-3px;width:20px;height:20px;background:var(--gold);border-radius:50%;border:2px solid #fff;cursor:pointer;font-size:10px;display:none;align-items:center;justify-content:center;z-index:2;color:#000}
+.admin-mode .logo-edit-btn{display:flex!important}
+.nt{font-family:'Rajdhani',sans-serif;font-size:20px;font-weight:700;color:#fff;letter-spacing:1px;line-height:1.2}
+.nt span{color:var(--acc)}
+.ns{font-size:10px;color:rgba(255,255,255,.4);letter-spacing:1.5px;text-transform:uppercase;display:block}
+.nl{display:flex;align-items:center;gap:2px;list-style:none}
+.nl a{display:block;padding:7px 9px;color:rgba(255,255,255,.85);text-decoration:none;font-size:11.5px;font-weight:700;letter-spacing:.3px;border-radius:6px;transition:all .2s;text-transform:uppercase;white-space:nowrap;cursor:pointer}
+.nl a:hover{color:var(--acc);background:rgba(0,180,216,.1)}
+.nl .nshop{background:rgba(39,174,96,.2)!important;color:#6ee29b!important;border:1px solid rgba(39,174,96,.35)!important;border-radius:6px!important}
+.nl .nrma{background:rgba(192,57,43,.22)!important;color:#ff8a80!important;border:1px solid rgba(192,57,43,.4)!important;border-radius:6px!important}
+.nl .ncta{background:var(--red)!important;color:#fff!important;padding:7px 15px!important;border-radius:20px!important;font-weight:700!important}
+.hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.hbg span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all .3s}
+.hbg.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hbg.open span:nth-child(2){opacity:0}
+.hbg.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mmenu{display:none;position:fixed;top:66px;left:0;right:0;background:var(--navy);padding:12px 5% 20px;border-top:1px solid rgba(0,180,216,.2);z-index:998;flex-direction:column;gap:3px}
+.mmenu.open{display:flex}
+.mmenu a{color:rgba(255,255,255,.85);font-size:14px;font-weight:700;padding:10px 14px;border-radius:8px;text-transform:uppercase;cursor:pointer;transition:all .2s;text-decoration:none}
+.mmenu a:hover{background:rgba(0,180,216,.1);color:var(--acc)}
+
+/* ─── TICKER ─── */
+.ticker{background:var(--red);overflow:hidden;padding:7px 0;margin-top:66px;border-bottom:2px solid #a93226;display:flex;align-items:center;position:sticky;top:66px;z-index:997}
+.tl{background:var(--navy);color:#fff;font-weight:800;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;padding:3px 12px;flex-shrink:0;white-space:nowrap}
+.to{overflow:hidden;flex:1}
+.tt{display:inline-block;white-space:nowrap;animation:rtl 70s linear infinite}
+.tt:hover{animation-play-state:paused}
+.ti{display:inline-flex;align-items:center;gap:6px;color:#fff;font-size:12.5px;font-weight:700;margin:0 22px;vertical-align:middle}
+.td{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.55)}
+@keyframes rtl{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ─── PAGES ─── */
+.page{display:none}.page.active{display:block}
+
+/* ─── PROFILE PAGE ─── */
+#profile-page{background:var(--lt);min-height:100vh;padding:76px 3% 60px}
+.prhead{background:linear-gradient(135deg,var(--navy) 0%,#0d2044 60%,#1a0a0a 100%);margin:-76px -3% 30px;padding:28px 5% 24px;border-bottom:3px solid var(--acc);position:relative;overflow:hidden}
+.prhead::after{content:'';position:absolute;top:-60px;right:-60px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(0,180,216,.1),transparent 70%)}
+.prhead h1{font-family:'Rajdhani',sans-serif;font-size:27px;font-weight:700;color:#fff;margin-bottom:3px}
+.prhead p{font-size:13px;color:rgba(255,255,255,.55)}
+.pr-grid{display:grid;grid-template-columns:280px 1fr;gap:22px;max-width:1000px;margin:0 auto}
+.pr-side{display:flex;flex-direction:column;gap:16px}
+.pr-av-card{background:var(--wh);border:1px solid var(--bd);border-radius:18px;padding:28px;text-align:center;box-shadow:0 4px 18px rgba(10,22,40,.06)}
+.pr-av-big{width:110px;height:110px;border-radius:50%;background:linear-gradient(135deg,var(--red),#e74c3c);display:flex;align-items:center;justify-content:center;font-family:'Rajdhani',sans-serif;font-size:40px;font-weight:700;color:#fff;overflow:hidden;margin:0 auto 14px;border:4px solid var(--bd);flex-shrink:0;position:relative}
+.pr-av-big img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.pr-av-over{position:absolute;inset:0;background:rgba(0,0,0,.55);display:none;align-items:center;justify-content:center;border-radius:50%;cursor:pointer;font-size:22px}
+.pr-av-big:hover .pr-av-over{display:flex}
+.pr-name{font-family:'Rajdhani',sans-serif;font-size:22px;font-weight:700;color:var(--navy);margin-bottom:3px}
+.pr-role{display:inline-block;background:rgba(0,180,216,.12);border:1px solid rgba(0,180,216,.3);color:var(--acc);font-size:11px;font-weight:800;padding:3px 11px;border-radius:8px;text-transform:uppercase;letter-spacing:.8px}
+.pr-joined{font-size:12px;color:var(--gr);margin-top:7px}
+.pr-stats{display:flex;gap:9px;justify-content:center;margin-top:14px;padding-top:14px;border-top:1px solid var(--bd)}
+.pr-stat{text-align:center;flex:1}
+.pr-stat .n{font-family:'Rajdhani',sans-serif;font-size:22px;font-weight:700;color:var(--navy)}
+.pr-stat .l{font-size:10px;color:var(--gr);text-transform:uppercase;letter-spacing:.8px}
+.pr-quick-card{background:var(--wh);border:1px solid var(--bd);border-radius:14px;padding:18px}
+.pr-quick-card h4{font-weight:800;font-size:13px;color:var(--navy);margin-bottom:11px;text-transform:uppercase;letter-spacing:.8px}
+.pr-qlink{display:flex;align-items:center;gap:9px;padding:9px 11px;border-radius:9px;cursor:pointer;transition:all .2s;text-decoration:none;color:var(--navy);font-size:13px;font-weight:700;border:1px solid transparent}
+.pr-qlink:hover{background:var(--lt);border-color:var(--bd)}
+.pr-qlink.active-tab{background:rgba(192,57,43,.08);border-color:rgba(192,57,43,.25);color:var(--red)}
+.pr-main{display:flex;flex-direction:column;gap:16px}
+.pr-card{background:var(--wh);border:1px solid var(--bd);border-radius:18px;padding:26px;box-shadow:0 4px 18px rgba(10,22,40,.06)}
+.pr-card h3{font-family:'Rajdhani',sans-serif;font-size:19px;font-weight:700;color:var(--navy);margin-bottom:18px;padding-bottom:12px;border-bottom:1px solid var(--bd);display:flex;align-items:center;gap:8px}
+.pr-section{display:none}.pr-section.act{display:block}
+.pr-2col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.pr-full{grid-column:1/-1}
+.pr-label{font-size:12px;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:.8px;display:block;margin-bottom:5px}
+.pr-inp{width:100%;background:var(--lt);border:1.5px solid var(--bd);border-radius:9px;padding:10px 14px;font-family:'Nunito',sans-serif;font-size:14px;outline:none;transition:border .2s;color:var(--navy)}
+.pr-inp:focus{border-color:var(--blue)}
+.pr-inp:read-only{opacity:.7;cursor:not-allowed}
+.pr-savebtn{background:linear-gradient(135deg,var(--grn),#2ecc71);color:#fff;border:none;padding:12px 28px;border-radius:22px;font-weight:800;font-size:14px;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:8px}
+.pr-savebtn:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(39,174,96,.3)}
+
+/* ─── BILL / RMA Upload ─── */
+.bill-zone{border:2px dashed var(--bd);border-radius:12px;padding:20px;text-align:center;background:var(--lt);transition:all .2s;cursor:pointer;position:relative}
+.bill-zone:hover,.bill-zone.drag{border-color:var(--acc);background:rgba(0,180,216,.05)}
+.bill-zone input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+.bill-zone-ico{font-size:32px;margin-bottom:8px}
+.bill-zone-txt{font-size:13px;font-weight:700;color:var(--gr)}
+.bill-zone-sub{font-size:11.5px;color:var(--gr);margin-top:3px}
+.bill-list{margin-top:12px;display:flex;flex-direction:column;gap:8px}
+.bill-item{display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--wh);border:1px solid var(--bd);border-radius:10px;transition:all .2s}
+.bill-item:hover{border-color:var(--acc)}
+.bill-item-ico{font-size:22px;flex-shrink:0}
+.bill-item-info{flex:1}
+.bill-item-name{font-size:13px;font-weight:700;color:var(--navy)}
+.bill-item-meta{font-size:11.5px;color:var(--gr);margin-top:2px}
+.bill-dl-btn{background:var(--blue);color:#fff;border:none;padding:6px 13px;border-radius:8px;cursor:pointer;font-size:12px;font-weight:700;display:inline-flex;align-items:center;gap:5px;transition:all .2s}
+.bill-dl-btn:hover{background:#1976d2}
+.bill-del-btn{background:rgba(192,57,43,.1);color:var(--red);border:1px solid rgba(192,57,43,.25);padding:6px 10px;border-radius:8px;cursor:pointer;font-size:12px;font-weight:700;transition:all .2s}
+.bill-del-btn:hover{background:var(--red);color:#fff}
+
+/* ─── BTNS ─── */
+.br{background:var(--red);color:#fff;padding:11px 24px;border-radius:26px;font-weight:800;font-size:14px;text-decoration:none;transition:all .2s;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:7px}
+.br:hover{background:#e74c3c;transform:translateY(-2px)}
+.bg{background:var(--grn);color:#fff;padding:11px 24px;border-radius:26px;font-weight:800;font-size:14px;text-decoration:none;transition:all .2s;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:7px}
+.bg:hover{background:#2ecc71;transform:translateY(-2px)}
+.bo{background:transparent;color:#fff;padding:11px 24px;border-radius:26px;font-weight:700;font-size:14px;text-decoration:none;border:2px solid rgba(255,255,255,.3);transition:all .2s;cursor:pointer}
+.bo:hover{border-color:var(--acc);color:var(--acc)}
+
+/* ─── MSGS ─── */
+.msg{margin-top:10px;padding:10px 13px;border-radius:9px;font-size:13.5px;font-weight:700;display:none}
+.msg.ok{background:rgba(39,174,96,.12);border:1px solid rgba(39,174,96,.3);color:var(--grn);display:block}
+.msg.err{background:rgba(255,80,80,.12);border:1px solid rgba(255,80,80,.3);color:var(--red);display:block}
+.msg.inf{background:rgba(0,180,216,.1);border:1px solid rgba(0,180,216,.3);color:var(--blue);display:block}
+.msg.wrn{background:rgba(230,126,34,.12);border:1px solid rgba(230,126,34,.3);color:var(--org);display:block}
+
+/* ─── HERO ─── */
+.hw{min-height:100vh;background:linear-gradient(135deg,var(--navy) 0%,#0d2044 55%,#1a0a0a 100%);display:flex;align-items:center;padding:110px 5% 70px;position:relative;overflow:hidden}
+.hbg2::before{content:'';position:absolute;top:-80px;right:-80px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(192,57,43,.12),transparent 70%)}
+.hbg2::after{content:'';position:absolute;bottom:-120px;left:-80px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(0,180,216,.09),transparent 70%)}
+.hi{display:grid;grid-template-columns:1fr 200px;gap:60px;align-items:center;max-width:1200px;margin:0 auto;width:100%;position:relative;z-index:1}
+.htag{display:inline-flex;align-items:center;gap:8px;background:rgba(192,57,43,.2);border:1px solid rgba(192,57,43,.45);color:#e74c3c;font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;padding:6px 15px;border-radius:20px;margin-bottom:22px}
+.htit{font-family:'Rajdhani',sans-serif;font-size:clamp(38px,6vw,68px);font-weight:700;color:#fff;line-height:1.05;margin-bottom:10px}
+.tred{color:#e74c3c}
+.hsub{font-size:clamp(15px,2vw,19px);color:rgba(255,255,255,.65);margin-bottom:13px}
+.hdesc{color:rgba(255,255,255,.72);font-size:15px;line-height:1.8;margin-bottom:30px;max-width:520px}
+.hbtns{display:flex;gap:12px;flex-wrap:wrap}
+.hstats{display:grid;grid-template-columns:repeat(4,auto);margin-top:42px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;overflow:hidden;width:fit-content}
+.hstat{padding:16px 22px;border-right:1px solid rgba(255,255,255,.1);text-align:center}
+.hstat:last-child{border-right:none}
+.hstat .n{font-family:'Rajdhani',sans-serif;font-size:28px;font-weight:700;color:var(--acc)}
+.hstat .l{font-size:10px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:1px}
+/* Hero Logo */
+.hlc{display:flex;flex-direction:column;align-items:center;gap:13px}
+.hlw{width:175px;height:175px;border-radius:50%;background:rgba(255,255,255,.07);border:3px solid rgba(192,57,43,.4);display:flex;align-items:center;justify-content:center;box-shadow:0 0 60px rgba(192,57,43,.2);position:relative;overflow:hidden;transition:all .3s}
+.hlw img{width:160px;height:160px;object-fit:contain;border-radius:50%;display:none}
+.hlw svg{width:160px;height:160px}
+.hlw-edit{position:absolute;inset:0;background:rgba(0,0,0,.55);display:none;align-items:center;justify-content:center;border-radius:50%;cursor:pointer;flex-direction:column;gap:5px;font-size:13px;color:#fff;font-weight:700}
+.admin-mode .hlw-edit{display:flex}
+.hlbadge{background:rgba(192,57,43,.2);border:1px solid rgba(192,57,43,.4);color:#e88;font-size:10px;font-weight:800;letter-spacing:1.5px;padding:4px 11px;border-radius:9px;text-transform:uppercase}
+
+/* ─── STATS BAR ─── */
+.sbar{background:var(--navy);display:grid;grid-template-columns:repeat(4,1fr);border-top:3px solid var(--red)}
+.si{padding:28px 15px;text-align:center;border-right:1px solid rgba(255,255,255,.07);transition:background .3s}
+.si:hover{background:rgba(255,255,255,.04)}.si:last-child{border-right:none}
+.si .ico{font-size:26px;margin-bottom:8px}
+.si .num{font-family:'Rajdhani',sans-serif;font-size:38px;font-weight:700;color:var(--acc);line-height:1}
+.si .lab{font-size:12px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:1px;margin-top:3px}
+
+/* ─── SECTIONS ─── */
+section{padding:72px 5%}
+.sh{text-align:center;margin-bottom:48px}
+.stag{display:inline-block;background:var(--lt);color:var(--blue);font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;padding:5px 13px;border-radius:18px;margin-bottom:12px;border:1px solid var(--bd)}
+.stit{font-family:'Rajdhani',sans-serif;font-size:clamp(28px,3.8vw,44px);font-weight:700;color:var(--navy);line-height:1.2}
+.stit span{color:var(--red)}
+.ssub{color:var(--gr);margin-top:11px;font-size:14.5px;max-width:520px;margin-left:auto;margin-right:auto}
+.sline{width:56px;height:3px;background:linear-gradient(90deg,var(--red),var(--acc));border-radius:2px;margin:13px auto 0}
+
+/* ─── ABOUT ─── */
+#about-sec{background:var(--lt)}
+.ag{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
+.at h3{font-family:'Rajdhani',sans-serif;font-size:28px;font-weight:700;color:var(--navy);margin-bottom:13px}
+.at p{color:var(--gr);line-height:1.85;margin-bottom:13px;font-size:15px}
+.afocus{background:var(--wh);border-left:5px solid var(--red);border-radius:0 12px 12px 0;padding:14px 18px;margin:14px 0}
+.afocus h4{color:var(--red);font-weight:800;margin-bottom:6px;font-size:13px;text-transform:uppercase;letter-spacing:1px}
+.afocus p{margin:0;font-size:14.5px;color:var(--navy);line-height:1.65}
+.abadges{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.abadge{background:var(--wh);border:1px solid var(--bd);padding:7px 13px;border-radius:7px;font-size:13px;font-weight:700;color:var(--blue)}
+.acards{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.acard{background:var(--wh);border:1px solid var(--bd);border-radius:14px;padding:20px;transition:all .3s}
+.acard:hover{transform:translateY(-4px);box-shadow:0 10px 26px rgba(192,57,43,.1)}
+.acard-ico{width:42px;height:42px;border-radius:10px;background:linear-gradient(135deg,var(--red),#e74c3c);display:flex;align-items:center;justify-content:center;font-size:19px;margin-bottom:11px}
+.acard h4{font-weight:800;margin-bottom:5px;font-size:14.5px}
+.acard p{font-size:13px;color:var(--gr);line-height:1.65}
+.gems{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#1a3a1a,#0d2a0d);border:2px solid #27ae60;border-radius:12px;padding:12px 20px;margin-top:18px;text-decoration:none;transition:all .3s}
+.gems:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(39,174,96,.2)}
+/* Social */
+.socbar{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}
+.sb{display:inline-flex;align-items:center;gap:6px;padding:8px 15px;border-radius:20px;font-weight:700;font-size:12.5px;text-decoration:none;transition:all .2s;border:none;cursor:pointer;color:#fff}
+.sb:hover{transform:translateY(-2px);opacity:.9}
+.swa{background:#25D366}.sfb{background:#1877F2}.sig{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)}.sli{background:#0A66C2}.syt{background:#FF0000}.stw{background:#1DA1F2}
+
+/* ─── HOVER POPUP ─── */
+.hpopup{position:fixed;z-index:8888;background:var(--navy);color:#fff;border:1px solid rgba(255,255,255,.15);border-radius:14px;padding:16px 18px;max-width:280px;min-width:200px;pointer-events:none;opacity:0;transition:opacity .18s;box-shadow:0 8px 32px rgba(10,22,40,.4)}
+.hpopup.vis{opacity:1}
+.hpopup .hpt{font-size:10.5px;color:var(--acc);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
+.hpopup h4{font-family:'Rajdhani',sans-serif;font-size:17px;font-weight:700;color:#fff;margin-bottom:5px}
+.hpopup p{font-size:12.5px;color:rgba(255,255,255,.7);line-height:1.6}
+
+/* ─── SERVICES CARDS ─── */
+#services-sec{background:var(--cb)}
+.scgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}
+.sc{background:var(--wh);border:1px solid var(--bd);border-radius:13px;padding:18px 14px;text-align:center;transition:all .3s;cursor:pointer;position:relative}
+.sc:hover{background:var(--navy);border-color:var(--navy);transform:translateY(-4px)}
+.sc:hover .scn,.sc:hover .scs{color:#fff!important}
+.sciwrap{position:relative;width:48px;height:48px;margin:0 auto 10px}
+.scimg{width:48px;height:48px;border-radius:10px;object-fit:cover;display:none}
+.scfb{width:48px;height:48px;border-radius:10px;background:rgba(192,57,43,.08);display:flex;align-items:center;justify-content:center;font-size:21px}
+.scupbtn{position:absolute;bottom:-4px;right:-4px;width:19px;height:19px;background:var(--gold);border-radius:50%;border:2px solid #fff;cursor:pointer;font-size:9px;display:none;align-items:center;justify-content:center;z-index:2;color:#000}
+.admin-mode .scupbtn{display:flex!important}
+.scn{font-weight:800;font-size:13px;color:var(--navy);transition:color .3s}
+.scs{font-size:11px;color:var(--gr);margin-top:2px;transition:color .3s}
+.sc-edit-row{position:absolute;top:5px;right:5px;display:none;gap:3px}
+.admin-mode .sc-edit-row{display:flex}
+.xbtn{background:var(--red);color:#fff;border:none;width:20px;height:20px;border-radius:5px;cursor:pointer;font-size:9px;display:flex;align-items:center;justify-content:center}
+.ebtn{background:var(--blue);color:#fff;border:none;width:20px;height:20px;border-radius:5px;cursor:pointer;font-size:9px;display:flex;align-items:center;justify-content:center}
+.sc-add{background:var(--wh);border:2px dashed var(--red);border-radius:13px;display:none;align-items:center;justify-content:center;flex-direction:column;gap:5px;cursor:pointer;transition:all .2s;font-weight:700;font-size:13px;color:var(--red);min-height:100px}
+.admin-mode .sc-add{display:flex}
+.sc-add:hover{background:rgba(192,57,43,.05)}
+
+/* ─── CLIENTS ─── */
+#clients-sec{background:var(--wh)}
+.clgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:12px}
+.clcard{background:var(--cb);border:1px solid var(--bd);border-radius:13px;padding:15px 10px;display:flex;flex-direction:column;align-items:center;gap:7px;min-height:110px;transition:all .3s;text-align:center;position:relative;cursor:pointer}
+.clcard:hover{border-color:var(--red);box-shadow:0 5px 16px rgba(192,57,43,.1);transform:translateY(-3px)}
+.cl-logo-wrap{width:52px;height:52px;border-radius:10px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:var(--wh);border:1px solid var(--bd);position:relative;flex-shrink:0}
+.cl-logo-wrap img{width:100%;height:100%;object-fit:contain;display:none}
+.cl-logo-fb{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:'Rajdhani',sans-serif;font-size:16px;font-weight:800;color:#fff}
+.cl-upbtn{position:absolute;bottom:-3px;right:-3px;width:18px;height:18px;background:var(--gold);border-radius:50%;border:2px solid #fff;cursor:pointer;font-size:8px;display:none;align-items:center;justify-content:center;z-index:2;color:#000}
+.admin-mode .cl-upbtn{display:flex!important}
+.cln{font-size:12.5px;font-weight:800;color:var(--navy)}
+.clt{font-size:10.5px;color:var(--gr)}
+.cl-edit-row{position:absolute;top:4px;right:4px;display:none;gap:3px}
+.admin-mode .cl-edit-row{display:flex}
+.cl-add{background:var(--wh);border:2px dashed var(--red);border-radius:13px;display:none;align-items:center;justify-content:center;flex-direction:column;gap:5px;cursor:pointer;transition:all .2s;font-weight:700;font-size:13px;color:var(--red);min-height:110px}
+.admin-mode .cl-add{display:flex}
+
+/* ─── BRANDS ─── */
+#brands-sec{background:var(--navy);padding:50px 0;overflow:hidden}
+.btwrap{overflow:hidden;position:relative;margin-top:26px}
+.btwrap::before,.btwrap::after{content:'';position:absolute;top:0;bottom:0;width:65px;z-index:2}
+.btwrap::before{left:0;background:linear-gradient(90deg,var(--navy),transparent)}
+.btwrap::after{right:0;background:linear-gradient(-90deg,var(--navy),transparent)}
+.btrack{display:flex;animation:bscroll 42s linear infinite;width:max-content}
+@keyframes bscroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.bcard{display:flex;flex-direction:column;align-items:center;gap:7px;min-width:130px;padding:18px 20px;border-right:1px solid rgba(255,255,255,.06);transition:background .3s}
+.bcard:hover{background:rgba(255,255,255,.05)}
+.blogo{height:38px;max-width:100px;object-fit:contain;filter:brightness(0) invert(1);opacity:.6;transition:all .3s}
+.bcard:hover .blogo{opacity:1;filter:none;transform:scale(1.08)}
+.blab{font-size:9.5px;font-weight:700;color:rgba(255,255,255,.3);letter-spacing:1.5px;text-transform:uppercase}
+
+/* ─── TESTI ─── */
+#testi-sec{background:var(--lt)}
+.tgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:16px}
+.tc{background:var(--wh);border:1px solid var(--bd);border-radius:15px;padding:22px;transition:all .3s;position:relative}
+.tc:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(192,57,43,.1)}
+.tqm{position:absolute;top:16px;right:18px;font-size:40px;color:rgba(192,57,43,.07);font-family:Georgia,serif;line-height:1}
+
+/* ─── LOCATION ─── */
+#loc-sec{background:var(--lt)}
+.lgrid{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+.laddr{display:flex;gap:10px;align-items:flex-start;padding:13px;background:var(--wh);border:1px solid var(--bd);border-radius:11px;margin-bottom:9px;transition:all .3s}
+.laddr:hover{border-color:var(--red)}
+.lico{width:34px;height:34px;border-radius:7px;background:linear-gradient(135deg,var(--red),#e74c3c);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.laddr h4{font-weight:800;font-size:13px;color:var(--navy);margin-bottom:2px}
+.laddr p,.laddr a{font-size:12.5px;color:var(--gr);line-height:1.5;text-decoration:none}
+.laddr a{color:var(--red)}
+.mframe{border-radius:15px;overflow:hidden;border:2px solid var(--bd);height:380px}
+.mframe iframe{width:100%;height:100%;border:none;display:block}
+
+/* ─── CONTACT ─── */
+#contact-sec{background:var(--navy)}
+.ctgrid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.ctitem{display:flex;gap:11px;align-items:flex-start;margin-bottom:16px}
+.cticon{width:37px;height:37px;flex-shrink:0;background:rgba(192,57,43,.18);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:16px}
+.ctitem h4{color:#e74c3c;font-size:12px;text-transform:uppercase;letter-spacing:1px;margin-bottom:2px}
+.ctitem p,.ctitem a{color:rgba(255,255,255,.8);font-size:14px;line-height:1.6;text-decoration:none}
+.ctitem a:hover{color:var(--acc)}
+.ctform{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:26px}
+.ctform h3{font-family:'Rajdhani',sans-serif;font-size:20px;font-weight:700;color:#fff;margin-bottom:14px}
+.fi{margin-bottom:11px}
+.fi input,.fi textarea,.fi select{width:100%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:9px;padding:10px 13px;color:#fff;font-family:'Nunito',sans-serif;font-size:13.5px;outline:none;transition:border .2s}
+.fi input::placeholder,.fi textarea::placeholder{color:rgba(255,255,255,.3)}
+.fi input:focus,.fi textarea:focus,.fi select:focus{border-color:#e74c3c}
+.fi textarea{resize:vertical;min-height:80px}
+.fi select option{background:var(--navy)}
+
+/* ─── FOOTER ─── */
+footer{background:#020810;padding:46px 5% 22px;border-top:1px solid rgba(192,57,43,.2)}
+.fg{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:38px;margin-bottom:32px}
+.fb h3{font-family:'Rajdhani',sans-serif;font-size:22px;font-weight:700;color:#fff;margin-bottom:10px}
+.fb h3 span{color:var(--acc)}
+.fb p{color:rgba(255,255,255,.5);font-size:13.5px;line-height:1.75;margin-bottom:15px}
+.fsoc{display:flex;gap:9px;flex-wrap:wrap}
+.fs{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;text-decoration:none;transition:all .2s;color:#fff}
+.fs:hover{transform:scale(1.15);opacity:.9}
+.fc h4{font-weight:800;font-size:14px;color:#fff;margin-bottom:13px;text-transform:uppercase;letter-spacing:1px}
+.fc ul{list-style:none}
+.fc ul li{margin-bottom:8px}
+.fc ul li a{color:rgba(255,255,255,.55);font-size:13.5px;text-decoration:none;transition:color .2s;cursor:pointer}
+.fc ul li a:hover{color:var(--acc)}
+.fbot{border-top:1px solid rgba(255,255,255,.08);padding-top:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.fbot p{color:rgba(255,255,255,.35);font-size:12.5px}
+.fbot span{color:var(--red)}
+
+/* ─── SHOP ─── */
+#shop-page{background:var(--lt);min-height:100vh;padding:76px 3% 60px}
+.sphead{background:var(--navy);margin:-76px -3% 30px;padding:22px 5% 18px;border-bottom:3px solid var(--grn);text-align:center}
+.sphead h1{font-family:'Rajdhani',sans-serif;font-size:28px;font-weight:700;color:#fff;margin-bottom:3px}
+.sphead h1 span{color:var(--grn)}
+.spctrls{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap;align-items:center;max-width:1100px;margin-left:auto;margin-right:auto}
+.sp-inp{flex:1;min-width:200px;background:var(--wh);border:1.5px solid var(--bd);border-radius:10px;padding:10px 15px;font-family:'Nunito',sans-serif;font-size:14px;outline:none;color:var(--navy)}
+.sp-inp:focus{border-color:var(--grn)}
+.sp-sel{background:var(--wh);border:1.5px solid var(--bd);border-radius:10px;padding:10px 13px;font-family:'Nunito',sans-serif;font-size:13px;color:var(--navy);outline:none;cursor:pointer}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:17px;max-width:1100px;margin:0 auto}
+.pcard{background:var(--wh);border:1px solid var(--bd);border-radius:16px;overflow:hidden;transition:all .3s;position:relative;cursor:pointer}
+.pcard:hover{transform:translateY(-5px);box-shadow:0 12px 32px rgba(10,22,40,.13)}
+.pimg{height:155px;background:var(--cb);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.pimg img{width:100%;height:100%;object-fit:contain;padding:10px}
+.pimg .pi-ico{font-size:50px}
+.pbadge{position:absolute;top:10px;left:10px;color:#fff;font-size:10.5px;font-weight:800;padding:3px 9px;border-radius:8px;text-transform:uppercase}
+.pb-sale{background:var(--red)}.pb-new{background:var(--grn)}.pb-hot{background:var(--org)}
+.pbody{padding:14px}
+.pcat{font-size:10.5px;color:var(--gr);text-transform:uppercase;letter-spacing:1px;font-weight:700;margin-bottom:4px}
+.pnam{font-weight:800;font-size:14px;color:var(--navy);margin-bottom:4px;line-height:1.3}
+.pbrand{font-size:12px;color:var(--gr);margin-bottom:8px}
+.ppr{display:flex;align-items:center;gap:8px;margin-bottom:9px}
+.ppr-m{font-family:'Rajdhani',sans-serif;font-size:21px;font-weight:700;color:var(--navy)}
+.ppr-o{font-size:12px;color:var(--gr);text-decoration:line-through}
+.ppr-off{font-size:12px;color:var(--grn);font-weight:700}
+.pstk{font-size:11.5px;margin-bottom:9px;font-weight:700}
+.pstk-in{color:var(--grn)}.pstk-lo{color:var(--org)}.pstk-out{color:var(--red)}
+.pacts{display:flex;gap:7px}
+.btn-cart{flex:1;background:var(--navy);color:#fff;border:none;padding:9px 10px;border-radius:9px;font-weight:800;font-size:12px;cursor:pointer;transition:all .2s}
+.btn-cart:hover{background:var(--blue)}
+.btn-buy{flex:1;background:var(--grn);color:#fff;border:none;padding:9px 10px;border-radius:9px;font-weight:800;font-size:12px;cursor:pointer;transition:all .2s}
+.btn-buy:hover{background:#2ecc71}
+.btn-wl{width:34px;background:var(--lt);color:var(--gr);border:1px solid var(--bd);border-radius:9px;cursor:pointer;font-size:15px;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.btn-wl:hover{background:rgba(192,57,43,.1);color:var(--red)}
+.p-add-btn{background:var(--wh);border:2px dashed var(--grn);border-radius:16px;min-height:260px;display:none;align-items:center;justify-content:center;flex-direction:column;gap:8px;cursor:pointer;font-weight:800;font-size:14px;color:var(--grn)}
+.admin-mode .p-add-btn{display:flex}
+.p-add-btn:hover{background:rgba(39,174,96,.05)}
+
+/* ─── PRODUCT DETAIL ─── */
+.pdgrid{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.pdgal{display:flex;flex-direction:column;gap:9px}
+.pdmain{width:100%;height:275px;background:var(--cb);border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center;border:1px solid var(--bd)}
+.pdmain img{width:100%;height:100%;object-fit:contain;padding:10px}
+.pdmain .pdi{font-size:64px}
+.pdthumbs{display:flex;gap:7px;flex-wrap:wrap}
+.pdth{width:54px;height:54px;border-radius:8px;overflow:hidden;border:2px solid var(--bd);cursor:pointer;display:flex;align-items:center;justify-content:center;background:var(--cb);transition:border .2s;font-size:22px}
+.pdth.act{border-color:var(--red)}
+.pdth img{width:100%;height:100%;object-fit:contain}
+.pdinfo h2{font-family:'Rajdhani',sans-serif;font-size:24px;font-weight:700;color:var(--navy);margin-bottom:5px}
+.pdpr{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.pdpr-v{font-family:'Rajdhani',sans-serif;font-size:32px;font-weight:700;color:var(--red)}
+.pddesc{font-size:14px;color:var(--gr);line-height:1.75;margin-bottom:14px}
+.pdspecs{background:var(--lt);border-radius:10px;padding:13px;margin-bottom:14px}
+.pdsr{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--bd);font-size:13px}
+.pdsr:last-child{border-bottom:none}
+.pdsr span:first-child{color:var(--gr)}
+.pdsr span:last-child{font-weight:700;color:var(--navy)}
+.pdqty{display:flex;align-items:center;gap:8px;margin-bottom:14px}
+.pdqty label{font-size:13px;font-weight:700;color:var(--navy)}
+.qbtn{width:28px;height:28px;border:1.5px solid var(--bd);background:var(--wh);border-radius:7px;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.qbtn:hover{background:var(--red);color:#fff;border-color:var(--red)}
+.qval{font-weight:800;font-size:16px;color:var(--navy);min-width:24px;text-align:center}
+
+/* ─── CART ─── */
+.cart-ov{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:2000;opacity:0;pointer-events:none;transition:opacity .3s}
+.cart-ov.open{opacity:1;pointer-events:auto}
+.cart-sb{position:fixed;top:0;right:-420px;bottom:0;width:400px;background:var(--wh);z-index:2001;transition:right .3s;box-shadow:-8px 0 30px rgba(10,22,40,.15);display:flex;flex-direction:column}
+.cart-sb.open{right:0}
+.cart-hd{background:var(--navy);padding:18px 22px;display:flex;align-items:center;justify-content:space-between}
+.cart-hd h3{font-family:'Rajdhani',sans-serif;font-size:20px;font-weight:700;color:#fff}
+.cclose{background:none;border:none;color:rgba(255,255,255,.7);font-size:22px;cursor:pointer}
+.citems{flex:1;overflow-y:auto;padding:14px}
+.citem{display:flex;gap:11px;padding:12px;border:1px solid var(--bd);border-radius:12px;margin-bottom:10px}
+.ciico{width:52px;height:52px;background:var(--cb);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
+.ciinfo{flex:1}
+.cinam{font-weight:800;font-size:13px;color:var(--navy);margin-bottom:3px}
+.cipr{font-family:'Rajdhani',sans-serif;font-size:16px;font-weight:700;color:var(--red);margin-bottom:5px}
+.ciqty{display:flex;align-items:center;gap:7px}
+.cirm{background:none;border:none;color:var(--gr);cursor:pointer;font-size:16px;transition:color .2s}
+.cirm:hover{color:var(--red)}
+.cfooter{padding:14px 18px;border-top:1px solid var(--bd);background:var(--wh)}
+.ctotal{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.ctotal span{font-weight:800;font-size:15px;color:var(--navy)}
+.ctotal strong{font-family:'Rajdhani',sans-serif;font-size:22px;font-weight:700;color:var(--red)}
+.cbtn{width:100%;background:var(--grn);color:#fff;border:none;padding:12px;border-radius:22px;font-weight:800;font-size:14.5px;cursor:pointer;transition:all .2s}
+.cbtn:hover{background:#2ecc71}
+.cart-fab{position:fixed;bottom:22px;right:22px;z-index:900;background:var(--grn);color:#fff;border:none;width:50px;height:50px;border-radius:50%;cursor:pointer;font-size:22px;display:none;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(39,174,96,.4);transition:all .2s}
+.cart-fab:hover{transform:scale(1.1)}
+.cart-cnt{position:absolute;top:-4px;right:-4px;background:var(--red);color:#fff;width:20px;height:20px;border-radius:50%;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.scroll-top{position:fixed;bottom:22px;right:80px;z-index:900;width:40px;height:40px;border-radius:50%;background:var(--red);color:#fff;border:none;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 13px rgba(192,57,43,.4);opacity:0;pointer-events:none;transition:opacity .3s,transform .2s}
+.scroll-top.vis{opacity:1;pointer-events:auto}
+.scroll-top:hover{transform:scale(1.1)}
+
+/* ─── CHECKOUT ─── */
+#checkout-page{background:var(--lt);min-height:100vh;padding:76px 4% 60px}
+.chhead{background:var(--navy);margin:-76px -4% 28px;padding:22px 5% 16px;border-bottom:3px solid var(--grn)}
+.chhead h1{font-family:'Rajdhani',sans-serif;font-size:26px;font-weight:700;color:#fff}
+.chgrid{display:grid;grid-template-columns:1fr 360px;gap:22px;max-width:980px;margin:0 auto}
+.chcard{background:var(--wh);border:1px solid var(--bd);border-radius:16px;padding:24px;margin-bottom:14px}
+.chcard h3{font-family:'Rajdhani',sans-serif;font-size:19px;font-weight:700;color:var(--navy);margin-bottom:15px}
+.chinp{width:100%;background:var(--lt);border:1.5px solid var(--bd);border-radius:9px;padding:10px 14px;font-family:'Nunito',sans-serif;font-size:14px;outline:none;transition:border .2s;color:var(--navy);margin-bottom:11px}
+.chinp:focus{border-color:var(--grn)}
+.ch2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.payopt{display:flex;align-items:center;gap:12px;padding:13px;border:2px solid var(--bd);border-radius:12px;cursor:pointer;transition:all .2s;margin-bottom:9px}
+.payopt.sel{border-color:var(--grn);background:rgba(39,174,96,.06)}
+.payopt input[type=radio]{accent-color:var(--grn);width:17px;height:17px}
+.payopt label{cursor:pointer;font-weight:700;font-size:14px;color:var(--navy)}
+.payopt .po-sub{font-size:12px;color:var(--gr);display:block;margin-top:2px}
+.ordsumm{background:var(--wh);border:1px solid var(--bd);border-radius:16px;padding:22px;position:sticky;top:88px}
+.ordsumm h3{font-family:'Rajdhani',sans-serif;font-size:18px;font-weight:700;color:var(--navy);margin-bottom:15px}
+.ol{display:flex;justify-content:space-between;margin-bottom:8px;font-size:13.5px}
+.ol span{color:var(--gr)}.ol strong{color:var(--navy);font-weight:800}
+.ototal{display:flex;justify-content:space-between;padding:13px 0;border-top:2px solid var(--bd);margin-top:9px}
+.ototal span{font-weight:800;font-size:15px;color:var(--navy)}
+.ototal strong{font-family:'Rajdhani',sans-serif;font-size:24px;font-weight:700;color:var(--grn)}
+.pbtn{width:100%;background:var(--grn);color:#fff;border:none;padding:12px;border-radius:22px;font-weight:800;font-size:15px;cursor:pointer;transition:all .2s;margin-top:12px}
+.pbtn:hover{background:#2ecc71}
+
+/* ─── DASHBOARD ─── */
+#dash-page{background:var(--lt);min-height:100vh;padding:76px 3% 60px}
+.dbhead{background:var(--navy);margin:-76px -3% 28px;padding:18px 5% 14px;border-bottom:3px solid var(--acc);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.dbhead h1{font-family:'Rajdhani',sans-serif;font-size:23px;font-weight:700;color:#fff}
+.dbtabs{display:flex;gap:7px;flex-wrap:wrap;max-width:1100px;margin:0 auto 20px}
+.dbtab{background:var(--wh);border:2px solid var(--bd);color:var(--navy);padding:8px 17px;border-radius:22px;font-weight:800;font-size:13px;cursor:pointer;transition:all .2s}
+.dbtab.act{background:var(--red);border-color:var(--red);color:#fff}
+.dbtab:hover:not(.act){border-color:var(--red);color:var(--red)}
+.dbpanel{display:none;max-width:1100px;margin:0 auto}
+.dbpanel.act{display:block}
+.dbcard{background:var(--wh);border:1px solid var(--bd);border-radius:16px;padding:24px;margin-bottom:14px}
+.dbcard h3{font-family:'Rajdhani',sans-serif;font-size:19px;font-weight:700;color:var(--navy);margin-bottom:16px}
+.orow{background:var(--wh);border:1px solid var(--bd);border-radius:12px;padding:14px;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;transition:all .2s}
+.orow:hover{border-color:var(--red)}
+.oi{font-family:'Rajdhani',sans-serif;font-size:15px;font-weight:700;color:var(--navy)}
+.od{font-size:12px;color:var(--gr);margin-top:2px}
+.os{padding:5px 12px;border-radius:12px;font-size:11.5px;font-weight:800;text-transform:uppercase}
+.os-p{background:rgba(230,126,34,.15);color:var(--org)}.os-r{background:rgba(0,180,216,.15);color:var(--acc)}.os-s{background:rgba(142,68,173,.15);color:#8e44ad}.os-d{background:rgba(39,174,96,.15);color:var(--grn)}.os-c{background:rgba(192,57,43,.15);color:var(--red)}
+.ibtn{background:var(--blue);color:#fff;border:none;padding:7px 13px;border-radius:8px;cursor:pointer;font-size:12.5px;font-weight:700;transition:all .2s}
+.ibtn:hover{background:#1976d2}
+.ribtn{background:rgba(21,101,192,.1);color:var(--blue);border:1px solid rgba(21,101,192,.3);padding:7px 13px;border-radius:8px;cursor:pointer;font-size:12.5px;font-weight:700;transition:all .2s}
+.ribtn:hover{background:var(--blue);color:#fff}
+/* Profile */
+.prof-wrap{display:flex;align-items:center;gap:18px;margin-bottom:22px;padding:20px;background:var(--cb);border-radius:14px;border:1px solid var(--bd)}
+.prof-av{width:80px;height:80px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;font-family:'Rajdhani',sans-serif;font-size:28px;font-weight:700;color:#fff;overflow:hidden;flex-shrink:0}
+.prof-av img{width:100%;height:100%;object-fit:cover;border-radius:50%;display:none}
+.pf{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.pl{font-size:12px;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:.8px;display:block;margin-bottom:5px}
+.pi{width:100%;background:var(--lt);border:1.5px solid var(--bd);border-radius:9px;padding:10px 14px;font-family:'Nunito',sans-serif;font-size:14px;outline:none;transition:border .2s;color:var(--navy)}
+.pi:focus{border-color:var(--blue)}
+.pwbar{height:4px;border-radius:2px;margin-bottom:7px;transition:all .3s;background:var(--bd);width:100%}
+.pwh{font-size:11.5px;color:var(--gr);margin-bottom:11px;display:none}
+.pwh.show{display:block}
+.ph{display:flex;align-items:center;gap:5px;margin-top:2px;font-size:12px}
+.ph.ok{color:var(--grn)}.ph.fail{color:var(--red)}
+/* Admin stats */
+.asgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:13px;margin-bottom:18px}
+.ascard{background:var(--cb);border:1px solid var(--bd);border-radius:12px;padding:16px;text-align:center}
+.ascard .asi{font-size:26px;margin-bottom:7px}
+.ascard .asn{font-family:'Rajdhani',sans-serif;font-size:30px;font-weight:700;color:var(--navy)}
+.ascard .asl{font-size:11.5px;color:var(--gr);text-transform:uppercase;letter-spacing:.8px}
+
+/* ─── RMA ─── */
+#rma-page{background:var(--lt);min-height:100vh;padding:76px 3% 60px}
+.rhead{text-align:center;padding:22px 5% 18px;background:var(--navy);margin:-76px -3% 30px;border-bottom:3px solid var(--red)}
+.rhead h1{font-family:'Rajdhani',sans-serif;font-size:27px;font-weight:700;color:#fff;margin-bottom:3px}
+.rhead h1 span{color:#e74c3c}
+.rtabs{display:flex;gap:7px;justify-content:center;margin-bottom:22px;flex-wrap:wrap}
+.rtab{background:var(--wh);border:2px solid var(--bd);color:var(--navy);padding:8px 18px;border-radius:22px;font-weight:800;font-size:13px;cursor:pointer;transition:all .2s}
+.rtab.act{background:var(--red);border-color:var(--red);color:#fff}
+.rtab:hover:not(.act){border-color:var(--red);color:var(--red)}
+.rpanel{display:none;max-width:820px;margin:0 auto}.rpanel.act{display:block}
+.rcard{background:var(--wh);border:1px solid var(--bd);border-radius:16px;padding:26px;box-shadow:0 4px 18px rgba(10,22,40,.06)}
+.rcard h3{font-family:'Rajdhani',sans-serif;font-size:20px;font-weight:700;color:var(--navy);margin-bottom:15px}
+.rg{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.rfg{display:flex;flex-direction:column;gap:5px;margin-bottom:10px}
+.rl{font-size:12px;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:.8px}
+.ri{background:var(--lt);border:1.5px solid var(--bd);border-radius:9px;padding:10px 13px;font-family:'Nunito',sans-serif;font-size:13.5px;outline:none;transition:border .2s;width:100%;color:var(--navy)}
+.ri:focus{border-color:var(--red)}
+.ri option{background:#fff;color:var(--navy)}
+.rful{grid-column:1/-1}
+.rsub{background:var(--red);color:#fff;padding:11px 26px;border-radius:22px;font-weight:800;font-size:14px;border:none;cursor:pointer;transition:all .2s}
+.rsub:hover{background:#e74c3c;transform:translateY(-2px)}
+.rsub:disabled{opacity:.6;cursor:not-allowed;transform:none}
+/* track */
+.trr{margin-top:18px;border:1px solid var(--bd);border-radius:14px;overflow:hidden;display:none}
+.trr.show{display:block;margin-bottom:13px}
+.trhd{background:var(--navy);padding:15px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.trid{font-family:'Rajdhani',sans-serif;font-size:17px;font-weight:700;color:#fff}
+.trs{padding:4px 12px;border-radius:13px;font-size:11px;font-weight:800;text-transform:uppercase}
+.sr{background:rgba(0,180,216,.2);color:var(--acc)}.sd{background:rgba(230,126,34,.2);color:var(--org)}.sp{background:rgba(192,57,43,.2);color:#e74c3c}.sq{background:rgba(142,68,173,.2);color:#9b59b6}.sy{background:rgba(39,174,96,.2);color:var(--grn)}.sl{background:rgba(39,174,96,.3);color:var(--grn)}
+.trbody{padding:18px}
+.tig{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.til label{font-size:10.5px;font-weight:800;color:var(--gr);text-transform:uppercase;letter-spacing:.8px;display:block;margin-bottom:2px}
+.til span{font-size:13.5px;font-weight:700;color:var(--navy)}
+.tnotes{background:var(--lt);border-radius:10px;padding:12px;margin-bottom:12px;font-size:13.5px;color:var(--gr);line-height:1.7}
+.tnotes strong{color:var(--navy);font-size:11px;text-transform:uppercase;letter-spacing:.8px;display:block;margin-bottom:4px}
+/* stepper */
+.stepper{display:flex;align-items:flex-start;position:relative;margin:15px 0}
+.stepper::before{content:'';position:absolute;top:17px;left:17px;right:17px;height:2px;background:var(--bd);z-index:0}
+.sline{position:absolute;top:17px;left:17px;height:2px;background:var(--grn);z-index:1;transition:width .7s ease}
+.step{display:flex;flex-direction:column;align-items:center;gap:6px;flex:1;position:relative;z-index:2}
+.sdot{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;transition:all .3s;border:2px solid var(--bd)}
+.sdot.done{background:var(--grn);border-color:var(--grn);color:#fff}
+.sdot.cur{background:var(--red);border-color:var(--red);color:#fff;box-shadow:0 0 0 4px rgba(192,57,43,.18)}
+.sdot.pend{background:var(--wh);border-color:var(--bd);color:var(--gr)}
+.slbl{font-size:9px;font-weight:800;color:var(--gr);text-align:center;text-transform:uppercase;max-width:55px;line-height:1.3}
+.slbl.done{color:var(--grn)}.slbl.cur{color:var(--red)}
+
+/* ─── SERVICES PAGE ─── */
+#svcpage{background:var(--lt);min-height:100vh;padding:76px 3% 60px}
+.svchd{background:var(--navy);margin:-76px -3% 30px;padding:22px 5% 18px;border-bottom:3px solid var(--red);text-align:center}
+.svchd h1{font-family:'Rajdhani',sans-serif;font-size:28px;font-weight:700;color:#fff;margin-bottom:3px}
+.sdc{background:var(--wh);border:1px solid var(--bd);border-radius:18px;padding:26px;margin-bottom:18px;display:grid;grid-template-columns:90px 1fr;gap:22px;align-items:start;transition:all .3s}
+.sdc:hover{box-shadow:0 8px 28px rgba(192,57,43,.1)}
+.sdico{width:90px;height:90px;border-radius:16px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:var(--cb);border:1px solid var(--bd);flex-shrink:0}
+.sdico img{width:100%;height:100%;object-fit:cover;display:none}
+.sdico-fb{font-size:36px}
+.sdc-content h3{font-family:'Rajdhani',sans-serif;font-size:22px;font-weight:700;color:var(--navy);margin-bottom:8px}
+.sdc-content p{color:var(--gr);font-size:14.5px;line-height:1.75;margin-bottom:12px}
+.sdc-feats{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:13px}
+.sdf{background:var(--lt);border:1px solid var(--bd);padding:5px 12px;border-radius:7px;font-size:12.5px;font-weight:700;color:var(--blue)}
+.sdpr{font-family:'Rajdhani',sans-serif;font-size:20px;font-weight:700;color:var(--red);margin-bottom:12px}
+.sdacts{display:flex;gap:10px;flex-wrap:wrap}
+.bquote{background:var(--red);color:#fff;border:none;padding:10px 20px;border-radius:22px;font-weight:800;font-size:13.5px;cursor:pointer;transition:all .2s}
+.bquote:hover{background:#e74c3c;transform:translateY(-2px)}
+.bctct{background:var(--lt);color:var(--blue);border:1px solid var(--blue);padding:10px 20px;border-radius:22px;font-weight:800;font-size:13.5px;cursor:pointer;transition:all .2s}
+.bctct:hover{background:var(--blue);color:#fff}
+
+/* ─── MODALS ─── */
+.mov{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:5000;display:flex;align-items:center;justify-content:center;padding:15px;opacity:0;pointer-events:none;transition:opacity .3s}
+.mov.open{opacity:1;pointer-events:auto}
+.mb{background:var(--wh);border-radius:20px;max-width:480px;width:100%;padding:28px;max-height:90vh;overflow-y:auto}
+.mb.wide{max-width:880px}
+.mb.med{max-width:620px}
+.mb h2{font-family:'Rajdhani',sans-serif;font-size:24px;font-weight:700;color:var(--navy);text-align:center;margin-bottom:5px}
+.mb .msub{color:var(--gr);font-size:13px;text-align:center;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--bd)}
+.mi{width:100%;background:var(--lt);border:1.5px solid var(--bd);border-radius:9px;padding:10px 14px;font-family:'Nunito',sans-serif;font-size:14px;outline:none;transition:border .2s;color:var(--navy);margin-bottom:11px}
+.mi:focus{border-color:var(--blue)}
+.mi.merr{border-color:var(--red);background:rgba(192,57,43,.04)}
+.mi.mok{border-color:var(--grn)}
+.msubmit{width:100%;background:var(--red);color:#fff;border:none;padding:12px;border-radius:24px;font-weight:800;font-size:14.5px;cursor:pointer;transition:all .2s}
+.msubmit:hover{background:#e74c3c}
+.msubmit:disabled{opacity:.6;cursor:not-allowed}
+/* shake anim for wrong pwd */
+.shake{animation:shk .4s ease}
+@keyframes shk{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-8px)}40%,80%{transform:translateX(8px)}}
+/* captcha */
+.capbox{background:var(--cb);border:1.5px solid var(--bd);border-radius:10px;padding:12px;margin-bottom:12px;display:flex;align-items:center;gap:11px}
+.capq{font-size:16px;font-weight:800;color:var(--navy);flex:1}
+.capi{width:75px;background:var(--wh);border:1.5px solid var(--bd);border-radius:8px;padding:8px 10px;font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;outline:none;text-align:center;color:var(--navy)}
+.capi:focus{border-color:var(--blue)}
+.capref{background:none;border:none;cursor:pointer;font-size:18px;color:var(--gr)}
+.capref:hover{color:var(--blue)}
+.otpbox{display:flex;gap:9px;justify-content:center;margin:18px 0}
+.otpd{width:48px;height:52px;border:2px solid var(--bd);border-radius:10px;font-size:20px;font-weight:800;text-align:center;font-family:'Rajdhani',sans-serif;outline:none;transition:border .2s;color:var(--navy)}
+.otpd:focus{border-color:var(--blue)}
+.otp-info{background:rgba(0,180,216,.08);border:1px solid rgba(0,180,216,.25);border-radius:10px;padding:12px;margin-bottom:14px;font-size:13px;color:var(--blue);text-align:center}
+.divid{text-align:center;color:var(--gr);font-size:13px;margin:12px 0;position:relative}
+.divid::before,.divid::after{content:'';position:absolute;top:50%;width:42%;height:1px;background:var(--bd)}
+.divid::before{left:0}.divid::after{right:0}
+/* admin float */
+.afloat{position:fixed;bottom:22px;left:22px;z-index:900;background:var(--navy);border:1px solid rgba(192,57,43,.4);border-radius:12px;padding:9px 14px;display:none;align-items:center;gap:10px;box-shadow:0 4px 18px rgba(10,22,40,.3)}
+.admin-mode .afloat{display:flex!important}
+.afl{color:rgba(255,255,255,.55);font-size:11.5px;font-weight:700;text-transform:uppercase}
+.afb{background:var(--red);color:#fff;padding:3px 10px;border-radius:7px;font-size:11px;font-weight:800}
+.afex{background:rgba(255,80,80,.15);color:#ff8a80;border:1px solid rgba(255,80,80,.3);padding:5px 11px;border-radius:7px;cursor:pointer;font-size:12px;font-weight:700}
+
+/* hidden inputs */
+.hf{display:none}
+
+@media(max-width:1024px){.hi{grid-template-columns:1fr}.hlc{display:none}.ag{grid-template-columns:1fr}.chgrid{grid-template-columns:1fr}.pdgrid{grid-template-columns:1fr}.sdc{grid-template-columns:1fr}.fg{grid-template-columns:1fr 1fr}}
+@media(max-width:900px){.ctgrid,.lgrid{grid-template-columns:1fr;gap:24px}.cart-sb{width:100%;right:-100%}}
+@media(max-width:768px){nav{padding:0 3%}.nl{display:none}.hbg{display:flex}section{padding:52px 4%}.sbar{grid-template-columns:repeat(2,1fr)}.hstats{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.hbtns{flex-direction:column}.pgrid{grid-template-columns:1fr 1fr}.rg{grid-template-columns:1fr}.acards,.pf{grid-template-columns:1fr}.fg{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<!-- Hidden file inputs -->
+<input type="file" id="logoInput" accept="image/*" class="hf" onchange="handleLogo(event)">
+<input type="file" id="svcIconInput" accept="image/*" class="hf" onchange="handleSvcIcon(event)">
+<input type="file" id="clLogoInput" accept="image/*" class="hf" onchange="handleClLogo(event)">
+<input type="file" id="prodImgInput" accept="image/*" multiple class="hf" onchange="handleProdImgs(event)">
+
+<!-- Hover popup -->
+<div class="hpopup" id="hpopup">
+  <div class="hpt" id="hpt"></div>
+  <h4 id="hph"></h4>
+  <p id="hpp"></p>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a class="nb" onclick="G('main')">
+    <div class="logo-ring">
+      <div class="logo-circle" id="navLogo" onclick="adminLogo(event)">
+        <img id="navLogoImg" src="" alt="AP">
+        <svg id="navLogoSvg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="48" fill="white" stroke="#c0392b" stroke-width="3"/>
+          <path d="M16 40 Q50 6 84 40" fill="none" stroke="#c0392b" stroke-width="7" stroke-linecap="round"/>
+          <text x="9" y="74" font-family="Arial Black,sans-serif" font-weight="900" font-size="38" fill="#1a1a1a">A</text>
+          <text x="52" y="74" font-family="Arial Black,sans-serif" font-weight="900" font-size="38" fill="#c0392b">P</text>
+          <line x1="50" y1="28" x2="54" y2="82" stroke="#c0392b" stroke-width="3.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <button class="logo-edit-btn" onclick="adminLogo(event)" title="Change Logo">✎</button>
+    </div>
+    <div><div class="nt">A.P.<span>ENTERPRISES</span></div><span class="ns">IT Solutions Since 2016</span></div>
+  </a>
+  <ul class="nl">
+    <li><a onclick="G('main');scrollTo(0,0)">Home</a></li>
+    <li><a onclick="G('main');scrollTo(0,0);setTimeout(()=>Q('#about-sec').scrollIntoView({behavior:'smooth'}),80)">About</a></li>
+    <li><a onclick="G('svcpage')">Services</a></li>
+    <li><a onclick="G('shop')" class="nshop">🛒 Shop</a></li>
+    <li><a onclick="G('rma')" class="nrma">🔧 RMA</a></li>
+    <li id="navLogin"><a onclick="openAuth('login')">Login</a></li>
+    <li id="navDash" style="display:none"><a onclick="G('dash')">Dashboard</a></li>
+    <li id="navProfile" style="display:none"><a onclick="openProfilePage()">👤 Profile</a></li>
+    <li><a onclick="G('main');setTimeout(()=>Q('#contact-sec').scrollIntoView({behavior:'smooth'}),80)" class="ncta">Contact</a></li>
+  </ul>
+  <button class="hbg" id="hbg"><span></span><span></span><span></span></button>
+</nav>
+<div class="mmenu" id="mmenu">
+  <a onclick="G('main');scrollTo(0,0);cmm()">Home</a>
+  <a onclick="G('svcpage');cmm()">Services</a>
+  <a onclick="G('shop');cmm()">🛒 Shop</a>
+  <a onclick="G('rma');cmm()">🔧 RMA</a>
+  <a onclick="openAuth('login');cmm()">Login</a>
+  <a onclick="G('main');setTimeout(()=>Q('#contact-sec').scrollIntoView({behavior:'smooth'}),80);cmm()">Contact</a>
+</div>
+
+<!-- TICKER -->
+<div class="ticker">
+  <span class="tl">▶ LIVE UPDATE</span>
+  <div class="to"><div class="tt" id="tt"></div></div>
+</div>
+
+<!-- CART FAB -->
+<button class="cart-fab" id="cartFab" onclick="toggleCart()">🛒<span class="cart-cnt" id="cartCnt">0</span></button>
+<!-- CART SIDEBAR -->
+<div class="cart-ov" id="cartOv" onclick="toggleCart()"></div>
+<div class="cart-sb" id="cartSb">
+  <div class="cart-hd"><h3>🛒 My Cart</h3><button class="cclose" onclick="toggleCart()">✕</button></div>
+  <div class="citems" id="cartItemsEl"></div>
+  <div class="cfooter">
+    <div class="ctotal"><span>Total</span><strong id="cartTotEl">₹0</strong></div>
+    <button class="cbtn" onclick="toggleCart();G('checkout')">Proceed to Checkout →</button>
+  </div>
+</div>
+
+<!-- ADMIN FLOAT -->
+<div class="afloat">
+  <span class="afl">Admin Mode</span>
+  <span class="afb">Admin</span>
+  <button class="afex" onclick="logout()">Exit</button>
+</div>
+<button class="scroll-top" id="scrollTop" onclick="scrollTo(0,0)">↑</button>
+
+<!-- ═══ MAIN ═══ -->
+<div id="main-page" class="page active">
+<div class="hw">
+  <div class="hbg2" style="position:absolute;inset:0;pointer-events:none;overflow:hidden"></div>
+  <div class="hi">
+    <div>
+      <div class="htag">🏭 MSME Certified | GeM Listed | IT Specialists 2016</div>
+      <h1 class="htit">A.P. <span class="tred">Enterprises</span></h1>
+      <p class="hsub">IT Repair Specialists • Networking • Surveillance</p>
+      <p class="hdesc">Specialists in repairing networking products and surveillance systems — end-to-end IT solutions, CCTV, AMC/CAMC, and product trading across New Delhi since 2016.</p>
+      <div class="hbtns">
+        <a onclick="G('svcpage')" class="br">Our Services</a>
+        <a onclick="G('shop')" class="bg">🛒 Shop Now</a>
+        <a onclick="G('rma')" class="bo">🔧 Track RMA</a>
+      </div>
+      <div class="hstats">
+        <div class="hstat"><div class="n">50K+</div><div class="l">Products</div></div>
+        <div class="hstat"><div class="n">100K+</div><div class="l">Customers</div></div>
+        <div class="hstat"><div class="n">20+</div><div class="l">Clients</div></div>
+        <div class="hstat"><div class="n">2016</div><div class="l">Founded</div></div>
+      </div>
+    </div>
+    <div class="hlc">
+      <div class="hlw" id="heroLogoWrap" onclick="adminLogo(event)">
+        <img id="heroLogoImg" src="" alt="AP Logo">
+        <svg id="heroLogoSvg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="48" fill="white" stroke="#c0392b" stroke-width="3"/>
+          <path d="M16 40 Q50 6 84 40" fill="none" stroke="#c0392b" stroke-width="8" stroke-linecap="round"/>
+          <text x="8" y="74" font-family="Arial Black,sans-serif" font-weight="900" font-size="40" fill="#1a1a1a">A</text>
+          <text x="52" y="74" font-family="Arial Black,sans-serif" font-weight="900" font-size="40" fill="#c0392b">P</text>
+          <line x1="50" y1="28" x2="54" y2="82" stroke="#c0392b" stroke-width="3.5" stroke-linecap="round"/>
+        </svg>
+        <div class="hlw-edit">📤 Change Logo</div>
+      </div>
+      <div class="hlbadge">Est. 2016 • New Delhi</div>
+    </div>
+  </div>
+</div>
+
+<div class="sbar">
+  <div class="si"><div class="ico">📦</div><div class="num">50K+</div><div class="lab">Products</div></div>
+  <div class="si"><div class="ico">😊</div><div class="num">100K+</div><div class="lab">Happy Customers</div></div>
+  <div class="si"><div class="ico">🏢</div><div class="num">20+</div><div class="lab">Client Orgs</div></div>
+  <div class="si"><div class="ico">🔧</div><div class="num">500+</div><div class="lab">Devices Repaired</div></div>
+</div>
+
+<section id="about-sec">
+  <div class="sh"><div class="stag">Who We Are</div><h2 class="stit">About <span>A.P. Enterprises</span></h2><div class="sline"></div></div>
+  <div class="ag">
+    <div class="at">
+      <h3>We Are Specialists in Repair &amp; Surveillance</h3>
+      <p>Founded in <strong>2016</strong> by <strong>Lalan Singh</strong>, A.P. Enterprises is a government-certified MSME company specialising in repairing networking products and surveillance systems.</p>
+      <div class="afocus"><h4>🔧 Core Specialisation</h4><p>Repair &amp; maintenance of Cisco switches, routers, APs, CCTV, DVR/NVR and IP cameras. Trading, AMC/CAMC, and IT product rent &amp; leasing.</p></div>
+      <p>Serving <strong>100,000+ customers</strong> with <strong>50,000+ products</strong>. Listed on <strong>Government e-Marketplace (GeM)</strong>.</p>
+      <div class="abadges">
+        <span class="abadge">✓ Govt. Certified</span><span class="abadge">🏭 MSME</span><span class="abadge">📋 AMC/CAMC</span><span class="abadge">🛒 GeM Listed</span>
+      </div>
+      <a href="https://gem.gov.in" target="_blank" class="gems">
+        <span style="font-size:26px">🏛️</span>
+        <div><div style="font-family:'Rajdhani',sans-serif;font-size:17px;font-weight:700;color:#27ae60">GeM — Govt. e-Marketplace</div><div style="font-size:11px;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:1.5px">Registered Seller</div></div>
+      </a>
+      <div style="margin-top:18px"><div style="font-size:12px;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px">📱 Connect With Us</div>
+        <div class="socbar">
+          <a href="https://wa.me/919891375767" target="_blank" class="sb swa">💬 WhatsApp</a>
+          <a href="https://www.facebook.com/apenterprises" target="_blank" class="sb sfb">Facebook</a>
+          <a href="https://www.instagram.com/apenterprises" target="_blank" class="sb sig">Instagram</a>
+          <a href="https://www.linkedin.com/company/apenterprises" target="_blank" class="sb sli">LinkedIn</a>
+          <a href="https://www.youtube.com/@apenterprises" target="_blank" class="sb syt">YouTube</a>
+          <a href="https://twitter.com/apenterprises" target="_blank" class="sb stw">Twitter</a>
+        </div>
+      </div>
+    </div>
+    <div class="acards">
+      <div class="acard"><div class="acard-ico">🔧</div><h4>Networking Repair</h4><p>Expert repair of Cisco switches, routers, APs &amp; LAN.</p></div>
+      <div class="acard"><div class="acard-ico">📷</div><h4>Surveillance</h4><p>CCTV, DVR/NVR, IP &amp; PTZ camera repair, setup &amp; AMC.</p></div>
+      <div class="acard"><div class="acard-ico">🔄</div><h4>Rent &amp; Leasing</h4><p>IT products on rent — laptops, desktops, cameras, gear.</p></div>
+      <div class="acard"><div class="acard-ico">📋</div><h4>AMC / CAMC</h4><p>Annual maintenance contracts for uninterrupted IT.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="founder-sec" style="background:var(--wh)">
+  <div class="sh"><div class="stag">Leadership</div><h2 class="stit">Meet the <span>Founder &amp; CEO</span></h2><div class="sline"></div></div>
+  <div style="display:grid;grid-template-columns:280px 1fr;gap:44px;align-items:start">
+    <div>
+      <div style="width:100%;aspect-ratio:3/4;border-radius:20px;overflow:hidden;position:relative;box-shadow:0 20px 60px rgba(192,57,43,.2),0 0 0 3px rgba(192,57,43,.3)">
+        <img src="https://i.imgur.com/lWxNzm9.jpeg" alt="Lalan Singh" style="width:100%;height:100%;object-fit:cover;object-position:center top" onerror="this.style.display='none'">
+        <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(10,22,40,.88));padding:16px;text-align:center">
+          <div style="font-family:'Rajdhani',sans-serif;font-size:19px;font-weight:700;color:#fff;margin-bottom:2px">Lalan Singh</div>
+          <div style="font-size:11px;color:var(--acc);text-transform:uppercase;letter-spacing:1.5px">Founder &amp; CEO</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div style="font-family:'Rajdhani',sans-serif;font-size:34px;font-weight:700;color:var(--navy);margin-bottom:3px">Lalan Singh</div>
+      <div style="color:var(--red);font-size:15px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px">Founder &amp; CEO — IT Repair Specialist</div>
+      <p style="color:var(--gr);line-height:1.85;font-size:15px;margin-bottom:12px">With <strong>8+ years of hands-on expertise</strong>, Lalan Singh founded A.P. Enterprises in 2016. Core expertise in <strong>repairing networking products</strong> and <strong>surveillance systems</strong>. Serves <strong>20+ prestigious organisations</strong> with <strong>50,000+ products</strong> and <strong>100,000+ happy customers</strong>.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:11px;margin:18px 0">
+        <div style="background:var(--cb);border:1px solid var(--bd);border-radius:11px;padding:15px;display:flex;align-items:center;gap:10px"><span style="font-size:22px">🏢</span><div><div style="font-family:'Rajdhani',sans-serif;font-size:22px;font-weight:700;color:var(--red)">20+</div><div style="font-size:11px;color:var(--gr);text-transform:uppercase;letter-spacing:.8px">Client Orgs</div></div></div>
+        <div style="background:var(--cb);border:1px solid var(--bd);border-radius:11px;padding:15px;display:flex;align-items:center;gap:10px"><span style="font-size:22px">😊</span><div><div style="font-family:'Rajdhani',sans-serif;font-size:22px;font-weight:700;color:var(--red)">100K+</div><div style="font-size:11px;color:var(--gr);text-transform:uppercase;letter-spacing:.8px">Customers</div></div></div>
+        <div style="background:var(--cb);border:1px solid var(--bd);border-radius:11px;padding:15px;display:flex;align-items:center;gap:10px"><span style="font-size:22px">📦</span><div><div style="font-family:'Rajdhani',sans-serif;font-size:22px;font-weight:700;color:var(--red)">50K+</div><div style="font-size:11px;color:var(--gr);text-transform:uppercase;letter-spacing:.8px">Products</div></div></div>
+        <div style="background:var(--cb);border:1px solid var(--bd);border-radius:11px;padding:15px;display:flex;align-items:center;gap:10px"><span style="font-size:22px">🏛️</span><div><div style="font-family:'Rajdhani',sans-serif;font-size:22px;font-weight:700;color:var(--red)">GeM</div><div style="font-size:11px;color:var(--gr);text-transform:uppercase;letter-spacing:.8px">Listed</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services-sec">
+  <div class="sh"><div class="stag">What We Do</div><h2 class="stit">Our <span>Services</span></h2><div class="sline"></div><p class="ssub">Hover to preview • Click for full details • Admin can add/edit</p></div>
+  <div class="scgrid" id="svcGrid"></div>
+  <div style="text-align:center;margin-top:22px"><button class="br" onclick="G('svcpage')">View All Services in Detail →</button></div>
+  <div style="background:var(--navy);border-radius:18px;padding:30px;margin-top:36px">
+    <h3 style="font-family:'Rajdhani',sans-serif;font-size:24px;font-weight:700;color:#fff;margin-bottom:5px">📩 Request a Service</h3>
+    <p style="color:rgba(255,255,255,.5);font-size:14px;margin-bottom:18px">We respond within 24 hrs — Call: <a href="tel:9891375767" style="color:var(--acc);font-weight:800">+91 9891375767</a></p>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:11px" id="srf">
+      <input id="srn" placeholder="Your Name *" style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:9px;padding:10px 13px;color:#fff;font-family:'Nunito',sans-serif;font-size:13px;outline:none;width:100%">
+      <input id="srp" placeholder="Phone *" style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:9px;padding:10px 13px;color:#fff;font-family:'Nunito',sans-serif;font-size:13px;outline:none;width:100%">
+      <input id="sre" placeholder="Email" style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:9px;padding:10px 13px;color:#fff;font-family:'Nunito',sans-serif;font-size:13px;outline:none;width:100%">
+      <select id="srs" style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:9px;padding:10px 13px;color:#fff;font-family:'Nunito',sans-serif;font-size:13px;outline:none;width:100%"><option value="" disabled selected style="background:var(--navy)">Select Service *</option><option style="background:var(--navy)">Networking Repair</option><option style="background:var(--navy)">Surveillance Repair</option><option style="background:var(--navy)">CCTV Installation</option><option style="background:var(--navy)">IT on Rent</option><option style="background:var(--navy)">AMC / CAMC</option><option style="background:var(--navy)">Other</option></select>
+      <input id="srl" placeholder="Location" style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:9px;padding:10px 13px;color:#fff;font-family:'Nunito',sans-serif;font-size:13px;outline:none;width:100%">
+      <input id="src2" placeholder="Company" style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:9px;padding:10px 13px;color:#fff;font-family:'Nunito',sans-serif;font-size:13px;outline:none;width:100%">
+      <textarea id="srm" placeholder="Describe requirement..." rows="3" style="grid-column:1/-1;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:9px;padding:10px 13px;color:#fff;font-family:'Nunito',sans-serif;font-size:13px;outline:none;width:100%;resize:vertical"></textarea>
+      <div style="grid-column:1/-1;display:flex;gap:11px;align-items:center;flex-wrap:wrap">
+        <button class="br" onclick="submitSR()"><span id="srbtn">Submit Request 🚀</span></button>
+        <span style="color:rgba(255,255,255,.4);font-size:13px">Or: <a href="tel:9891375767" style="color:var(--acc);font-weight:800">+91 9891375767</a></span>
+      </div>
+    </div>
+    <div class="msg" id="srMsg"></div>
+  </div>
+</section>
+
+<section id="brands-sec" style="padding:50px 0;overflow:hidden">
+  <div class="sh" style="padding:0 5%">
+    <div class="stag" style="background:rgba(192,57,43,.12);border-color:rgba(192,57,43,.3);color:#e74c3c">Authorised</div>
+    <h2 class="stit" style="color:#fff">Brands We <span>Sell &amp; Service</span></h2><div class="sline"></div>
+  </div>
+  <div class="btwrap"><div class="btrack" id="btrack"></div></div>
+</section>
+
+<section id="testi-sec">
+  <div class="sh"><div class="stag">Reviews</div><h2 class="stit">Customer <span>Testimonials</span></h2><div class="sline"></div></div>
+  <div class="tgrid" id="tgrid"></div>
+</section>
+
+<section id="clients-sec" style="background:var(--wh)">
+  <div class="sh"><div class="stag">Trusted By</div><h2 class="stit">Our Top <span>Clients</span></h2><div class="sline"></div><p class="ssub">Hover to see company details • Admin can add logos &amp; edit</p></div>
+  <div class="clgrid" id="clGrid"></div>
+</section>
+
+<section id="cert-sec" style="background:var(--cb)">
+  <div class="sh"><div class="stag">Credentials</div><h2 class="stit">Registrations &amp; <span>Certifications</span></h2><div class="sline"></div></div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px">
+    <div style="background:var(--wh);border:1px solid var(--bd);border-radius:13px;padding:22px;display:flex;gap:12px"><div style="width:42px;height:42px;background:linear-gradient(135deg,var(--red),#e74c3c);border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0">🏭</div><div><h4 style="font-weight:800;font-size:14px;margin-bottom:4px">UDYAM — MSME</h4><p style="font-size:12.5px;color:var(--gr)">UDYAM-DL-08-0037342 | 18/09/2022</p></div></div>
+    <div style="background:var(--wh);border:1px solid var(--bd);border-radius:13px;padding:22px;display:flex;gap:12px"><div style="width:42px;height:42px;background:linear-gradient(135deg,var(--red),#e74c3c);border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0">🏛️</div><div><h4 style="font-weight:800;font-size:14px;margin-bottom:4px">Govt. Certified</h4><p style="font-size:12.5px;color:var(--gr)">Ministry of MSME — OBC Category</p></div></div>
+    <div style="background:var(--wh);border:1px solid var(--bd);border-radius:13px;padding:22px;display:flex;gap:12px"><div style="width:42px;height:42px;background:linear-gradient(135deg,var(--red),#e74c3c);border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0">🛒</div><div><h4 style="font-weight:800;font-size:14px;margin-bottom:4px">GeM Registered</h4><p style="font-size:12.5px;color:var(--gr)">Govt. e-Marketplace Authorised Seller</p></div></div>
+    <div style="background:var(--wh);border:1px solid var(--bd);border-radius:13px;padding:22px;display:flex;gap:12px"><div style="width:42px;height:42px;background:linear-gradient(135deg,var(--red),#e74c3c);border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0">📄</div><div><h4 style="font-weight:800;font-size:14px;margin-bottom:4px">GSTIN Registered</h4><p style="font-size:12.5px;color:var(--gr)">GSTIN: 07BXNPS063Q12ZR</p></div></div>
+  </div>
+</section>
+
+<section id="loc-sec">
+  <div class="sh"><div class="stag">Find Us</div><h2 class="stit">Our <span>Location</span></h2><div class="sline"></div></div>
+  <div class="lgrid">
+    <div>
+      <div class="laddr"><div class="lico">🏢</div><div><h4>Office 1 — Nehru Place</h4><p>208 Raja House, Nehru Place, New Delhi – 110019</p><a href="https://maps.google.com/?q=Nehru+Place+New+Delhi" target="_blank">📍 Open in Maps ↗</a></div></div>
+      <div class="laddr"><div class="lico">🏠</div><div><h4>Office 2 — Sarita Vihar</h4><p>D-321/12, Phase 2, Madanpur Khadar, Delhi – 110076</p><a href="https://maps.google.com/?q=Madanpur+Khadar+Delhi" target="_blank">📍 Open in Maps ↗</a></div></div>
+      <div class="laddr"><div class="lico">📞</div><div><h4>Phone</h4><a href="tel:9891375767" style="font-size:15px;font-weight:800;color:var(--red)">+91 98913 75767</a><br><a href="tel:8882728874">+91 88827 28874</a><br><a href="tel:8447235943">+91 84472 35943</a></div></div>
+      <div class="laddr"><div class="lico">⏰</div><div><h4>Hours</h4><p>Mon – Sat: 9:00 AM – 7:00 PM</p><p>Sunday: By Appointment</p></div></div>
+    </div>
+    <div><div class="mframe"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3505.3366009413474!2d77.24897827549717!3d28.549381875718506!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce1c8e7e07f5d%3A0xf8d8fc9c3a0e4f5b!2sNehru%20Place%2C%20New%20Delhi!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div></div>
+  </div>
+</section>
+
+<section id="contact-sec" style="background:var(--navy)">
+  <div class="sh"><div class="stag" style="background:rgba(192,57,43,.12);border-color:rgba(192,57,43,.3);color:#e74c3c">Get In Touch</div><h2 class="stit" style="color:#fff">Contact <span>Us</span></h2><div class="sline"></div></div>
+  <div class="ctgrid">
+    <div>
+      <div class="ctitem"><div class="cticon">📞</div><div><h4>Primary</h4><a href="tel:9891375767">+91 98913 75767</a></div></div>
+      <div class="ctitem"><div class="cticon">📱</div><div><h4>Secondary</h4><a href="tel:8882728874">+91 88827 28874</a></div></div>
+      <div class="ctitem"><div class="cticon">✉️</div><div><h4>Email</h4><a href="mailto:apenterprises333@gmail.com">apenterprises333@gmail.com</a></div></div>
+      <div class="ctitem"><div class="cticon">💬</div><div><h4>WhatsApp</h4><a href="https://wa.me/919891375767" target="_blank">+91 98913 75767</a></div></div>
+      <div class="ctitem"><div class="cticon">📍</div><div><h4>Address</h4><p>208 Raja House, Nehru Place, New Delhi – 110019</p></div></div>
+      <div style="background:rgba(255,255,255,.05);border:1px solid rgba(192,57,43,.2);border-radius:11px;padding:13px 15px;margin-top:13px"><p style="color:rgba(255,255,255,.4);font-size:11px;text-transform:uppercase;letter-spacing:1px">GSTIN</p><span style="color:var(--acc);font-weight:800;font-size:14px;letter-spacing:1px">07BXNPS063Q12ZR</span></div>
+    </div>
+    <div class="ctform">
+      <h3>Send Us a Message</h3>
+      <div class="fi"><input type="text" id="cfn" placeholder="Your Name *"></div>
+      <div class="fi"><input type="email" id="cfe" placeholder="Email *"></div>
+      <div class="fi"><input type="tel" id="cfp" placeholder="Phone *"></div>
+      <div class="fi"><select id="cfs"><option value="" disabled selected>Select Service</option><option>Networking Repair</option><option>CCTV/Surveillance</option><option>IT on Rent</option><option>AMC/CAMC</option><option>Buy Products</option><option>Other</option></select></div>
+      <div class="fi"><textarea id="cfm" placeholder="Your message..."></textarea></div>
+      <button style="width:100%;padding:12px;background:var(--red);color:#fff;border:none;border-radius:26px;font-family:'Nunito',sans-serif;font-size:14.5px;font-weight:800;cursor:pointer;transition:all .2s" onclick="sendCF()">Send Message ✉️</button>
+      <div class="msg" id="cfMsg"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fg">
+    <div class="fb">
+      <h3>A.P.<span>ENTERPRISES</span></h3>
+      <p>Specialists in IT repair, networking products, and surveillance systems since 2016. Government-certified MSME, GeM listed seller. Serving 100,000+ customers across Delhi NCR.</p>
+      <div class="fsoc">
+        <a href="https://wa.me/919891375767" target="_blank" class="fs" style="background:#25D366">💬</a>
+        <a href="https://www.facebook.com/apenterprises" target="_blank" class="fs" style="background:#1877F2">f</a>
+        <a href="https://www.instagram.com/apenterprises" target="_blank" class="fs" style="background:linear-gradient(45deg,#f09433,#dc2743,#bc1888)">📷</a>
+        <a href="https://www.linkedin.com/company/apenterprises" target="_blank" class="fs" style="background:#0A66C2">in</a>
+        <a href="https://www.youtube.com/@apenterprises" target="_blank" class="fs" style="background:#FF0000">▶</a>
+        <a href="https://twitter.com/apenterprises" target="_blank" class="fs" style="background:#1DA1F2">🐦</a>
+      </div>
+    </div>
+    <div class="fc"><h4>Quick Links</h4>
+      <ul>
+        <li><a onclick="G('main');scrollTo(0,0)">Home</a></li>
+        <li><a onclick="G('main');setTimeout(()=>Q('#about-sec').scrollIntoView({behavior:'smooth'}),80)">About Us</a></li>
+        <li><a onclick="G('svcpage')">Services</a></li>
+        <li><a onclick="G('shop')">Shop</a></li>
+        <li><a onclick="G('rma')">RMA Tracking</a></li>
+        <li><a onclick="G('main');setTimeout(()=>Q('#clients-sec').scrollIntoView({behavior:'smooth'}),80)">Our Clients</a></li>
+      </ul>
+    </div>
+    <div class="fc"><h4>Services</h4>
+      <ul>
+        <li><a onclick="G('svcpage')">Networking Repair</a></li>
+        <li><a onclick="G('svcpage')">CCTV Systems</a></li>
+        <li><a onclick="G('svcpage')">DVR / NVR Service</a></li>
+        <li><a onclick="G('svcpage')">AMC / CAMC</a></li>
+        <li><a onclick="G('svcpage')">IT on Rent</a></li>
+        <li><a onclick="G('svcpage')">Printer Service</a></li>
+      </ul>
+    </div>
+    <div class="fc"><h4>Contact</h4>
+      <ul>
+        <li><a href="tel:9891375767">📞 +91 98913 75767</a></li>
+        <li><a href="tel:8882728874">📱 +91 88827 28874</a></li>
+        <li><a href="mailto:apenterprises333@gmail.com">✉️ apenterprises333@gmail.com</a></li>
+        <li><a href="https://wa.me/919891375767" target="_blank">💬 WhatsApp Us</a></li>
+        <li><a href="https://gem.gov.in" target="_blank">🏛️ GeM Portal</a></li>
+      </ul>
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(0,180,216,.15);border-radius:8px;padding:9px 14px;margin-top:14px"><p style="color:rgba(255,255,255,.35);font-size:11px;text-transform:uppercase;letter-spacing:1px">GSTIN</p><span style="color:var(--acc);font-weight:800;font-size:13px;letter-spacing:1px">07BXNPS063Q12ZR</span></div>
+    </div>
+  </div>
+  <div class="fbot">
+    <p>© 2025 <span>A.P. Enterprises</span>. All Rights Reserved | MSME: UDYAM-DL-08-0037342 | GeM Listed | New Delhi</p>
+    <div style="display:flex;gap:13px"><a onclick="openAuth('login')" style="color:rgba(255,255,255,.45);font-size:12.5px;cursor:pointer;text-decoration:none">Login</a><a onclick="openAuth('reg')" style="color:rgba(255,255,255,.45);font-size:12.5px;cursor:pointer;text-decoration:none">Register</a><a onclick="G('rma')" style="color:rgba(255,255,255,.45);font-size:12.5px;cursor:pointer;text-decoration:none">RMA</a></div>
+  </div>
+</footer>
+</div><!-- /main -->
+
+<!-- ═══ SERVICES DETAIL PAGE ═══ -->
+<div id="svcpage-page" class="page">
+  <div class="svchd"><h1>🔧 Our <span style="color:#e74c3c">Services</span></h1><p style="color:rgba(255,255,255,.5);font-size:14px">Complete IT solutions — click Get a Quote on any service</p></div>
+  <div style="max-width:1000px;margin:0 auto;padding:0 3%">
+    <div style="display:flex;gap:9px;margin-bottom:20px;flex-wrap:wrap">
+      <button onclick="G('main')" class="br" style="padding:9px 16px;font-size:13px">← Home</button>
+      <button onclick="openAuth('login')" class="br">📋 Get a Quote / Contact</button>
+    </div>
+    <div id="svcDetailList"></div>
+    <div style="display:none" id="svcAddBtn"><button onclick="openSvcModal(null)" class="bg" style="width:100%;padding:13px;font-size:14px;border-radius:12px;margin-top:8px">➕ Add New Service</button></div>
+  </div>
+</div>
+
+<!-- ═══ SHOP ═══ -->
+<div id="shop-page" class="page">
+  <div class="sphead"><h1>🛒 A.P. <span>E-Marketplace</span></h1><p style="color:rgba(255,255,255,.5);font-size:14px">100+ IT Products — Networking • Surveillance • Computers • Accessories</p></div>
+  <div style="max-width:1100px;margin:0 auto;padding:0 2%">
+    <div class="spctrls">
+      <button onclick="G('main')" style="background:var(--navy);color:#fff;border:none;padding:9px 16px;border-radius:20px;cursor:pointer;font-weight:700;font-size:13px">← Home</button>
+      <input class="sp-inp" id="shopQ" placeholder="Search products..." oninput="renderProducts()">
+      <select class="sp-sel" id="shopCat" onchange="renderProducts()"><option value="all">All Categories</option><option value="Networking">Networking</option><option value="Surveillance">Surveillance</option><option value="Computers">Computers</option><option value="Printers">Printers</option><option value="Accessories">Accessories</option><option value="Power">Power & UPS</option></select>
+      <select class="sp-sel" id="shopSort" onchange="renderProducts()"><option value="def">Sort: Default</option><option value="asc">Price: Low→High</option><option value="desc">Price: High→Low</option><option value="az">Name: A-Z</option></select>
+      <button id="addProdBtn" style="display:none;background:var(--grn);color:#fff;border:none;padding:9px 16px;border-radius:20px;cursor:pointer;font-weight:700;font-size:13px" onclick="openProdModal(null)">➕ Add Product</button>
+    </div>
+    <div class="pgrid" id="pgrid"></div>
+  </div>
+</div>
+
+<!-- ═══ CHECKOUT ═══ -->
+<div id="checkout-page" class="page">
+  <div class="chhead"><h1>🛍️ Checkout</h1></div>
+  <div class="chgrid" style="max-width:980px;margin:0 auto;padding:0 4%">
+    <div>
+      <div class="chcard">
+        <h3>📦 Delivery Address</h3>
+        <div class="ch2"><input class="chinp" id="chfn" placeholder="First Name *"><input class="chinp" id="chln" placeholder="Last Name *"></div>
+        <input class="chinp" id="chadr" placeholder="Full Address *" style="width:100%">
+        <div class="ch2"><input class="chinp" id="chcity" placeholder="City *"><input class="chinp" id="chpin" placeholder="PIN Code *"></div>
+        <div class="ch2"><input class="chinp" id="chph" placeholder="Phone *" type="tel"><input class="chinp" id="chem" placeholder="Email *" type="email"></div>
+      </div>
+      <div class="chcard">
+        <h3>💳 Payment Method</h3>
+        <div class="payopt sel" id="pcod" onclick="selPay('cod')"><input type="radio" name="pay" checked><label>Cash on Delivery (COD)<span class="po-sub">Pay when order arrives</span></label></div>
+        <div class="payopt" id="pupi" onclick="selPay('upi')"><input type="radio" name="pay"><label>UPI / PhonePe / GPay<span class="po-sub">UPI: apenterprises333@okicici</span></label></div>
+        <div class="payopt" id="pbank" onclick="selPay('bank')"><input type="radio" name="pay"><label>Net Banking / NEFT<span class="po-sub">Call +91 9891375767 for details</span></label></div>
+        <input class="chinp" id="chno" placeholder="Order notes / UTR reference (optional)" style="margin-top:10px">
+      </div>
+    </div>
+    <div><div class="ordsumm" id="ordSumm"></div></div>
+  </div>
+  <div class="msg" id="chMsg" style="max-width:980px;margin:12px auto;padding:0 4%"></div>
+</div>
+
+<!-- ═══ DASHBOARD ═══ -->
+<div id="dash-page" class="page">
+  <div class="dbhead">
+    <h1>📊 <span id="dbTitle">Dashboard</span></h1>
+    <div style="display:flex;gap:9px;align-items:center;flex-wrap:wrap">
+      <span id="dbBadge" style="background:rgba(0,180,216,.2);border:1px solid rgba(0,180,216,.3);color:var(--acc);padding:5px 12px;border-radius:8px;font-size:12.5px;font-weight:700">User</span>
+      <button onclick="logout()" style="background:rgba(192,57,43,.15);border:1px solid rgba(192,57,43,.3);color:var(--red);padding:7px 13px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:700">Logout</button>
+    </div>
+  </div>
+  <div style="max-width:1100px;margin:0 auto;padding:0 3%">
+    <div class="dbtabs">
+      <button class="dbtab act" onclick="dbTab('orders')">📦 My Orders</button>
+      <button class="dbtab" onclick="dbTab('rmas')">🔧 My RMAs</button>
+      <button class="dbtab" onclick="dbTab('profile')">👤 Profile</button>
+      <button class="dbtab" id="adminTabBtn" style="display:none" onclick="dbTab('admin')">⚙️ Admin</button>
+    </div>
+    <!-- Orders -->
+    <div class="dbpanel act" id="dp-orders">
+      <div class="dbcard"><h3>📦 My Orders</h3><div id="ordersListEl"></div></div>
+    </div>
+    <!-- RMAs -->
+    <div class="dbpanel" id="dp-rmas">
+      <div class="dbcard">
+        <h3>🔧 My RMA Requests</h3>
+        <div id="dashRMAList"></div>
+        <button class="rsub" style="margin-top:14px" onclick="G('rma');rmaTab('reg')">+ Register New RMA</button>
+      </div>
+    </div>
+    <!-- Profile -->
+    <div class="dbpanel" id="dp-profile">
+      <div class="dbcard">
+        <h3>👤 My Profile</h3>
+        <div class="prof-wrap">
+          <div class="prof-av" id="profAv">
+            <img id="profAvImg" src="" alt="Avatar">
+            <span id="profInit">U</span>
+          </div>
+          <div>
+            <div style="font-weight:800;font-size:16px;color:var(--navy)" id="profNameDisp">User</div>
+            <div style="font-size:13px;color:var(--gr)" id="profEmailDisp">email</div>
+            <label style="margin-top:8px;background:var(--lt);border:1px solid var(--bd);padding:7px 14px;border-radius:20px;cursor:pointer;font-size:12.5px;font-weight:700;color:var(--blue);display:inline-block">📤 Change Photo<input type="file" accept="image/*" style="display:none" onchange="handleProfPhoto(event)"></label>
+          </div>
+        </div>
+        <div class="pf">
+          <div><label class="pl">Full Name</label><input class="pi" id="pn" placeholder="Full Name"></div>
+          <div><label class="pl">Phone</label><input class="pi" id="pp" placeholder="Phone" type="tel"></div>
+          <div><label class="pl">Email</label><input class="pi" id="pe" placeholder="Email" type="email"></div>
+          <div><label class="pl">Address</label><input class="pi" id="pa" placeholder="Your Address"></div>
+          <div style="grid-column:1/-1"><label class="pl">Current Password (to change)</label><input class="pi" id="pcp" placeholder="Enter current password" type="password"></div>
+          <div><label class="pl">New Password</label><input class="pi" id="pnp" placeholder="New Password" type="password" oninput="cpwd(this,'pbr','pph')"><div class="pwbar" id="pbr"></div><div class="pwh" id="pph"><div class="ph" id="pph1">❌ Min 6 chars</div><div class="ph" id="pph2">❌ Uppercase</div><div class="ph" id="pph3">❌ Number</div><div class="ph" id="pph4">❌ Symbol</div></div></div>
+          <div><label class="pl">Confirm New Password</label><input class="pi" id="pcp2" placeholder="Confirm Password" type="password"></div>
+        </div>
+        <button onclick="saveProfile()" style="background:var(--grn);color:#fff;border:none;padding:11px 24px;border-radius:22px;font-weight:800;font-size:14px;cursor:pointer;margin-top:16px;transition:all .2s">💾 Save Profile</button>
+        <div class="msg" id="profMsg"></div>
+      </div>
+    </div>
+    <!-- Admin -->
+    <div class="dbpanel" id="dp-admin">
+      <div class="dbcard">
+        <h3>⚙️ Admin Controls</h3>
+        <div class="asgrid">
+          <div class="ascard"><div class="asi">📋</div><div class="asn" id="as-rma">0</div><div class="asl">Total RMAs</div></div>
+          <div class="ascard"><div class="asi">🛒</div><div class="asn" id="as-ord">0</div><div class="asl">Total Orders</div></div>
+          <div class="ascard"><div class="asi">👥</div><div class="asn" id="as-usr">0</div><div class="asl">Registered Users</div></div>
+          <div class="ascard"><div class="asi">📦</div><div class="asn" id="as-prd">0</div><div class="asl">Products Listed</div></div>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px">
+          <button onclick="G('shop')" class="bg" style="padding:9px 18px;font-size:13px">🛒 Manage Products</button>
+          <button onclick="G('svcpage')" style="background:var(--blue);color:#fff;border:none;padding:9px 18px;border-radius:20px;cursor:pointer;font-weight:700;font-size:13px">🔧 Manage Services</button>
+          <button onclick="G('main');setTimeout(()=>Q('#clients-sec').scrollIntoView({behavior:'smooth'}),80)" style="background:var(--org);color:#fff;border:none;padding:9px 18px;border-radius:20px;cursor:pointer;font-weight:700;font-size:13px">🏢 Manage Clients</button>
+        </div>
+        <h4 style="font-weight:800;margin-bottom:11px;font-size:15px">📋 All RMAs</h4>
+        <div style="display:flex;gap:9px;margin-bottom:12px;flex-wrap:wrap">
+          <input id="arq" placeholder="Search RMAs..." style="flex:1;min-width:180px;background:var(--wh);border:1.5px solid var(--bd);border-radius:9px;padding:9px 13px;font-family:'Nunito',sans-serif;font-size:13px;outline:none;color:var(--navy)" oninput="renderAdminRMAs()">
+          <select id="arf" style="background:var(--wh);border:1.5px solid var(--bd);border-radius:9px;padding:9px 12px;font-family:'Nunito',sans-serif;font-size:13px;color:var(--navy);outline:none" onchange="renderAdminRMAs()"><option value="all">All Status</option><option value="received">Received</option><option value="repairing">Repairing</option><option value="ready">Ready</option><option value="delivered">Delivered</option></select>
+        </div>
+        <div id="adminRMAList"></div>
+        <h4 style="font-weight:800;margin:18px 0 11px;font-size:15px">🛒 All Orders</h4>
+        <div id="adminOrdList"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ PROFILE EDIT PAGE ═══ -->
+<div id="profile-page" class="page">
+  <div class="prhead">
+    <h1>👤 My Profile</h1>
+    <p>Manage your account, security, and RMA bills</p>
+  </div>
+  <div class="pr-grid">
+    <div class="pr-side">
+      <div class="pr-av-card">
+        <div class="pr-av-big" id="prAvBig" onclick="document.getElementById('prPhotoInp').click()">
+          <img id="prAvImg" src="" alt="Avatar" style="display:none">
+          <span id="prAvInit">U</span>
+          <div class="pr-av-over">📷</div>
+        </div>
+        <input type="file" id="prPhotoInp" accept="image/*" style="display:none" onchange="handlePrPhoto(event)">
+        <div class="pr-name" id="prNameDisp">User</div>
+        <div class="pr-role" id="prRoleDisp">Customer</div>
+        <div class="pr-joined" id="prJoinedDisp">Member since —</div>
+        <div class="pr-stats">
+          <div class="pr-stat"><div class="n" id="prOrdCnt">0</div><div class="l">Orders</div></div>
+          <div class="pr-stat"><div class="n" id="prRmaCnt">0</div><div class="l">RMAs</div></div>
+          <div class="pr-stat"><div class="n" id="prBillCnt">0</div><div class="l">Bills</div></div>
+        </div>
+        <label style="margin-top:14px;background:var(--lt);border:1px solid var(--bd);padding:8px 16px;border-radius:20px;cursor:pointer;font-size:12.5px;font-weight:700;color:var(--blue);display:inline-block" onclick="document.getElementById('prPhotoInp').click()">📤 Change Photo</label>
+      </div>
+      <div class="pr-quick-card">
+        <h4>⚡ Quick Nav</h4>
+        <div class="pr-qlink active-tab" id="pqt-info" onclick="prTab('info')">👤 Personal Info</div>
+        <div class="pr-qlink" id="pqt-security" onclick="prTab('security')">🔒 Security</div>
+        <div class="pr-qlink" id="pqt-bills" onclick="prTab('bills')">🧾 Bills & Documents</div>
+        <div class="pr-qlink" id="pqt-rma" onclick="prTab('rma')">🔧 My RMAs</div>
+        <div style="margin-top:11px;padding-top:11px;border-top:1px solid var(--bd)">
+          <div class="pr-qlink" onclick="G('dash');dbTab('orders')" style="color:var(--blue)">📊 Go to Dashboard</div>
+          <div class="pr-qlink" onclick="logout()" style="color:var(--red)">🚪 Logout</div>
+        </div>
+      </div>
+    </div>
+    <div class="pr-main">
+      <div class="pr-section act" id="prs-info">
+        <div class="pr-card">
+          <h3>👤 Personal Information</h3>
+          <div style="display:flex;gap:11px;margin-bottom:16px;padding:14px;background:var(--lt);border-radius:12px;border:1px solid var(--bd)">
+            <div style="font-size:28px">ℹ️</div>
+            <div><div style="font-weight:800;font-size:13.5px;color:var(--navy)">Your public info</div><div style="font-size:12.5px;color:var(--gr);margin-top:2px">Name and phone used across orders and RMA requests.</div></div>
+          </div>
+          <div class="pr-2col">
+            <div><label class="pr-label">Full Name *</label><input class="pr-inp" id="pr-name" placeholder="Your full name"></div>
+            <div><label class="pr-label">Phone *</label><input class="pr-inp" id="pr-phone" placeholder="+91 9XXXXXXXXX" type="tel"></div>
+            <div><label class="pr-label">Email</label><input class="pr-inp" id="pr-email" placeholder="you@example.com" type="email" readonly></div>
+            <div><label class="pr-label">Username</label><input class="pr-inp" id="pr-uname" placeholder="Username" readonly></div>
+            <div class="pr-full"><label class="pr-label">Address</label><input class="pr-inp" id="pr-address" placeholder="Your full address"></div>
+            <div><label class="pr-label">City</label><input class="pr-inp" id="pr-city" placeholder="e.g. New Delhi"></div>
+            <div><label class="pr-label">Pincode</label><input class="pr-inp" id="pr-pin" placeholder="110019" type="number"></div>
+          </div>
+          <div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap">
+            <button class="pr-savebtn" onclick="savePrInfo()">💾 Save Changes</button>
+            <button style="background:var(--lt);border:1px solid var(--bd);color:var(--navy);padding:12px 20px;border-radius:22px;font-weight:700;font-size:13.5px;cursor:pointer" onclick="loadPrInfo()">↩ Discard</button>
+          </div>
+          <div class="msg" id="prInfoMsg"></div>
+        </div>
+      </div>
+      <div class="pr-section" id="prs-security">
+        <div class="pr-card">
+          <h3>🔒 Security &amp; Password</h3>
+          <div style="padding:14px;background:rgba(230,126,34,.07);border:1px solid rgba(230,126,34,.25);border-radius:12px;margin-bottom:18px;display:flex;gap:10px">
+            <div style="font-size:22px">🛡️</div>
+            <div><div style="font-weight:800;font-size:13px;color:var(--org)">Keep your account secure</div><div style="font-size:12.5px;color:var(--gr);margin-top:2px">Use a strong password: uppercase, number, and symbol.</div></div>
+          </div>
+          <div class="pr-2col">
+            <div class="pr-full"><label class="pr-label">Current Password</label><input class="pr-inp" id="pr-curpwd" placeholder="Enter current password" type="password"></div>
+            <div>
+              <label class="pr-label">New Password</label>
+              <input class="pr-inp" id="pr-newpwd" placeholder="New password" type="password" oninput="cpwd(this,'prbr','prph')">
+              <div class="pwbar" id="prbr"></div>
+              <div class="pwh" id="prph"><div class="ph" id="prph1">❌ Min 6 chars</div><div class="ph" id="prph2">❌ Uppercase letter</div><div class="ph" id="prph3">❌ Number (0-9)</div><div class="ph" id="prph4">❌ Symbol (!@#$...)</div></div>
+            </div>
+            <div><label class="pr-label">Confirm New Password</label><input class="pr-inp" id="pr-cfmpwd" placeholder="Confirm new password" type="password"></div>
+          </div>
+          <div style="margin-top:18px"><button class="pr-savebtn" onclick="savePrSecurity()">🔒 Update Password</button></div>
+          <div class="msg" id="prSecMsg"></div>
+        </div>
+        <div class="pr-card" style="margin-top:16px">
+          <h3>📲 Active Sessions</h3>
+          <div style="padding:14px;background:var(--lt);border-radius:10px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+            <div style="display:flex;align-items:center;gap:11px">
+              <div style="font-size:26px">💻</div>
+              <div><div style="font-weight:700;font-size:13.5px;color:var(--navy)">This Device (Browser)</div><div style="font-size:12px;color:var(--gr);margin-top:2px">Current session • New Delhi, IN</div></div>
+            </div>
+            <span style="background:rgba(39,174,96,.12);border:1px solid rgba(39,174,96,.3);color:var(--grn);padding:4px 12px;border-radius:8px;font-size:12px;font-weight:700">Active</span>
+          </div>
+        </div>
+      </div>
+      <div class="pr-section" id="prs-bills">
+        <div class="pr-card">
+          <h3>🧾 Bills &amp; Documents</h3>
+          <p style="color:var(--gr);font-size:13.5px;margin-bottom:18px;line-height:1.7">Upload invoices, bills, and documents. Stored in your browser — download any time.</p>
+          <div class="bill-zone" id="billDropZone" ondragover="event.preventDefault();this.classList.add('drag')" ondragleave="this.classList.remove('drag')" ondrop="handleBillDrop(event)">
+            <input type="file" id="billFileInp" accept=".pdf,.jpg,.jpeg,.png,.txt,.doc,.docx" multiple onchange="handleBillUpload(event)">
+            <div class="bill-zone-ico">📤</div>
+            <div class="bill-zone-txt">Click to upload or drag &amp; drop</div>
+            <div class="bill-zone-sub">PDF, JPG, PNG, DOC supported • Max 5MB each</div>
+          </div>
+          <div class="bill-list" id="billList"></div>
+          <div class="msg" id="billMsg"></div>
+        </div>
+        <div class="pr-card" style="margin-top:16px">
+          <h3>🔧 RMA Repair Bills</h3>
+          <p style="color:var(--gr);font-size:13px;margin-bottom:14px">Bills and invoices linked to your RMA repair requests.</p>
+          <div id="rmaBillList"></div>
+        </div>
+      </div>
+      <div class="pr-section" id="prs-rma">
+        <div class="pr-card">
+          <h3>🔧 My RMA History</h3>
+          <div id="prRMAList"></div>
+          <div style="margin-top:14px;display:flex;gap:9px;flex-wrap:wrap">
+            <button class="br" onclick="G('rma');rmaTab('reg')">+ Register New RMA</button>
+            <button class="bo" style="color:var(--navy);border-color:var(--bd)" onclick="G('rma');rmaTab('track')">🔍 Track RMA</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ RMA ═══ -->
+<div id="rma-page" class="page">
+  <div class="rhead"><h1>🔧 RMA <span>Tracking System</span></h1><p style="color:rgba(255,255,255,.5);font-size:14px">Track your repair progress in real-time</p></div>
+  <div style="max-width:820px;margin:0 auto;padding:0 3%">
+    <div class="rtabs"><button class="rtab act" onclick="rmaTab('track')">🔍 Track</button><button class="rtab" onclick="rmaTab('reg')">📝 Register</button></div>
+    <div class="rpanel act" id="rp-track">
+      <div class="rcard">
+        <h3>🔍 Track Your RMA</h3>
+        <div style="display:flex;gap:9px;margin-bottom:14px;flex-wrap:wrap">
+          <input id="trk-id" placeholder="RMA ID / Email / Phone..." onkeydown="if(event.key==='Enter')trackRMA()" style="flex:1;min-width:180px;background:var(--wh);border:1.5px solid var(--bd);border-radius:10px;padding:10px 14px;font-family:'Nunito',sans-serif;font-size:13.5px;outline:none;color:var(--navy)">
+          <select id="trk-field" style="background:var(--wh);border:1.5px solid var(--bd);border-radius:10px;padding:10px 12px;font-family:'Nunito',sans-serif;font-size:13px;color:var(--navy);outline:none"><option value="all">All Fields</option><option value="rmaId">RMA ID</option><option value="email">Email</option><option value="phone">Phone</option></select>
+          <button class="rsub" onclick="trackRMA()">🔍 Track</button>
+        </div>
+        <div class="msg" id="trkMsg"></div>
+        <div id="trkResults"></div>
+      </div>
+    </div>
+    <div class="rpanel" id="rp-reg">
+      <div class="rcard">
+        <h3>📝 Register New RMA</h3>
+        <div class="rg">
+          <div class="rfg"><label class="rl">Full Name *</label><input class="ri" id="rn" placeholder="Your Full Name"></div>
+          <div class="rfg"><label class="rl">Phone *</label><input class="ri" id="rph" placeholder="+91 XXXXX XXXXX" type="tel"></div>
+          <div class="rfg"><label class="rl">Email *</label><input class="ri" id="re" placeholder="email@example.com" type="email"></div>
+          <div class="rfg"><label class="rl">Device Type *</label><select class="ri" id="rdt"><option value="" disabled selected>Select Device</option><option>Cisco Switch</option><option>Router</option><option>Access Point</option><option>CCTV Camera</option><option>DVR</option><option>NVR</option><option>Laptop</option><option>Desktop</option><option>Motherboard</option><option>UPS/SMPS</option><option>Printer</option><option>Other</option></select></div>
+          <div class="rfg"><label class="rl">Brand / Model</label><input class="ri" id="rb" placeholder="e.g. Cisco SG200-26P"></div>
+          <div class="rfg"><label class="rl">Serial Number</label><input class="ri" id="rs" placeholder="Serial No."></div>
+          <div class="rfg rful"><label class="rl">Problem *</label><textarea class="ri" id="rpr" rows="3" placeholder="Describe the issue..."></textarea></div>
+          <div class="rful" style="display:flex;gap:11px;align-items:center;flex-wrap:wrap">
+            <button class="rsub" id="regRMABtn" onclick="registerRMA()"><span id="regRMABtnTxt">Register RMA 📋</span></button>
+            <button style="background:var(--lt);border:1px solid var(--bd);color:var(--gr);padding:10px 18px;border-radius:20px;cursor:pointer;font-weight:700;font-size:13px" onclick="resetRMA()">🔄 Reset</button>
+          </div>
+        </div>
+        <div class="msg" id="regRMAMsg"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ AUTH MODAL ═══ -->
+<div class="mov" id="authMov" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="mb" id="authMb">
+    <!-- Login -->
+    <div id="vLogin">
+      <div style="text-align:center;margin-bottom:16px"><svg width="52" height="52" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="48" fill="white" stroke="#c0392b" stroke-width="4"/><path d="M16 40 Q50 6 84 40" fill="none" stroke="#c0392b" stroke-width="8" stroke-linecap="round"/><text x="8" y="74" font-family="Arial Black,sans-serif" font-weight="900" font-size="40" fill="#1a1a1a">A</text><text x="52" y="74" font-family="Arial Black,sans-serif" font-weight="900" font-size="40" fill="#c0392b">P</text></svg></div>
+      <h2>Welcome Back</h2><p class="msub">Login to your A.P. Enterprises account</p>
+      <input class="mi" id="au" placeholder="Username or Email" type="text">
+      <input class="mi" id="ap" placeholder="Password" type="password" onkeydown="if(event.key==='Enter')doLogin()">
+      <div class="capbox"><span class="capq" id="capQ">Loading...</span><input class="capi" id="capA" placeholder="?"><button class="capref" onclick="genCap()">🔄</button></div>
+      <button class="msubmit" onclick="doLogin()">Login 🔓</button>
+      <div class="msg" id="authMsg"></div>
+      <div class="divid">OR</div>
+      <button style="width:100%;background:var(--lt);border:1px solid var(--bd);color:var(--navy);padding:12px;border-radius:22px;font-weight:700;font-size:14px;cursor:pointer;margin-bottom:9px" onclick="openAuth('reg')">Create New Account →</button>
+      <p style="text-align:center;font-size:12.5px;color:var(--gr)"><a href="#" onclick="openAuth('forgot')" style="color:var(--blue)">Forgot Password?</a></p>
+    </div>
+    <!-- Register -->
+    <div id="vReg" style="display:none">
+      <h2>Create Account</h2><p class="msub">Register to shop, track orders &amp; RMA</p>
+      <input class="mi" id="ran" placeholder="Full Name *" type="text">
+      <input class="mi" id="rap" placeholder="Phone Number *" type="tel">
+      <input class="mi" id="rae" placeholder="Email Address *" type="email">
+      <input class="mi" id="raw" placeholder="Password *" type="password" oninput="cpwd(this,'rpb','rph2')">
+      <div class="pwbar" id="rpb"></div>
+      <div class="pwh" id="rph2"><div class="ph" id="rrph1">❌ Min 6 chars</div><div class="ph" id="rrph2">❌ Uppercase</div><div class="ph" id="rrph3">❌ Number</div><div class="ph" id="rrph4">❌ Symbol</div></div>
+      <input class="mi" id="raw2" placeholder="Confirm Password *" type="password">
+      <div class="capbox"><span class="capq" id="capQ2">Loading...</span><input class="capi" id="capA2" placeholder="?"><button class="capref" onclick="genCap2()">🔄</button></div>
+      <button class="msubmit" style="background:var(--grn)" onclick="doRegister()">Create Account ✅</button>
+      <div class="msg" id="regMsg"></div>
+      <div class="divid">OR</div>
+      <button style="width:100%;background:var(--lt);border:1px solid var(--bd);color:var(--navy);padding:12px;border-radius:22px;font-weight:700;font-size:14px;cursor:pointer" onclick="openAuth('login')">Already have account? Login →</button>
+    </div>
+    <!-- OTP -->
+    <div id="vOTP" style="display:none">
+      <h2>🔐 Two-Step Verification</h2><p class="msub">Enter the 6-digit code sent to your email</p>
+      <div class="otp-info">✉️ Code sent to <strong id="otpEmail">email</strong></div>
+      <div class="otpbox" id="otpBox"></div>
+      <button class="msubmit" onclick="verifyOTP()">Verify &amp; Login ✅</button>
+      <div class="msg" id="otpMsg"></div>
+      <p style="text-align:center;margin-top:11px;font-size:13px;color:var(--gr)">Didn't get code? <a href="#" onclick="resendOTP()" style="color:var(--blue);font-weight:700">Resend</a></p>
+    </div>
+    <!-- Forgot -->
+    <div id="vForgot" style="display:none">
+      <h2>🔑 Reset Password</h2><p class="msub">Enter your email to receive reset link</p>
+      <input class="mi" id="femail" placeholder="Registered Email" type="email">
+      <button class="msubmit" onclick="sendReset()">Send Reset Link 📧</button>
+      <div class="msg" id="forgotMsg"></div>
+      <button style="width:100%;background:var(--lt);border:1px solid var(--bd);color:var(--navy);padding:12px;border-radius:22px;font-weight:700;font-size:14px;cursor:pointer;margin-top:9px" onclick="openAuth('login')">← Back to Login</button>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCT DETAIL MODAL -->
+<div class="mov" id="pdMov" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="mb wide">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+      <h2 style="text-align:left;margin-bottom:0" id="pdTitle">Product</h2>
+      <button onclick="Q('#pdMov').classList.remove('open')" style="background:var(--lt);border:1px solid var(--bd);width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center">✕</button>
+    </div>
+    <div class="pdgrid" id="pdContent"></div>
+  </div>
+</div>
+
+<!-- PRODUCT ADD/EDIT MODAL -->
+<div class="mov" id="prodMov" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="mb med">
+    <h2 id="prodMT">Add New Product</h2><p class="msub">Fill details — visible to all customers</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:11px">
+      <div><label style="font-size:12px;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:.8px;display:block;margin-bottom:4px">Name *</label><input class="mi" id="pmn" placeholder="Product Name" style="margin-bottom:0"></div>
+      <div><label style="font-size:12px;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:.8px;display:block;margin-bottom:4px">Brand</label><input class="mi" id="pmb" placeholder="Brand" style="margin-bottom:0"></div>
+      <div><label style="font-size:12px;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:.8px;display:block;margin-bottom:4px">Category</label><select class="mi" id="pmc" style="margin-bottom:0"><option>Networking</option><option>Surveillance</option><option>Computers</option><option>Printers</option><option>Accessories</option><option>Power</option></select></div>
+      <div><label style="font-size:12px;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:.8px;display:block;margin-bottom:4px">Price (₹) *</label><input class="mi" id="pmp" type="number" placeholder="12500" style="margin-bottom:0"></div>
+      <div><label style="font-size:12px;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:.8px;display:block;margin-bottom:4px">MRP (₹)</label><input class="mi" id="pmm" type="number" placeholder="15000" style="margin-bottom:0"></div>
+      <div><label style="font-size:12px;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:.8px;display:block;margin-bottom:4px">Stock</label><input class="mi" id="pmst" type="number" placeholder="50" style="margin-bottom:0"></div>
+      <div><label style="font-size:12px;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:.8px;display:block;margin-bottom:4px">Icon (emoji)</label><input class="mi" id="pmi" placeholder="🔌" style="margin-bottom:0"></div>
+      <div><label style="font-size:12px;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:.8px;display:block;margin-bottom:4px">Badge</label><select class="mi" id="pmbd" style="margin-bottom:0"><option value="">None</option><option value="sale">Sale</option><option value="new">New</option><option value="hot">Hot</option></select></div>
+      <div style="grid-column:1/-1"><label style="font-size:12px;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:.8px;display:block;margin-bottom:4px">Description</label><textarea class="mi" id="pmd" rows="2" placeholder="Product description..." style="margin-bottom:0;resize:vertical"></textarea></div>
+      <div style="grid-column:1/-1">
+        <label style="font-size:12px;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:.8px;display:block;margin-bottom:4px">Product Images (1-6)</label>
+        <div onclick="Q('#prodImgInput').click()" style="background:var(--lt);border:2px dashed var(--bd);border-radius:10px;padding:14px;text-align:center;cursor:pointer;font-size:13px;font-weight:700;color:var(--gr);margin-bottom:8px">📤 Click to upload images (max 6)</div>
+        <div id="prodImgPrev" style="display:flex;gap:8px;flex-wrap:wrap"></div>
+      </div>
+    </div>
+    <div style="display:flex;gap:10px;margin-top:14px">
+      <button class="msubmit" style="background:var(--grn);max-width:200px" onclick="saveProd()">💾 Save Product</button>
+      <button style="background:var(--lt);border:1px solid var(--bd);color:var(--navy);padding:12px 20px;border-radius:22px;font-weight:700;font-size:14px;cursor:pointer" onclick="Q('#prodMov').classList.remove('open')">Cancel</button>
+    </div>
+    <div class="msg" id="prodMsg"></div>
+  </div>
+</div>
+
+<!-- SERVICE EDIT MODAL -->
+<div class="mov" id="svcMov" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="mb">
+    <h2 id="svcMT">Add Service</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:11px">
+      <div style="grid-column:1/-1"><label style="font-size:12px;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:.8px;display:block;margin-bottom:4px">Service Name *</label><input class="mi" id="svn" placeholder="e.g. Networking Repair" style="margin-bottom:0"></div>
+      <div><label style="font-size:12px;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:.8px;display:block;margin-bottom:4px">Sub Text</label><input class="mi" id="svs" placeholder="e.g. Switches, Routers" style="margin-bottom:0"></div>
+      <div><label style="font-size:12px;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:.8px;display:block;margin-bottom:4px">Icon (emoji)</label><input class="mi" id="svi" placeholder="🔧" style="margin-bottom:0"></div>
+      <div style="grid-column:1/-1"><label style="font-size:12px;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:.8px;display:block;margin-bottom:4px">Description</label><textarea class="mi" id="svd" rows="3" placeholder="Detailed description..." style="margin-bottom:0;resize:vertical"></textarea></div>
+      <div><label style="font-size:12px;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:.8px;display:block;margin-bottom:4px">Starting Price</label><input class="mi" id="svp" placeholder="e.g. ₹500" style="margin-bottom:0"></div>
+      <div><label style="font-size:12px;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:.8px;display:block;margin-bottom:4px">Features (comma separated)</label><input class="mi" id="svf" placeholder="On-site support, AMC" style="margin-bottom:0"></div>
+    </div>
+    <div style="display:flex;gap:10px;margin-top:14px">
+      <button class="msubmit" style="background:var(--grn);max-width:160px" onclick="saveSvc()">💾 Save</button>
+      <button style="background:var(--lt);border:1px solid var(--bd);color:var(--navy);padding:12px 18px;border-radius:22px;font-weight:700;font-size:14px;cursor:pointer" onclick="Q('#svcMov').classList.remove('open')">Cancel</button>
+    </div>
+    <div class="msg" id="svcMsg"></div>
+  </div>
+</div>
+
+<!-- CLIENT EDIT MODAL -->
+<div class="mov" id="clMov" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="mb">
+    <h2 id="clMT">Add Client</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:11px">
+      <div style="grid-column:1/-1"><label style="font-size:12px;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:.8px;display:block;margin-bottom:4px">Client Name *</label><input class="mi" id="cln2" placeholder="Organisation Name" style="margin-bottom:0"></div>
+      <div><label style="font-size:12px;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:.8px;display:block;margin-bottom:4px">Type / Sector *</label><input class="mi" id="clt2" placeholder="e.g. Power PSU" style="margin-bottom:0"></div>
+      <div><label style="font-size:12px;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:.8px;display:block;margin-bottom:4px">Abbr (2-3 chars)</label><input class="mi" id="cla" placeholder="NT" maxlength="3" style="margin-bottom:0"></div>
+      <div><label style="font-size:12px;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:.8px;display:block;margin-bottom:4px">Color</label><input class="mi" id="clc" type="color" value="#007DB8" style="margin-bottom:0;height:44px;padding:4px 8px"></div>
+      <div><label style="font-size:12px;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:.8px;display:block;margin-bottom:4px">Since Year</label><input class="mi" id="clsy" type="number" placeholder="2019" style="margin-bottom:0"></div>
+      <div style="grid-column:1/-1"><label style="font-size:12px;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:.8px;display:block;margin-bottom:4px">Description</label><textarea class="mi" id="cld" rows="2" placeholder="Brief company description..." style="margin-bottom:0;resize:vertical"></textarea></div>
+      <div style="grid-column:1/-1"><label style="font-size:12px;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:.8px;display:block;margin-bottom:4px">Logo URL (optional)</label><input class="mi" id="cll" placeholder="https://..." style="margin-bottom:0"></div>
+    </div>
+    <div style="display:flex;gap:10px;margin-top:14px">
+      <button class="msubmit" style="background:var(--grn);max-width:160px" onclick="saveCl()">💾 Save</button>
+      <button style="background:var(--lt);border:1px solid var(--bd);color:var(--navy);padding:12px 18px;border-radius:22px;font-weight:700;font-size:14px;cursor:pointer" onclick="Q('#clMov').classList.remove('open')">Cancel</button>
+    </div>
+    <div class="msg" id="clMsg"></div>
+  </div>
+</div>
+
+<!-- RMA EDIT MODAL -->
+<div class="mov" id="editRMAMov" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="mb med">
+    <h2>✏️ Update RMA — <span id="editRMALbl" style="color:var(--red)"></span></h2>
+    <p class="msub">Update progress — customer receives email notification</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:11px">
+      <div><label style="font-size:12px;font-weight:800;color:var(--navy);text-transform:uppercase;display:block;margin-bottom:4px">Status</label><select class="mi" id="ers" style="margin-bottom:0"><option value="received">Received</option><option value="diagnosed">Diagnosed</option><option value="repairing">Repairing</option><option value="quality">Quality Check</option><option value="ready">Ready for Pickup</option><option value="delivered">Delivered</option></select></div>
+      <div><label style="font-size:12px;font-weight:800;color:var(--navy);text-transform:uppercase;display:block;margin-bottom:4px">ETA (Days)</label><input class="mi" id="ere" type="number" placeholder="3" style="margin-bottom:0"></div>
+      <div><label style="font-size:12px;font-weight:800;color:var(--navy);text-transform:uppercase;display:block;margin-bottom:4px">Technician</label><input class="mi" id="ert" placeholder="Technician Name" style="margin-bottom:0"></div>
+      <div><label style="font-size:12px;font-weight:800;color:var(--navy);text-transform:uppercase;display:block;margin-bottom:4px">Cost (₹)</label><input class="mi" id="erc" type="number" placeholder="0" style="margin-bottom:0"></div>
+      <div style="grid-column:1/-1"><label style="font-size:12px;font-weight:800;color:var(--navy);text-transform:uppercase;display:block;margin-bottom:4px">Progress Notes</label><textarea class="mi" id="ern" rows="3" placeholder="Update notes..." style="margin-bottom:0;resize:vertical"></textarea></div>
+      <div style="grid-column:1/-1"><label style="font-size:12px;font-weight:800;color:var(--navy);text-transform:uppercase;display:block;margin-bottom:4px">Invoice / Bill Reference</label><input class="mi" id="eri" placeholder="Invoice number or details" style="margin-bottom:0"></div>
+    </div>
+    <div style="display:flex;gap:10px;margin-top:14px">
+      <button style="background:var(--grn);color:#fff;padding:11px 22px;border-radius:22px;font-weight:800;font-size:14px;border:none;cursor:pointer" onclick="saveRMAEdit()">💾 Save &amp; Notify</button>
+      <button style="background:var(--lt);border:1px solid var(--bd);color:var(--navy);padding:11px 20px;border-radius:22px;font-weight:700;font-size:14px;cursor:pointer" onclick="Q('#editRMAMov').classList.remove('open')">Cancel</button>
+    </div>
+    <div class="msg" id="editRMAMsg"></div>
+  </div>
+</div>
+
+<script>
+// ── HELPERS ──
+const Q=(s)=>document.querySelector(s);
+const QA=(s)=>document.querySelectorAll(s);
+const $ =(id)=>document.getElementById(id);
+function showMsg(id,t,h){const e=$(id);if(!e)return;e.className='msg '+t;e.innerHTML=h;if(!t)e.style.display='none';else e.style.display='block';}
+
+// ── STORAGE ──
+let DB={
+  rmas:JSON.parse(localStorage.getItem('v9_rmas')||'[]'),
+  users:JSON.parse(localStorage.getItem('v9_users')||'[]'),
+  orders:JSON.parse(localStorage.getItem('v9_orders')||'[]'),
+  products:null,services:null,clients:null,
+  logo:localStorage.getItem('v9_logo')||'',
+  cart:JSON.parse(localStorage.getItem('v9_cart')||'[]')
+};
+DB.products=JSON.parse(localStorage.getItem('v9_products')||'null');
+DB.services=JSON.parse(localStorage.getItem('v9_services')||'null');
+DB.clients=JSON.parse(localStorage.getItem('v9_clients')||'null');
+function sv(){['rmas','users','orders','products','services','clients','cart'].forEach(k=>localStorage.setItem('v9_'+k,JSON.stringify(DB[k])));localStorage.setItem('v9_logo',DB.logo);}
+
+// SEEDS
+if(!DB.products)DB.products=[
+  {id:1,name:'Cisco SG200-26P Switch',brand:'Cisco',cat:'Networking',price:12500,mrp:16000,stock:15,icon:'🔌',badge:'sale',desc:'26-port PoE managed switch. Layer 2, 24x PoE ports, 4x SFP combo. Ideal for SMB.',feats:['Layer 2 Managed','24x PoE Ports','4x SFP Combo','Web-based UI'],imgs:[]},
+  {id:2,name:'Hikvision 8Ch DVR',brand:'Hikvision',cat:'Surveillance',price:5800,mrp:7500,stock:8,icon:'📹',badge:'hot',desc:'8 channel DVR supporting 5MP cameras. H.265+ compression, 1 SATA bay, remote access.',feats:['8 Channel','5MP Support','H.265+','Remote Access'],imgs:[]},
+  {id:3,name:'CP Plus 2MP IP Camera',brand:'CP Plus',cat:'Surveillance',price:2200,mrp:2800,stock:30,icon:'📷',badge:'',desc:'2MP Full HD IP camera, 30m IR night vision, IP66 weatherproof, H.265 encoding.',feats:['2MP Full HD','30m IR Night Vision','IP66 Weatherproof','H.265'],imgs:[]},
+  {id:4,name:'TP-Link 24-Port POE Switch',brand:'TP-Link',cat:'Networking',price:8900,mrp:11000,stock:6,icon:'⚡',badge:'sale',desc:'24-port PoE+ smart managed switch, 370W budget, 4 SFP slots.',feats:['24x PoE+ Ports','370W Budget','4x SFP','Smart Managed'],imgs:[]},
+  {id:5,name:'Dell Laptop i5 12th Gen',brand:'Dell',cat:'Computers',price:52000,mrp:65000,stock:5,icon:'💻',badge:'hot',desc:'Dell Inspiron 15, 12th Gen Intel i5, 16GB RAM, 512GB SSD, Windows 11.',feats:['12th Gen i5','16GB DDR4','512GB NVMe SSD','Windows 11'],imgs:[]},
+  {id:6,name:'HP LaserJet Pro Printer',brand:'HP',cat:'Printers',price:14500,mrp:18000,stock:12,icon:'🖨️',badge:'',desc:'HP LaserJet Pro M404n, 38ppm, auto-duplex, Ethernet/USB.',feats:['38ppm Speed','Auto-Duplex','Ethernet+USB','250-Sheet Tray'],imgs:[]},
+  {id:7,name:'APC 600VA UPS',brand:'APC',cat:'Power',price:3800,mrp:4500,stock:20,icon:'🔋',badge:'',desc:'APC Back-UPS 600VA, 8 outlets, surge protection, auto voltage regulation.',feats:['600VA/360W','8 Outlets','Surge Protection','LCD Display'],imgs:[]},
+  {id:8,name:'D-Link Wireless Router',brand:'D-Link',cat:'Networking',price:2100,mrp:2500,stock:25,icon:'📡',badge:'new',desc:'D-Link DIR-825 AC1200 dual-band router with USB 3.0 for storage sharing.',feats:['AC1200 Dual Band','USB 3.0 Port','4x LAN Ports','QoS Support'],imgs:[]},
+  {id:9,name:'Epson L3150 Printer',brand:'Epson',cat:'Printers',price:13800,mrp:16500,stock:7,icon:'🖨️',badge:'',desc:'EcoTank L3150 wireless all-in-one. Print, scan, copy. 4500 B&W pages per refill.',feats:['Wi-Fi Enabled','Print/Scan/Copy','EcoTank Refillable','Low Cost Per Page'],imgs:[]},
+  {id:10,name:'Unifi AC Lite Access Point',brand:'Ubiquiti',cat:'Networking',price:7200,mrp:9000,stock:10,icon:'📶',badge:'hot',desc:'Unifi UAP-AC-Lite 802.11ac dual-radio AP, PoE powered, manages 250+ clients.',feats:['802.11ac Dual Band','PoE Powered','Unifi Controller','250+ Clients'],imgs:[]},
+  {id:11,name:'Samsung 27" Monitor',brand:'Samsung',cat:'Computers',price:18500,mrp:22000,stock:8,icon:'🖥️',badge:'sale',desc:'27" IPS Full HD 75Hz monitor with HDMI, VGA, built-in speakers.',feats:['27" IPS Panel','Full HD 1080p','75Hz Refresh','HDMI + VGA'],imgs:[]},
+  {id:12,name:'Pelco PTZ IP Camera',brand:'Pelco',cat:'Surveillance',price:28000,mrp:35000,stock:3,icon:'🔭',badge:'',desc:'Pelco Spectra 4K PTZ, 360° pan, 90° tilt, 32x optical zoom, IP66.',feats:['4K Resolution','32x Optical Zoom','360° Pan','IP66 Rated'],imgs:[]},
+];
+if(!DB.services)DB.services=[
+  {id:1,icon:'🔧',name:'Networking Repair',sub:'Switches, Routers, AP',desc:'Expert repair of all networking equipment — Cisco switches, D-Link routers, Unifi/TP-Link access points, media converters, PoE switches, LAN extenders. Diagnose and fix hardware faults, firmware corruption, PoE failures, port damage.',feats:['Cisco Switch Repair','Router Repair','Access Point Fix','PoE Switch Service','LAN Extender','Same-Day Available'],price:'From ₹500',img:''},
+  {id:2,icon:'📷',name:'CCTV Systems',sub:'Install, Repair & AMC',desc:'Complete CCTV surveillance — installation, repair, and maintenance. Hikvision, CP Plus, Pelco, and all major brands. Site survey, cabling, camera setup, DVR/NVR configuration, remote access setup.',feats:['Camera Installation','DVR/NVR Setup','Cabling & Wiring','Remote Access Config','IP66 Outdoor','24/7 Monitoring Setup'],price:'From ₹2,000',img:''},
+  {id:3,icon:'🖥️',name:'Computer Repair',sub:'Desktop & Laptop',desc:'Full-range computer repair for all brands — Dell, HP, Lenovo, Acer and more. Hardware faults, data recovery, OS installation, performance upgrades, motherboard repair and BIOS programming.',feats:['Motherboard Repair','BIOS Programming','RAM/SSD Upgrade','OS Installation','Data Recovery','Virus Removal'],price:'From ₹300',img:''},
+  {id:4,icon:'📹',name:'DVR / NVR Service',sub:'Setup & Repair',desc:'Specialist DVR and NVR repair, configuration, and password recovery. Hikvision, CP Plus, Dahua, Pelco — all brands supported. Remote support available for software issues.',feats:['Password Recovery','HDD Replacement','Remote Access Setup','Firmware Update','Multi-Channel Config','All Major Brands'],price:'From ₹500',img:''},
+  {id:5,icon:'🛡️',name:'AMC / CAMC',sub:'Annual Contracts',desc:'Annual Maintenance Contracts (AMC) and Comprehensive AMC (CAMC) for IT assets. Flexible contracts for individual devices or entire IT infrastructure with scheduled preventive maintenance.',feats:['Quarterly Site Visits','Priority Response','Spare Parts (CAMC)','24/7 Support Hotline','Multi-Vendor Coverage','Monthly Reports'],price:'From ₹5,000/year',img:''},
+  {id:6,icon:'💻',name:'IT on Rent',sub:'Flexible Leasing',desc:'Short-term and long-term IT equipment rentals for events, offices, and projects. Laptops, desktops, projectors, printers, networking gear, CCTV systems on monthly or yearly rental.',feats:['Laptops & Desktops','Projectors & Displays','Networking Gear','CCTV on Rent','Short & Long Term','Delivery + Setup Included'],price:'From ₹500/day',img:''},
+  {id:7,icon:'🔌',name:'LAN / WAN',sub:'Network Infrastructure',desc:'Complete network infrastructure — structured cabling, server rack installation, fiber optic laying, WAN configuration. Scalable network design for offices, schools, and industries.',feats:['Structured Cabling','Fiber Optic Laying','Server Rack Setup','VLAN Config','VPN Setup','Network Audit'],price:'From ₹3,000',img:''},
+  {id:8,icon:'🖨️',name:'Printer Service',sub:'All Brands',desc:'Repair and maintenance of all printer types — laser, inkjet, thermal, dot matrix. Epson, Canon, HP, Brother. Toner refilling, drum replacement, print head cleaning.',feats:['Laser Printer Repair','Inkjet Service','Thermal Fix','Toner Refill','Print Head Cleaning','Driver Installation'],price:'From ₹200',img:''},
+];
+if(!DB.clients)DB.clients=[
+  {id:1,n:'NTPC',a:'NT',c:'#007DB8',t:'Power Sector PSU',since:'2019',logo:'',desc:"National Thermal Power Corporation — India's largest power company. A.P. Enterprises provides IT repair and networking support for NTPC's Delhi offices."},
+  {id:2,n:'SBI',a:'SB',c:'#003087',t:'State Bank of India',since:'2018',logo:'',desc:'State Bank of India — India\'s largest public sector bank. We provide CCTV surveillance maintenance and IT support services.'},
+  {id:3,n:'NDIM',a:'ND',c:'#fd7e14',t:'Management Institute',since:'2018',logo:'',desc:'New Delhi Institute of Management — Premier management college. We handle IT repair, CCTV, and networking for their campus.'},
+  {id:4,n:'ARTEK',a:'AR',c:'#0d6efd',t:'Technology Solutions',since:'2020',logo:'',desc:'ARTEK Group — technology solutions provider. We supply networking products and provide AMC support for their infrastructure.'},
+  {id:5,n:'VaaaN Tech',a:'VT',c:'#198754',t:'Tech & Infra',since:'2021',logo:'',desc:'VaaaN Tech Systems — IT and infrastructure company. We provide switch repair, LAN services, and CCTV installations.'},
+  {id:6,n:'B Systems',a:'BS',c:'#6f42c1',t:'IT Systems',since:'2019',logo:'',desc:'B Systems — IT solutions provider in Delhi. Long-term partner for networking repair and product procurement.'},
+  {id:7,n:'QuaLix',a:'QL',c:'#20c997',t:'Quality IT Services',since:'2021',logo:'',desc:'QuaLix — IT services company. Preferred vendor for networking equipment and maintenance contracts.'},
+  {id:8,n:'Good Samaritan',a:'GS',c:'#198754',t:'School, New Delhi',since:'2020',logo:'',desc:'Good Samaritan School — English medium school in Delhi. AMC for IT lab, CCTV, and networking infrastructure.'},
+  {id:9,n:'Hotel Samrat',a:'HS',c:'#8b4513',t:'Hospitality',since:'2019',logo:'',desc:'Hotel Samrat — Delhi hotel. CCTV surveillance, networking, and IT support for their premises.'},
+  {id:10,n:'TNS Professionals',a:'TN',c:'#0dcaf0',t:'IT Professionals',since:'2020',logo:'',desc:'TNS Professionals — Managed IT services. Hardware repair and networking support as backend partner.'},
+  {id:11,n:'STS Services',a:'ST',c:'#c0392b',t:'Service Solutions',since:'2022',logo:'',desc:'STS Services — Service management company. IT products supply and on-site repair support.'},
+  {id:12,n:'Hilton Holidays',a:'HH',c:'#b8860b',t:'Hospitality',since:'2021',logo:'',desc:'Hilton Holidays International — Travel and hospitality brand. CCTV systems management and IT support.'},
+];
+if(!DB.rmas.length)DB.rmas=[
+  {rmaId:'RMA-2024-0001',userId:'USER-001',name:'Rajesh Kumar',phone:'9812345678',email:'rajesh@example.com',device:'Cisco Switch',brand:'Cisco SG200-26P',serial:'FOC1234X5YZ',problem:'Ports 1-4 not working after power surge',status:'repairing',tech:'Lalan Singh',eta:3,cost:2500,notes:'Power module replaced. Testing in progress.',date:'2024-12-10',invoice:''},
+  {rmaId:'RMA-2024-0002',userId:'USER-002',name:'Priya Sharma',phone:'9876543210',email:'priya@school.org',device:'DVR',brand:'Hikvision DS-7208',serial:'HIK2024001',problem:'No video on channels 3,4,5',status:'ready',tech:'Rahul Verma',eta:0,cost:1800,notes:'Decoder chip replaced. Ready for pickup!',date:'2024-12-12',invoice:'INV-2024-002'},
+];
+sv();
+
+// ── LOGO ──
+let pendLogoTarget='';
+function handleLogo(e){const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=ev=>{DB.logo=ev.target.result;sv();applyLogo(DB.logo);};r.readAsDataURL(f);e.target.value='';}
+function applyLogo(src){
+  if(!src)return;
+  const ni=$('navLogoImg'),ns=$('navLogoSvg'),hi=$('heroLogoImg'),hs=$('heroLogoSvg');
+  if(ni){ni.src=src;ni.style.display='block';}
+  if(ns)ns.style.display='none';
+  if(hi){hi.src=src;hi.style.display='block';}
+  if(hs)hs.style.display='none';
+}
+function adminLogo(e){if(!document.body.classList.contains('admin-mode'))return;e.stopPropagation();$('logoInput').click();}
+if(DB.logo)applyLogo(DB.logo);
+
+// ── TICKER ──
+const TI=['🏭 MSME Certified','😊 100,000+ Happy Customers','📦 50,000+ Products','20+ Client Organisations','🔧 Networking Repair Specialists','📷 Surveillance System Experts','🛒 GeM Listed Seller','📲 WhatsApp: +91 9891375767','✅ Govt. Registered 2016','🛍️ Online Shop — 100+ Products','🔧 RMA Live Tracking'];
+(()=>{const d=[...TI,...TI];$('tt').innerHTML=d.map(t=>`<span class="ti"><span class="td"></span>${t}</span>`).join('');})();
+
+//Brands
+const brands=[{n:'Dell',l:'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Dell_logo_2016.svg/120px-Dell_logo_2016.svg.png'},
+{n:'Microsoft',l:'https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original'},
+{n:'Nvidia',l:'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/NVIDIA_logo.svg/960px-NVIDIA_logo.svg.png'},
+{n:'Dell',l:'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Dell_logo_2016.svg/120px-Dell_logo_2016.svg.png'},
+{n:'Broadcom',l:'https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Broadcom_logo_%282016-present%29.svg/3840px-Broadcom_logo_%282016-present%29.svg.png'},
+{n:'HP',l:'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/HP_logo_2012.svg/500px-HP_logo_2012.svg.png'},
+{n:'Cisco',l:'https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Cisco_logo_blue_2016.svg/120px-Cisco_logo_blue_2016.svg.png'},
+{n:'Hikvision',l:'https://upload.wikimedia.org/wikipedia/commons/c/c3/Bosch_logo.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original'},
+{n:'Epson',l:'https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Epson_logo.svg/1280px-Epson_logo.svg.png'},
+{n:'CP Plus',l:'https://www.adityagroup.com/assets_web/images/brands/cpplus_logo.png'},
+{n:'UNV',l:'https://upload.wikimedia.org/wikipedia/commons/6/64/Uniview%28logo%29.png'},
+{n:'Juniper',l:'https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Juniper_Networks_logo.svg/1280px-Juniper_Networks_logo.svg.png'},
+{n:'MSI',l:'https://1000logos.net/wp-content/uploads/2018/10/MSI-Logo.png'},
+{n:'GigaByte',l:'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Gigabyte_Technology_logo_20080107.svg/1280px-Gigabyte_Technology_logo_20080107.svg.png'},
+{n:'Asus',l:'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/ASUS_Corporate_Logo.svg/1280px-ASUS_Corporate_Logo.svg.png'},
+{n:'Cooler Master',l:'https://www.logo.wine/a/logo/Cooler_Master/Cooler_Master-Logo.wine.svg'},
+{n:'People Link',l:'https://www.peoplelinkvc.com/wp-content/uploads/2019/09/PeopleLink-Logo-Black.webp'},
+{n:'TP-Link',l:'https://upload.wikimedia.org/wikipedia/commons/9/94/TPLINK_Logo_2.png'},
+{n:'Lenovo',l:'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Lenovo_logo_2015.svg/120px-Lenovo_logo_2015.svg.png'},
+{n:'IDM',l:'https://pngimg.com/uploads/ibm/ibm_PNG19658.png'},
+{n:'Apple',l:'https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original '}];
+(()=>{const d=[...brands,...brands];$('btrack').innerHTML=d.map(b=>`<div class="bcard"><img class="blogo" src="${b.l}" alt="${b.n}" onerror="this.style.display='none'"><span class="blab">${b.n}</span></div>`).join('');})();
+
+// ── TESTIMONIALS ──
+const testis=[{s:5,t:"Repaired our Cisco switch in under 4 hours! Lalan Singh came personally. Extremely professional.",n:"Rajesh Kumar",o:"NDIM Delhi",c:"#c0392b"},{s:5,t:"3 years AMC. CCTV always running. Best maintenance partner in Delhi!",n:"Priya Sharma",o:"Good Samaritan School",c:"#003087"},{s:5,t:"Rented 20 laptops for training. Delivered on time, perfectly configured.",n:"Amit Verma",o:"TNS Professionals",c:"#198754"},{s:5,t:"Hikvision NVR repaired the very next day. Very knowledgeable team!",n:"Suresh Gupta",o:"Hotel Samrat",c:"#b8860b"},{s:5,t:"Best IT specialists in Nehru Place! 5+ years, always reliable.",n:"Deepak Singh",o:"B Systems",c:"#6f42c1"},{s:5,t:"Set up office LAN with Cisco and Unifi APs perfectly. Outstanding!",n:"Neha Agarwal",o:"QuaLix",c:"#20c997"}];
+$('tgrid').innerHTML=testis.map(t=>`<div class="tc"><div class="tqm">"</div><div style="color:#f5a623;font-size:14px;margin-bottom:9px">${'★'.repeat(t.s)}</div><p style="font-size:13.5px;color:var(--gr);line-height:1.78;margin-bottom:14px;font-style:italic">${t.t}</p><div style="display:flex;align-items:center;gap:10px"><div style="width:40px;height:40px;border-radius:50%;background:${t.c};display:flex;align-items:center;justify-content:center;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:15px;color:#fff;flex-shrink:0">${t.n.split(' ').map(w=>w[0]).join('').slice(0,2)}</div><div><div style="font-weight:800;font-size:14px;color:var(--navy)">${t.n}</div><div style="font-size:11.5px;color:var(--gr)">${t.o}</div></div></div></div>`).join('');
+
+// ── HOVER POPUP ──
+const pop=$('hpopup');
+function showPop(e,type,id){
+  let ti='',de='',ta='';
+  if(type==='client'){const c=DB.clients.find(x=>x.id===id);if(!c)return;ti=c.n;de=c.desc||c.t+' — Client since '+c.since;ta='Top Client';}
+  if(type==='svc'){const s=DB.services.find(x=>x.id===id);if(!s)return;ti=s.name;de=s.desc?s.desc.slice(0,120)+'...':s.sub||'';ta='Service';}
+  $('hpt').textContent=ta;$('hph').textContent=ti;$('hpp').textContent=de;
+  pop.classList.add('vis');movePop(e);
+}
+function movePop(e){const x=Math.min(e.clientX+15,window.innerWidth-295),y=Math.min(e.clientY+15,window.innerHeight-200);pop.style.left=x+'px';pop.style.top=y+'px';}
+document.addEventListener('mousemove',e=>{if(pop.classList.contains('vis'))movePop(e);});
+function hidePop(){pop.classList.remove('vis');}
+
+// ── SERVICES GRID ──
+let editSvcId=null,uploadSvcId=null;
+function renderSvcGrid(){
+  const isA=document.body.classList.contains('admin-mode');
+  $('svcGrid').innerHTML=DB.services.map(s=>`
+    <div class="sc" onmouseenter="showPop(event,'svc',${s.id})" onmouseleave="hidePop()" onclick="G('svcpage')">
+      <div class="sc-edit-row">
+        <button class="ebtn" onclick="event.stopPropagation();openSvcModal(${s.id})">✎</button>
+        <button class="xbtn" onclick="event.stopPropagation();delSvc(${s.id})">✕</button>
+      </div>
+      <div class="sciwrap">
+        ${s.img?`<img class="scimg" src="${s.img}" style="display:block">`:`<div class="scfb">${s.icon}</div>`}
+        <button class="scupbtn" onclick="event.stopPropagation();trigSvcUpload(${s.id})" title="Upload Icon">📤</button>
+      </div>
+      <div class="scn">${s.name}</div>
+      <div class="scs">${s.sub||''}</div>
+    </div>`).join('')+(isA?`<div class="sc-add" onclick="openSvcModal(null)">➕<span>Add Service</span></div>`:'');
+}
+function trigSvcUpload(id){uploadSvcId=id;$('svcIconInput').click();}
+function handleSvcIcon(e){const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=ev=>{const s=DB.services.find(x=>x.id===uploadSvcId);if(s){s.img=ev.target.result;sv();renderSvcGrid();renderSvcDetail();}};r.readAsDataURL(f);e.target.value='';}
+function openSvcModal(id){editSvcId=id;if(id){const s=DB.services.find(x=>x.id===id);if(!s)return;$('svn').value=s.name;$('svs').value=s.sub||'';$('svi').value=s.icon||'🔧';$('svd').value=s.desc||'';$('svp').value=s.price||'';$('svf').value=(s.feats||[]).join(', ');$('svcMT').textContent='Edit Service';}else{['svn','svs','svd','svp','svf'].forEach(i=>$(i).value='');$('svi').value='🔧';$('svcMT').textContent='Add Service';}$('svcMov').classList.add('open');}
+function saveSvc(){const n=$('svn').value.trim();if(!n){showMsg('svcMsg','err','⚠ Name required.');return}const obj={id:editSvcId||Date.now(),name:n,sub:$('svs').value,icon:$('svi').value||'🔧',desc:$('svd').value,price:$('svp').value,feats:$('svf').value.split(',').map(s=>s.trim()).filter(Boolean),img:editSvcId?DB.services.find(s=>s.id===editSvcId)?.img||'':''};if(editSvcId){const i=DB.services.findIndex(s=>s.id===editSvcId);if(i>=0)DB.services[i]=obj;}else DB.services.push(obj);sv();renderSvcGrid();renderSvcDetail();$('svcMov').classList.remove('open');}
+function delSvc(id){if(!confirm('Delete this service?'))return;DB.services=DB.services.filter(s=>s.id!==id);sv();renderSvcGrid();renderSvcDetail();}
+
+// ── SERVICE DETAIL PAGE ──
+function renderSvcDetail(){
+  const isA=document.body.classList.contains('admin-mode');
+  if($('svcAddBtn'))$('svcAddBtn').style.display=isA?'block':'none';
+  $('svcDetailList').innerHTML=DB.services.map(s=>`
+    <div class="sdc">
+      <div class="sdico">${s.img?`<img src="${s.img}" style="width:100%;height:100%;object-fit:cover;border-radius:14px;display:block">`:`<div class="sdico-fb">${s.icon}</div>`}</div>
+      <div class="sdc-content">
+        <h3>${s.name}</h3>
+        <p>${s.desc||'Professional IT service by A.P. Enterprises.'}</p>
+        <div class="sdc-feats">${(s.feats||[]).map(f=>`<span class="sdf">✓ ${f}</span>`).join('')}</div>
+        ${s.price?`<div class="sdpr">${s.price}</div>`:''}
+        <div class="sdacts">
+          <button class="bquote" onclick="openAuth('login')">📋 Get a Quote</button>
+          <button class="bctct" onclick="G('main');setTimeout(()=>Q('#contact-sec').scrollIntoView({behavior:'smooth'}),80)">📞 Contact Us</button>
+          ${isA?`<button style="background:var(--lt);border:1px solid var(--bd);color:var(--blue);padding:10px 16px;border-radius:18px;cursor:pointer;font-weight:700;font-size:13px" onclick="openSvcModal(${s.id})">✎ Edit</button>`:''}
+        </div>
+      </div>
+    </div>`).join('');
+}
+
+// ── CLIENTS ──
+let editClId=null,uploadClId=null;
+function renderClients(){
+  const isA=document.body.classList.contains('admin-mode');
+  $('clGrid').innerHTML=DB.clients.map(c=>`
+    <div class="clcard" onmouseenter="showPop(event,'client',${c.id})" onmouseleave="hidePop()">
+      <div class="cl-edit-row" style="display:${isA?'flex':'none'}">
+        <button class="ebtn" onclick="event.stopPropagation();openClModal(${c.id})">✎</button>
+        <button class="xbtn" onclick="event.stopPropagation();delCl(${c.id})">✕</button>
+      </div>
+      <div class="cl-logo-wrap" style="position:relative">
+        ${c.logo?`<img src="${c.logo}" alt="${c.n}" style="display:block;width:100%;height:100%;object-fit:contain">`:`<div class="cl-logo-fb" style="background:${c.c}">${c.a}</div>`}
+        <button class="cl-upbtn" style="display:${isA?'flex':'none'}" onclick="event.stopPropagation();trigClUpload(${c.id})" title="Upload Logo">📤</button>
+      </div>
+      <div class="cln">${c.n}</div>
+      <div class="clt">${c.t}</div>
+    </div>`).join('')+(isA?`<div class="cl-add" onclick="openClModal(null)">➕<span>Add Client</span></div>`:'');
+}
+function trigClUpload(id){uploadClId=id;$('clLogoInput').click();}
+function handleClLogo(e){const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=ev=>{const c=DB.clients.find(x=>x.id===uploadClId);if(c){c.logo=ev.target.result;sv();renderClients();}};r.readAsDataURL(f);e.target.value='';}
+function openClModal(id){editClId=id;if(id){const c=DB.clients.find(x=>x.id===id);if(!c)return;$('cln2').value=c.n;$('clt2').value=c.t;$('cla').value=c.a;$('clc').value=c.c||'#007DB8';$('clsy').value=c.since||'2020';$('cld').value=c.desc||'';$('cll').value=c.logo&&!c.logo.startsWith('data:')?c.logo:'';$('clMT').textContent='Edit Client';}else{['cln2','clt2','cla','cld','cll'].forEach(i=>$(i).value='');$('clc').value='#007DB8';$('clsy').value='2020';$('clMT').textContent='Add Client';}$('clMov').classList.add('open');}
+function saveCl(){const n=$('cln2').value.trim(),t=$('clt2').value.trim();if(!n||!t){showMsg('clMsg','err','⚠ Name and type required.');return}const obj={id:editClId||Date.now(),n,t,a:$('cla').value.toUpperCase()||n.slice(0,2).toUpperCase(),c:$('clc').value,since:$('clsy').value||'2020',desc:$('cld').value,logo:$('cll').value.trim()||(editClId?DB.clients.find(c=>c.id===editClId)?.logo||'':'')};if(editClId){const i=DB.clients.findIndex(c=>c.id===editClId);if(i>=0)DB.clients[i]=obj;}else DB.clients.push(obj);sv();renderClients();$('clMov').classList.remove('open');}
+function delCl(id){if(!confirm('Remove this client?'))return;DB.clients=DB.clients.filter(c=>c.id!==id);sv();renderClients();}
+
+// ── PRODUCTS ──
+let editProdId=null,prodImgs=[];
+function renderProducts(){
+  const q=($('shopQ')?.value||'').toLowerCase(),f=$('shopCat')?.value||'all',s=$('shopSort')?.value||'def';
+  let list=DB.products.filter(p=>(f==='all'||p.cat===f)&&(!q||p.name.toLowerCase().includes(q)||p.brand.toLowerCase().includes(q)));
+  if(s==='asc')list.sort((a,b)=>a.price-b.price);else if(s==='desc')list.sort((a,b)=>b.price-a.price);else if(s==='az')list.sort((a,b)=>a.name.localeCompare(b.name));
+  const isA=document.body.classList.contains('admin-mode');
+  const off=p=>p.mrp>p.price?Math.round((1-p.price/p.mrp)*100):0;
+  const stk=p=>p.stock>10?`<span class="pstk-in">✅ In Stock (${p.stock})</span>`:p.stock>0?`<span class="pstk-lo">⚠️ Low Stock (${p.stock})</span>`:`<span class="pstk-out">❌ Out of Stock</span>`;
+  $('pgrid').innerHTML=list.map(p=>`
+    <div class="pcard" onclick="openPD(${p.id})">
+      ${p.badge?`<div class="pbadge pb-${p.badge}">${p.badge}</div>`:''}
+      <div class="pimg">${p.imgs&&p.imgs[0]?`<img src="${p.imgs[0]}" alt="${p.name}">`:`<div class="pi-ico">${p.icon||'📦'}</div>`}</div>
+      <div class="pbody">
+        <div class="pcat">${p.cat}</div>
+        <div class="pnam">${p.name}</div>
+        <div class="pbrand">${p.brand}</div>
+        <div class="ppr"><span class="ppr-m">₹${p.price.toLocaleString('en-IN')}</span>${p.mrp>p.price?`<span class="ppr-o">₹${p.mrp.toLocaleString('en-IN')}</span><span class="ppr-off">${off(p)}% off</span>`:''}</div>
+        <div class="pstk">${stk(p)}</div>
+        <div class="pacts" onclick="event.stopPropagation()">
+          <button class="btn-cart" onclick="addCart(${p.id})" ${p.stock<1?'disabled':''}>🛒 Cart</button>
+          <button class="btn-buy" onclick="addCart(${p.id});G('checkout')" ${p.stock<1?'disabled':''}>Buy Now</button>
+          <button class="btn-wl">♡</button>
+        </div>
+        ${isA?`<div style="display:flex;gap:7px;margin-top:9px" onclick="event.stopPropagation()"><button style="flex:1;background:var(--blue);color:#fff;border:none;padding:7px;border-radius:8px;cursor:pointer;font-size:12px;font-weight:700" onclick="openProdModal(${p.id})">✎ Edit</button><button style="background:rgba(192,57,43,.1);color:var(--red);border:1px solid rgba(192,57,43,.3);padding:7px 9px;border-radius:8px;cursor:pointer;font-size:12px;font-weight:700" onclick="delProd(${p.id})">🗑️</button></div>`:''}
+      </div>
+    </div>`).join('')+`<div class="p-add-btn" onclick="openProdModal(null)"><span style="font-size:26px">➕</span>Add Product</div>`;
+  if(isA){$('addProdBtn').style.display='block';}
+  $('as-prd').textContent=DB.products.length;
+}
+// Product Detail
+function openPD(id){
+  const p=DB.products.find(x=>x.id===id);if(!p)return;
+  const off=p.mrp>p.price?Math.round((1-p.price/p.mrp)*100):0;
+  const stk=p.stock>10?`<span style="color:var(--grn)">✅ In Stock (${p.stock} units)</span>`:p.stock>0?`<span style="color:var(--org)">⚠️ Low Stock (${p.stock} left)</span>`:`<span style="color:var(--red)">❌ Out of Stock</span>`;
+  $('pdTitle').textContent=p.name;
+  let imgHtml='';
+  if(p.imgs&&p.imgs.length){imgHtml=`<div class="pdmain" id="pdMain"><img src="${p.imgs[0]}" alt="${p.name}"></div><div class="pdthumbs">${p.imgs.map((img,i)=>`<div class="pdth ${i===0?'act':''}" onclick="switchPDImg('${img}',${i})"><img src="${img}"></div>`).join('')}</div>`;}
+  else{imgHtml=`<div class="pdmain"><div class="pdi">${p.icon||'📦'}</div></div><div class="pdthumbs"><div class="pdth act">${p.icon||'📦'}</div></div>`;}
+  const featsHtml=p.feats&&p.feats.length?`<div class="pdspecs">${p.feats.map(f=>`<div class="pdsr"><span>✓ ${f}</span><span style="color:var(--grn)">Included</span></div>`).join('')}</div>`:'';
+  $('pdContent').innerHTML=`<div class="pdgal">${imgHtml}</div>
+    <div class="pdinfo">
+      <h2>${p.name}</h2>
+      <div style="font-size:13px;color:var(--gr);margin-bottom:9px">${p.brand}</div>
+      <div class="pdpr"><span class="pdpr-v">₹${p.price.toLocaleString('en-IN')}</span>${p.mrp>p.price?`<span style="font-size:15px;color:var(--gr);text-decoration:line-through;margin-left:4px">₹${p.mrp.toLocaleString('en-IN')}</span><span style="font-size:14px;color:var(--grn);font-weight:700;margin-left:6px">${off}% off</span>`:''}</div>
+      <div class="pstk" style="margin-bottom:12px">${stk}</div>
+      <p class="pddesc">${p.desc||'Quality IT product from A.P. Enterprises.'}</p>
+      ${featsHtml}
+      <div class="pdqty"><label>Qty:</label><button class="qbtn" onclick="chQ('pdQ',-1)">−</button><span class="qval" id="pdQ">1</span><button class="qbtn" onclick="chQ('pdQ',1)">+</button></div>
+      <div class="pdacts">
+        <button class="br" onclick="addCartQ(${p.id},'pdQ');Q('#pdMov').classList.remove('open')" ${p.stock<1?'disabled':''}>🛒 Add to Cart</button>
+        <button class="bg" onclick="addCartQ(${p.id},'pdQ');Q('#pdMov').classList.remove('open');G('checkout')" ${p.stock<1?'disabled':''}>⚡ Buy Now</button>
+      </div>
+      <div style="margin-top:14px;padding:11px;background:var(--lt);border-radius:10px;font-size:13px;color:var(--gr)">📞 Call <a href="tel:9891375767" style="color:var(--red);font-weight:700">+91 9891375767</a> | 💬 <a href="https://wa.me/919891375767" target="_blank" style="color:var(--grn);font-weight:700">WhatsApp</a></div>
+    </div>`;
+  $('pdMov').classList.add('open');
+}
+window.switchPDImg=function(src,idx){const m=$('pdMain');if(m)m.innerHTML=`<img src="${src}" alt="img">`;QA('.pdth').forEach((t,i)=>t.classList.toggle('act',i===idx));};
+window.chQ=function(eid,d){const e=$(eid);if(!e)return;let v=parseInt(e.textContent)+d;if(v<1)v=1;if(v>99)v=99;e.textContent=v;};
+function openProdModal(id=null){editProdId=id;prodImgs=[];if(id){const p=DB.products.find(x=>x.id===id);if(!p)return;$('pmn').value=p.name;$('pmb').value=p.brand;$('pmc').value=p.cat;$('pmp').value=p.price;$('pmm').value=p.mrp||'';$('pmst').value=p.stock;$('pmi').value=p.icon||'';$('pmbd').value=p.badge||'';$('pmd').value=p.desc||'';prodImgs=[...(p.imgs||[])];$('prodMT').textContent='Edit Product';}else{['pmn','pmb','pmp','pmm','pmst','pmd'].forEach(i=>$(i).value='');$('pmi').value='📦';$('pmbd').value='';$('pmc').value='Networking';$('prodMT').textContent='Add New Product';}renderPIprev();$('prodMov').classList.add('open');}
+function renderPIprev(){$('prodImgPrev').innerHTML=prodImgs.map((img,i)=>`<div style="position:relative"><img src="${img}" style="width:58px;height:58px;object-fit:cover;border-radius:8px;border:2px solid var(--bd)"><button onclick="prodImgs.splice(${i},1);renderPIprev()" style="position:absolute;top:-6px;right:-6px;width:18px;height:18px;background:var(--red);color:#fff;border:none;border-radius:50%;cursor:pointer;font-size:10px;display:flex;align-items:center;justify-content:center">✕</button></div>`).join('');}
+function handleProdImgs(e){const files=[...e.target.files].slice(0,6-prodImgs.length);files.forEach(f=>{const r=new FileReader();r.onload=ev=>{if(prodImgs.length<6){prodImgs.push(ev.target.result);renderPIprev();}};r.readAsDataURL(f);});e.target.value='';}
+function saveProd(){const n=$('pmn').value.trim(),pr=parseInt($('pmp').value)||0;if(!n||!pr){showMsg('prodMsg','err','⚠ Name and price required.');return}const obj={id:editProdId||Date.now(),name:n,brand:$('pmb').value,cat:$('pmc').value,price:pr,mrp:parseInt($('pmm').value)||pr,stock:parseInt($('pmst').value)||0,icon:$('pmi').value||'📦',badge:$('pmbd').value,desc:$('pmd').value,feats:[],imgs:[...prodImgs]};if(editProdId){const i=DB.products.findIndex(p=>p.id===editProdId);if(i>=0)DB.products[i]=obj;}else DB.products.push(obj);sv();renderProducts();$('prodMov').classList.remove('open');}
+function delProd(id){if(!confirm('Delete?'))return;DB.products=DB.products.filter(p=>p.id!==id);sv();renderProducts();}
+function addCartQ(id,qid){const q=parseInt($(qid)?.textContent)||1;addCart(id,q);}
+function addCart(id,qty=1){const p=DB.products.find(x=>x.id===id);if(!p||p.stock<1)return;const ex=DB.cart.find(x=>x.id===id);if(ex)ex.qty+=qty;else DB.cart.push({id:p.id,name:p.name,price:p.price,icon:p.icon||'📦',qty});sv();updateCart();}
+function changeCartQty(id,d){const i=DB.cart.findIndex(x=>x.id===id);if(i<0)return;DB.cart[i].qty+=d;if(DB.cart[i].qty<1)DB.cart.splice(i,1);sv();updateCart();}
+function removeCart(id){DB.cart=DB.cart.filter(x=>x.id!==id);sv();updateCart();}
+function updateCart(){
+  const cnt=DB.cart.reduce((s,i)=>s+i.qty,0),tot=DB.cart.reduce((s,i)=>s+i.price*i.qty,0);
+  $('cartCnt').textContent=cnt;$('cartTotEl').textContent='₹'+tot.toLocaleString('en-IN');
+  const fab=$('cartFab');if(fab)fab.style.display=cnt>0?'flex':'none';
+  const el=$('cartItemsEl');
+  if(!DB.cart.length){el.innerHTML=`<div style="text-align:center;padding:36px 20px;color:var(--gr)"><div style="font-size:42px;margin-bottom:11px">🛒</div><p>Your cart is empty</p></div>`;return}
+  el.innerHTML=DB.cart.map(item=>`<div class="citem"><div class="ciico">${item.icon}</div><div class="ciinfo"><div class="cinam">${item.name}</div><div class="cipr">₹${(item.price*item.qty).toLocaleString('en-IN')}</div><div class="ciqty"><button class="qbtn" onclick="changeCartQty(${item.id},-1)">−</button><span class="qval">${item.qty}</span><button class="qbtn" onclick="changeCartQty(${item.id},1)">+</button></div></div><button class="cirm" onclick="removeCart(${item.id})">🗑️</button></div>`).join('');
+  renderOrdSumm();
+}
+function toggleCart(){$('cartOv').classList.toggle('open');$('cartSb').classList.toggle('open');}
+function renderOrdSumm(){
+  const sub=DB.cart.reduce((s,i)=>s+i.price*i.qty,0),el=$('ordSumm');if(!el)return;
+  el.innerHTML=`<h3>🧾 Order Summary</h3>${DB.cart.map(i=>`<div class="ol"><span>${i.name} ×${i.qty}</span><strong>₹${(i.price*i.qty).toLocaleString('en-IN')}</strong></div>`).join('')}<div class="ol"><span>Subtotal</span><strong>₹${sub.toLocaleString('en-IN')}</strong></div><div class="ol"><span>Delivery</span><strong style="color:var(--grn)">FREE</strong></div><div class="ototal"><span>Total</span><strong>₹${sub.toLocaleString('en-IN')}</strong></div><button class="pbtn" onclick="placeOrder()">✅ Place Order</button>`;
+}
+updateCart();
+function selPay(m){['cod','upi','bank'].forEach(x=>{const e=$(p+x);if(e)e.classList.remove('sel');});const p='p';const el=$(p+m);if(el)el.classList.add('sel');}
+// Initialize payment options
+['pcod','pupi','pbank'].forEach(id=>{const e=$(id);if(e)e.addEventListener('click',function(){['pcod','pupi','pbank'].forEach(x=>$(x)?.classList.remove('sel'));this.classList.add('sel');});});
+function placeOrder(){
+  const fn=$('chfn').value.trim(),adr=$('chadr').value.trim(),ph=$('chph').value.trim(),em=$('chem').value.trim();
+  showMsg('chMsg','','');if(!fn||!adr||!ph||!em){showMsg('chMsg','err','⚠ Fill all required delivery fields.');return}if(!DB.cart.length){showMsg('chMsg','err','⚠ Cart is empty.');return}
+  const payEl=document.querySelector('.payopt.sel');const pay=payEl?.querySelector('input')?.value||'cod';
+  const oid=`ORD-${new Date().getFullYear()}-${String(DB.orders.length+1).padStart(4,'0')}`;
+  const total=DB.cart.reduce((s,i)=>s+i.price*i.qty,0);
+  DB.orders.push({oid,name:fn,phone:ph,email:em,address:adr+' '+$('chcity').value+' '+$('chpin').value,items:[...DB.cart],total,pay,status:'pending',notes:$('chno').value,date:new Date().toISOString().split('T')[0]});
+  DB.cart=[];sv();updateCart();
+  showMsg('chMsg','ok',`✅ Order ${oid} placed! ${pay==='cod'?'We will call to confirm COD.':'Complete payment and share UTR at +91 9891375767.'} ✉️ Confirmation sent to ${em}`);
+  $('as-ord').textContent=DB.orders.length;
+}
+
+// ── CAPTCHA ──
+let ca1=0,ca2=0;
+function genCap(){const a=Math.floor(Math.random()*20)+1,b=Math.floor(Math.random()*20)+1;$('capQ').textContent=`${a} + ${b} = ?`;ca1=a+b;$('capA').value='';}
+function genCap2(){const a=Math.floor(Math.random()*12)+1,b=Math.floor(Math.random()*12)+1;$('capQ2').textContent=`${a} × ${b} = ?`;ca2=a*b;$('capA2').value='';}
+genCap();genCap2();
+
+// ── PASSWORD ──
+function cpwd(inp,barid,hintsid){
+  const p=inp.value,bar=$(barid),h=$(hintsid);
+  if(h)h.className='pwh show';
+  const ok=[p.length>=6,/[A-Z]/.test(p),/[0-9]/.test(p),/[!@#$%^&*(),.?\-_=+]/.test(p)];
+  const sc=ok.filter(Boolean).length;
+  const cols=['','#e74c3c','#e67e22','#f5a623','#27ae60'];
+  if(bar){bar.style.width=(sc/4*100)+'%';bar.style.background=cols[sc];}
+  const pref=barid.startsWith('p')?'pph':'rrph';
+  [1,2,3,4].forEach((i,j)=>{const e=$(pref+i);if(e){e.className='ph '+(ok[j]?'ok':'fail');e.textContent=(ok[j]?'✅':'❌')+[' Min 6 chars',' Uppercase letter',' Number (0-9)',' Symbol (!@#$...)'][j];}});
+}
+function validPwd(p){return p.length>=6&&/[A-Z]/.test(p)&&/[0-9]/.test(p)&&/[!@#$%^&*(),.?\-_=+]/.test(p);}
+
+// ── AUTH ──
+const ADMIN={u:'rajeev',p:'Reyansh@8882',e:'rajeev@apenterprises.com',name:'Rajeev (Admin)'};
+let cu=null;
+let otpSt={email:'',otp:'',pu:null};
+let wpc=0;
+
+function openAuth(v='login'){
+  ['vLogin','vReg','vOTP','vForgot'].forEach(id=>{const e=$(id);if(e)e.style.display='none';});
+  const m={'login':'vLogin','reg':'vReg','otp':'vOTP','forgot':'vForgot'};
+  const e=$(m[v]);if(e)e.style.display='block';
+  $('authMov').classList.add('open');
+  if(v==='login')genCap();if(v==='reg')genCap2();
+}
+function doLogin(){
+  const u=$('au').value.trim(),p=$('ap').value.trim(),ca=parseInt($('capA').value);
+  showMsg('authMsg','','');
+  if(!u||!p){showMsg('authMsg','err','⚠ Enter username/email and password.');return}
+  if(isNaN(ca)||ca!==ca1){showMsg('authMsg','err','⚠ Incorrect captcha. Please try again.');genCap();return}
+  const isAdm=(u===ADMIN.u||u===ADMIN.e)&&p===ADMIN.p;
+  if(isAdm){loginOK({id:'admin',name:ADMIN.name,email:ADMIN.e,phone:'9891375767',role:'admin'},true);return}
+  const user=DB.users.find(x=>(x.email===u||x.uname===u)&&x.pwd===p);
+  if(user){
+    const otp=String(Math.floor(100000+Math.random()*900000));
+    otpSt={email:user.email,otp,pu:user};
+    $('otpEmail').textContent=user.email;
+    $('otpBox').innerHTML=[...Array(6)].map((_,i)=>`<input class="otpd" id="otpd${i}" maxlength="1" type="text" oninput="otpIn(${i})" onkeydown="otpK(event,${i})">`).join('');
+    openAuth('otp');
+    showMsg('otpMsg','inf',`🔐 Demo OTP: ${otp} (In production, sent to email)`);
+    return;
+  }
+  wpc++;
+  const mb=$('authMb');mb.classList.remove('shake');void mb.offsetWidth;mb.classList.add('shake');
+  showMsg('authMsg','err',`❌ Invalid username/email or password.${wpc>=3?' Multiple failed attempts — please double-check credentials.':''}`);
+  genCap();
+}
+window.otpIn=function(i){const v=$('otpd'+i).value;if(v&&i<5)$('otpd'+(i+1)).focus();};
+window.otpK=function(e,i){if(e.key==='Backspace'&&!$('otpd'+i).value&&i>0)$('otpd'+(i-1)).focus();};
+function verifyOTP(){const entered=[...Array(6)].map((_,i)=>($('otpd'+i)?.value||'')).join('');if(entered!==otpSt.otp){showMsg('otpMsg','err','❌ Incorrect OTP.');return}loginOK(otpSt.pu,false);}
+function resendOTP(){const otp=String(Math.floor(100000+Math.random()*900000));otpSt.otp=otp;showMsg('otpMsg','inf',`🔄 New OTP: ${otp}`);}
+function doRegister(){
+  const name=$('ran').value.trim(),ph=$('rap').value.trim(),em=$('rae').value.trim(),pw=$('raw').value.trim(),pw2=$('raw2').value.trim(),ca=parseInt($('capA2').value);
+  showMsg('regMsg','','');
+  if(!name||!ph||!em||!pw){showMsg('regMsg','err','⚠ All fields required.');return}
+  if(!/\S+@\S+\.\S+/.test(em)){showMsg('regMsg','err','⚠ Enter valid email.');return}
+  if(!validPwd(pw)){showMsg('regMsg','err','⚠ Password needs 6+ chars, 1 uppercase, 1 number, 1 symbol.');return}
+  if(pw!==pw2){showMsg('regMsg','err','⚠ Passwords do not match.');return}
+  if(isNaN(ca)||ca!==ca2){showMsg('regMsg','err','⚠ Incorrect captcha.');genCap2();return}
+  if(DB.users.find(u=>u.email===em)){showMsg('regMsg','err','❌ Email already registered. Please login.');return}
+  const nu={id:Date.now(),name,phone:ph,email:em,uname:em.split('@')[0],pwd:pw,role:'customer',address:'',created:new Date().toISOString()};
+  DB.users.push(nu);sv();loginOK(nu,false);
+}
+function loginOK(user,isAdm){
+  cu=user;wpc=0;$('authMov').classList.remove('open');
+  const isAdmin=isAdm||user.role==='admin';
+  $('dbTitle').textContent=isAdmin?'Admin Dashboard':`${user.name}'s Dashboard`;
+  $('dbBadge').textContent=isAdmin?'Admin':'Customer';
+  $('navLogin').style.display='none';$('navDash').style.display='block';$('navProfile').style.display='block';
+  if(isAdmin){
+    document.body.classList.add('admin-mode');
+    $('adminTabBtn').style.display='inline-block';
+    $('addProdBtn').style.display='block';
+    $('svcAddBtn').style.display='block';
+    $('as-rma').textContent=DB.rmas.length;$('as-ord').textContent=DB.orders.length;
+    $('as-usr').textContent=DB.users.length;$('as-prd').textContent=DB.products.length;
+    renderAdminRMAs();renderAdminOrds();renderProducts();renderSvcGrid();renderClients();renderSvcDetail();
+  }
+  $('pn').value=user.name||'';$('pp').value=user.phone||'';$('pe').value=user.email||'';$('pa').value=user.address||'';
+  $('profNameDisp').textContent=user.name||'User';$('profEmailDisp').textContent=user.email||'';$('profInit').textContent=(user.name||'U').charAt(0).toUpperCase();
+  if(user.avatar){$('profAvImg').src=user.avatar;$('profAvImg').style.display='block';$('profInit').style.display='none';}
+  G('dash');dbTab('orders');renderUserOrds();renderUserRMAs();
+}
+function logout(){cu=null;document.body.classList.remove('admin-mode');$('navLogin').style.display='block';$('navDash').style.display='none';$('navProfile').style.display='none';$('adminTabBtn').style.display='none';$('addProdBtn').style.display='none';renderProducts();renderSvcGrid();renderClients();renderSvcDetail();G('main');scrollTo(0,0);}
+function sendReset(){const em=$('femail').value.trim();if(!em||!/\S+@\S+\.\S+/.test(em)){showMsg('forgotMsg','err','⚠ Enter valid email.');return}const u=DB.users.find(x=>x.email===em)||em===ADMIN.e;if(u)showMsg('forgotMsg','ok','✉️ Reset link sent! (Connect backend to activate)');else showMsg('forgotMsg','err','❌ No account with this email. Please register first.');}
+
+// ── PROFILE ──
+function handleProfPhoto(e){const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=ev=>{if(cu){cu.avatar=ev.target.result;const u=DB.users.find(x=>x.id===cu.id);if(u)u.avatar=ev.target.result;sv();}$('profAvImg').src=ev.target.result;$('profAvImg').style.display='block';$('profInit').style.display='none';};r.readAsDataURL(f);}
+function saveProfile(){
+  if(!cu)return;
+  const n=$('pn').value.trim(),ph=$('pp').value.trim(),em=$('pe').value.trim(),addr=$('pa').value.trim();
+  const cp=$('pcp').value.trim(),np=$('pnp').value.trim(),cp2=$('pcp2').value.trim();
+  if(np){if(cp!==cu.pwd&&cu.role!=='admin'){showMsg('profMsg','err','❌ Current password incorrect.');return}if(!validPwd(np)){showMsg('profMsg','err','⚠ New password needs 6+ chars, 1 uppercase, 1 number, 1 symbol.');return}if(np!==cp2){showMsg('profMsg','err','⚠ New passwords do not match.');return}cu.pwd=np;}
+  cu.name=n;cu.phone=ph;cu.email=em;cu.address=addr;
+  const u=DB.users.find(x=>x.id===cu.id);if(u){u.name=n;u.phone=ph;u.email=em;u.address=addr;if(np)u.pwd=np;}
+  sv();$('profNameDisp').textContent=n;$('profEmailDisp').textContent=em;$('profInit').textContent=(n||'U').charAt(0).toUpperCase();
+  showMsg('profMsg','ok','✅ Profile saved successfully!');
+}
+
+// ── DASHBOARD ──
+function dbTab(t){
+  const tabs=['orders','rmas','profile','admin'];
+  document.querySelectorAll('.dbtab').forEach((el,i)=>el.className='dbtab'+(tabs[i]===t?' act':''));
+  tabs.forEach(x=>{const el=$('dp-'+x);if(el)el.className='dbpanel'+(x===t?' act':'');});
+  if(t==='orders')renderUserOrds();if(t==='rmas')renderUserRMAs();if(t==='admin'){renderAdminRMAs();renderAdminOrds();}
+}
+function renderUserOrds(){
+  if(!cu)return;
+  const ords=DB.orders.filter(o=>o.email===cu.email);
+  $('ordersListEl').innerHTML=ords.length?ords.map(o=>`<div class="orow"><div><div class="oi">${o.oid}</div><div class="od">${o.date} | ${o.pay?.toUpperCase()||'COD'} | ₹${o.total.toLocaleString('en-IN')}</div><div class="od">${o.items.map(i=>i.name+' ×'+i.qty).join(', ')}</div></div><div style="display:flex;gap:7px;align-items:center;flex-wrap:wrap"><span class="os os-${o.status||'p'}">${o.status||'Pending'}</span><button class="ibtn" onclick="dlInvoice('${o.oid}')">📄 Invoice</button><button class="ribtn" onclick="reqInvoice('${o.oid}')">📧 Request Invoice</button></div></div>`).join(''):`<div style="text-align:center;padding:28px;color:var(--gr)"><div style="font-size:42px;margin-bottom:11px">📭</div><p style="font-size:15px">No orders yet.</p><button class="bg" style="margin-top:13px" onclick="G('shop')">🛒 Start Shopping</button></div>`;
+}
+function dlInvoice(oid){const o=DB.orders.find(x=>x.oid===oid);if(!o)return;const c=`A.P. ENTERPRISES — INVOICE\nGSTIN: 07BXNPS063Q12ZR\n208 Raja House, Nehru Place, New Delhi – 110019\nPhone: +91 9891375767\n\n${'='.repeat(45)}\nInvoice: ${oid}\nDate: ${o.date}\nCustomer: ${o.name}\nPhone: ${o.phone} | Email: ${o.email}\nAddress: ${o.address}\n${'-'.repeat(45)}\n${o.items.map(i=>`${i.name.padEnd(28)} x${i.qty}  ₹${(i.price*i.qty).toLocaleString('en-IN')}`).join('\n')}\n${'-'.repeat(45)}\nTotal: ₹${o.total.toLocaleString('en-IN')}\nPayment: ${(o.pay||'cod').toUpperCase()}\nStatus: ${o.status||'Pending'}\n${'='.repeat(45)}\nThank you for shopping with A.P. Enterprises!`;const b=new Blob([c],{type:'text/plain'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=`Invoice_${oid}.txt`;a.click();}
+function reqInvoice(oid){alert(`📧 Invoice request submitted for ${oid}!\nA.P. Enterprises will email your invoice to ${cu?.email||'your registered email'} within 24 hours.\nFor urgent requests call: +91 9891375767`);}
+function renderUserRMAs(){if(!cu)return;const rmas=DB.rmas.filter(r=>r.email===cu.email);$('dashRMAList').innerHTML=rmas.length?rmas.map(buildRMACard).join(''):`<p style="color:var(--gr);text-align:center;padding:18px">No RMAs found.</p>`;}
+function renderAdminRMAs(){
+  const q=($('arq')?.value||'').toLowerCase(),f=$('arf')?.value||'all';
+  let list=DB.rmas;if(f!=='all')list=list.filter(r=>r.status===f);if(q)list=list.filter(r=>r.rmaId.toLowerCase().includes(q)||r.name.toLowerCase().includes(q)||(r.email||'').toLowerCase().includes(q));
+  $('adminRMAList').innerHTML=list.map(r=>`<div class="orow"><div><div class="oi">${r.rmaId}</div><div class="od">${r.name} | ${r.phone} | ${r.email||'N/A'} | ${r.date}</div><div class="od">${r.device} — ${r.brand||'N/A'} | ${r.problem?.slice(0,60)}</div></div><div style="display:flex;gap:7px;align-items:center;flex-wrap:wrap"><span class="trs ${gSC(r.status)}" style="font-size:11px;padding:4px 10px">${gSL(r.status)}</span>${r.invoice?`<button class="ibtn" onclick="alert('Invoice: ${r.invoice}')">📄</button>`:''}<button style="background:var(--blue);color:#fff;border:none;padding:7px 12px;border-radius:8px;cursor:pointer;font-size:12.5px;font-weight:700" onclick="openRMAEdit('${r.rmaId}')">✎ Edit</button><button style="background:rgba(192,57,43,.1);color:var(--red);border:1px solid rgba(192,57,43,.3);padding:7px 10px;border-radius:8px;cursor:pointer;font-size:12.5px;font-weight:700" onclick="delRMA('${r.rmaId}')">🗑️</button></div></div>`).join('')||`<p style="color:var(--gr);padding:13px">No RMAs.</p>`;
+}
+function renderAdminOrds(){$('adminOrdList').innerHTML=DB.orders.map(o=>`<div class="orow"><div><div class="oi">${o.oid}</div><div class="od">${o.name} | ${o.phone} | ${o.date} | ₹${o.total.toLocaleString('en-IN')}</div></div><div style="display:flex;gap:7px;align-items:center;flex-wrap:wrap"><select style="border:1px solid var(--bd);border-radius:8px;padding:6px 10px;font-size:12.5px;font-weight:700;outline:none" onchange="updOrdStatus('${o.oid}',this.value)"><option value="pending" ${o.status==='pending'?'selected':''}>Pending</option><option value="processing" ${o.status==='processing'?'selected':''}>Processing</option><option value="shipped" ${o.status==='shipped'?'selected':''}>Shipped</option><option value="delivered" ${o.status==='delivered'?'selected':''}>Delivered</option><option value="cancelled" ${o.status==='cancelled'?'selected':''}>Cancelled</option></select><button class="ibtn" onclick="dlInvoice('${o.oid}')">📄 Invoice</button></div></div>`).join('')||`<p style="color:var(--gr);padding:13px">No orders.</p>`;}
+function updOrdStatus(oid,s){const o=DB.orders.find(x=>x.oid===oid);if(o){o.status=s;sv();}}
+
+// ── RMA ──
+const RSTEPS=['received','diagnosed','repairing','quality','ready','delivered'];
+const RSLABS=['Received','Diagnosed','Repairing','QC','Ready','Delivered'];
+const RSICONS=['📥','🔍','🔧','✅','📦','🚚'];
+function gSC(s){return {received:'sr',diagnosed:'sd',repairing:'sp',quality:'sq',ready:'sy',delivered:'sl'}[s]||'sr';}
+function gSL(s){return {received:'Received',diagnosed:'Diagnosed',repairing:'Repairing',quality:'QC Check',ready:'Ready ✅',delivered:'Delivered 🚚'}[s]||s;}
+function buildRMACard(r){
+  const si=RSTEPS.indexOf(r.status),lw=si<=0?0:Math.min((si/(RSTEPS.length-1))*100,100);
+  const steps=RSTEPS.map((s,i)=>{const c=i<si?'done':i===si?'cur':'pend';return `<div class="step"><div class="sdot ${c}">${RSICONS[i]}</div><div class="slbl ${c}">${RSLABS[i]}</div></div>`;}).join('');
+  return `<div class="trr show"><div class="trhd"><div><div class="trid">${r.rmaId}</div><div style="color:rgba(255,255,255,.45);font-size:11px;margin-top:1px">${r.userId} | ${r.email||'N/A'}</div></div><span class="trs ${gSC(r.status)}">${gSL(r.status)}</span></div>
+    <div class="trbody"><div class="stepper"><div class="sline" style="width:calc(${lw}% - 32px)"></div>${steps}</div>
+    <div class="tig" style="margin-top:13px"><div class="til"><label>Customer</label><span>${r.name}</span></div><div class="til"><label>Phone</label><span>${r.phone}</span></div><div class="til"><label>Device</label><span>${r.device} — ${r.brand||'N/A'}</span></div><div class="til"><label>Technician</label><span>${r.tech||'Pending'}</span></div><div class="til"><label>ETA</label><span>${r.eta?r.eta+' days':'TBD'}</span></div><div class="til"><label>Cost</label><span>${r.cost?'₹'+r.cost:'TBD'}</span></div></div>
+    <div class="tnotes"><strong>Problem</strong>${r.problem}</div>
+    ${r.notes?`<div class="tnotes"><strong>Notes</strong>${r.notes}</div>`:''}
+    ${r.invoice?`<div class="tnotes"><strong>Invoice</strong>${r.invoice}</div>`:''}
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px">
+      <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(39,174,96,.1);border:1px solid rgba(39,174,96,.3);color:var(--grn);padding:5px 12px;border-radius:8px;font-size:12.5px;font-weight:700">✉️ Email updates sent</div>
+      <button style="background:var(--blue);color:#fff;border:none;padding:5px 12px;border-radius:8px;cursor:pointer;font-size:12.5px;font-weight:700" onclick="reqRMAInvoice('${r.rmaId}')">📄 Request Invoice</button>
+    </div></div></div>`;
+}
+function reqRMAInvoice(rid){alert(`📧 Invoice request for ${rid} submitted!\nWe will send the bill to ${DB.rmas.find(r=>r.rmaId===rid)?.email||'your email'} within 24 hours.\nCall: +91 9891375767`);}
+function trackRMA(){
+  const raw=$('trk-id').value.trim(),field=$('trk-field').value;
+  showMsg('trkMsg','','');$('trkResults').innerHTML='';
+  if(!raw){showMsg('trkMsg','err','⚠ Enter RMA ID, Email or Phone.');return}
+  const q=raw.toUpperCase();
+  const found=DB.rmas.filter(r=>{if(field==='rmaId')return r.rmaId===q;if(field==='email')return(r.email||'').toLowerCase()===raw.toLowerCase();if(field==='phone')return r.phone===raw;return r.rmaId===q||(r.email||'').toLowerCase()===raw.toLowerCase()||r.phone===raw;});
+  if(!found.length){showMsg('trkMsg','err','❌ No RMA found. Try again or register a new RMA.');return}
+  $('trkResults').innerHTML=found.map(buildRMACard).join('');
+}
+let rmaC=DB.rmas.length+1;
+function registerRMA(){
+  const n=$('rn').value.trim(),ph=$('rph').value.trim(),em=$('re').value.trim(),dv=$('rdt').value,pr=$('rpr').value.trim();
+  const btn=$('regRMABtn'),txt=$('regRMABtnTxt');
+  showMsg('regRMAMsg','','');if(!n||!ph||!em||!dv||!pr){showMsg('regRMAMsg','err','⚠ All starred fields required.');return}
+  btn.disabled=true;txt.textContent='Registering…';
+  setTimeout(()=>{
+    const yr=new Date().getFullYear();
+    const rid=`RMA-${yr}-${String(rmaC).padStart(4,'0')}`,uid=`USER-${String(rmaC).padStart(3,'0')}`;
+    DB.rmas.push({rmaId:rid,userId:uid,name:n,phone:ph,email:em,device:dv,brand:$('rb').value,serial:$('rs').value,problem:pr,status:'received',tech:'',eta:0,cost:0,notes:'Device received. Awaiting inspection.',date:new Date().toISOString().split('T')[0],invoice:''});
+    rmaC++;sv();
+    showMsg('regRMAMsg','ok',`✅ RMA Registered!<br><strong>RMA ID: ${rid}</strong> | <strong>User ID: ${uid}</strong><br><em>✉️ Confirmation will be emailed to ${em} | 📲 Admin notified</em>`);
+    btn.disabled=false;txt.textContent='Register RMA 📋';
+    $('as-rma').textContent=DB.rmas.length;
+  },600);
+}
+function resetRMA(){['rn','rph','re','rb','rs','rpr'].forEach(id=>{const e=$(id);if(e)e.value='';});$('rdt').selectedIndex=0;showMsg('regRMAMsg','','');}
+let editRMAId='';
+function openRMAEdit(id){const r=DB.rmas.find(x=>x.rmaId===id);if(!r)return;editRMAId=id;$('editRMALbl').textContent=id;$('ers').value=r.status;$('ere').value=r.eta||'';$('ert').value=r.tech||'';$('erc').value=r.cost||'';$('ern').value=r.notes||'';$('eri').value=r.invoice||'';$('editRMAMov').classList.add('open');}
+function saveRMAEdit(){const i=DB.rmas.findIndex(r=>r.rmaId===editRMAId);if(i<0)return;const old=DB.rmas[i].status;DB.rmas[i].status=$('ers').value;DB.rmas[i].eta=parseInt($('ere').value)||0;DB.rmas[i].tech=$('ert').value;DB.rmas[i].cost=parseInt($('erc').value)||0;DB.rmas[i].notes=$('ern').value;DB.rmas[i].invoice=$('eri').value;DB.rmas[i].updated=new Date().toISOString().split('T')[0];sv();showMsg('editRMAMsg','ok',`✅ RMA updated! Status: "${gSL(DB.rmas[i].status)}". ✉️ Customer email notification sent. 📲 WhatsApp admin notified.`);setTimeout(()=>{$('editRMAMov').classList.remove('open');renderAdminRMAs();},1800);}
+function delRMA(id){if(!confirm('Delete '+id+'?'))return;DB.rmas=DB.rmas.filter(r=>r.rmaId!==id);sv();renderAdminRMAs();}
+
+// ── PAGE NAV ──
+function G(p){['main','svcpage','shop','checkout','dash','rma','profile'].forEach(id=>{const e=$(id+'-page');if(e)e.className='page'+(p===id?' active':'');});scrollTo(0,0);if(p==='shop')renderProducts();if(p==='checkout')renderOrdSumm();if(p==='svcpage')renderSvcDetail();if(p==='rma'){}if(p==='main'){renderSvcGrid();renderClients();}if(p==='profile')loadProfilePage();}
+function rmaTab(t){['track','reg'].forEach(x=>{document.querySelectorAll('.rtab').forEach((e,i)=>e.className='rtab'+((['track','reg'])[i]===t?' act':''));const p=$('rp-'+x);if(p)p.className='rpanel'+(x===t?' act':'');});}
+// Nav
+const hbg=$('hbg'),mm=$('mmenu');
+hbg.addEventListener('click',()=>{hbg.classList.toggle('open');mm.classList.toggle('open');});
+function cmm(){hbg.classList.remove('open');mm.classList.remove('open');}
+window.addEventListener('scroll',()=>$('scrollTop').classList.toggle('vis',scrollY>300));
+// Forms
+async function submitSR(){const n=$('srn').value.trim(),ph=$('srp').value.trim(),s=$('srs').value;showMsg('srMsg','','');if(!n||!ph||!s){showMsg('srMsg','err','⚠ Name, phone and service required.');return}const btn=$('srbtn');btn.textContent='Submitting…';try{await fetch('https://YOUR-BACKEND.onrender.com/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:n,phone:ph,service:s})});showMsg('srMsg','ok','✅ Request submitted! We will call within 24 hours.');}catch{showMsg('srMsg','err','❌ Call: <a href="tel:9891375767" style="color:var(--acc);font-weight:700">+91 9891375767</a>');}finally{btn.textContent='Submit Request 🚀';}}
+async function sendCF(){const n=$('cfn').value.trim(),e=$('cfe').value.trim(),p=$('cfp').value.trim();showMsg('cfMsg','','');if(!n||!e||!p){showMsg('cfMsg','err','⚠ Name, email and phone required.');return}try{await fetch('https://YOUR-BACKEND.onrender.com/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:n,email:e,phone:p,service:$('cfs').value,message:$('cfm').value})});showMsg('cfMsg','ok','✅ Message sent!');}catch{showMsg('cfMsg','err','❌ Call: <a href="tel:9891375767" style="color:var(--acc)">+91 9891375767</a>');}}
+
+
+// ═══ PROFILE PAGE FUNCTIONS ═══
+function openProfilePage(){if(!cu){openAuth('login');return;}G('profile');}
+
+function loadProfilePage(){
+  if(!cu)return;
+  // Avatar
+  if(cu.avatar){$('prAvImg').src=cu.avatar;$('prAvImg').style.display='block';$('prAvInit').style.display='none';}
+  else{$('prAvImg').style.display='none';$('prAvInit').style.display='block';}
+  $('prAvInit').textContent=(cu.name||'U').charAt(0).toUpperCase();
+  $('prNameDisp').textContent=cu.name||'User';
+  $('prRoleDisp').textContent=(cu.role==='admin'?'Administrator':'Customer');
+  const joinDate=cu.created?new Date(cu.created).toLocaleDateString('en-IN',{year:'numeric',month:'long'}):'—';
+  $('prJoinedDisp').textContent='Member since '+joinDate;
+  // Stats
+  const ords=DB.orders.filter(o=>o.email===cu.email);
+  const rmas=DB.rmas.filter(r=>r.email===cu.email);
+  const bills=JSON.parse(localStorage.getItem('v9_bills_'+cu.id)||'[]');
+  $('prOrdCnt').textContent=ords.length;
+  $('prRmaCnt').textContent=rmas.length;
+  $('prBillCnt').textContent=bills.length;
+  loadPrInfo();
+  renderBillList();
+  renderRMAbills();
+  renderPrRMAs();
+  prTab('info');
+}
+
+function loadPrInfo(){
+  if(!cu)return;
+  $('pr-name').value=cu.name||'';
+  $('pr-phone').value=cu.phone||'';
+  $('pr-email').value=cu.email||'';
+  $('pr-uname').value=cu.uname||cu.email?.split('@')[0]||'';
+  const addr=cu.address||'';
+  $('pr-address').value=addr.replace(/,?\s*(New Delhi|Delhi|Mumbai|Bangalore)[^,]*/i,'').trim();
+  $('pr-city').value=addr.match(/(New Delhi|Delhi|Mumbai|Kolkata|Bangalore)/i)?.[1]||'New Delhi';
+  $('pr-pin').value=cu.pin||'';
+}
+
+function savePrInfo(){
+  if(!cu)return;
+  const n=$('pr-name').value.trim(),ph=$('pr-phone').value.trim();
+  const city=$('pr-city').value.trim(),pin=$('pr-pin').value.trim();
+  showMsg('prInfoMsg','','');
+  if(!n||!ph){showMsg('prInfoMsg','err','⚠ Name and phone are required.');return}
+  const addr=[$('pr-address').value.trim(),city,pin].filter(Boolean).join(', ');
+  cu.name=n;cu.phone=ph;cu.address=addr;cu.city=city;cu.pin=pin;
+  const u=DB.users.find(x=>x.id===cu.id);if(u){u.name=n;u.phone=ph;u.address=addr;}
+  sv();
+  $('prNameDisp').textContent=n;
+  $('profNameDisp').textContent=n;$('profEmailDisp').textContent=cu.email;
+  $('profInit').textContent=n.charAt(0).toUpperCase();
+  $('prAvInit').textContent=n.charAt(0).toUpperCase();
+  $('pn').value=n;$('pp').value=ph;$('pa').value=addr;
+  showMsg('prInfoMsg','ok','✅ Profile updated successfully!');
+}
+
+function savePrSecurity(){
+  if(!cu)return;
+  showMsg('prSecMsg','','');
+  const cp=$('pr-curpwd').value.trim(),np=$('pr-newpwd').value.trim(),cf=$('pr-cfmpwd').value.trim();
+  if(!np&&!cp){showMsg('prSecMsg','wrn','ℹ Enter current and new passwords to update.');return}
+  if(cu.role!=='admin'&&cp!==cu.pwd){showMsg('prSecMsg','err','❌ Current password incorrect.');return}
+  if(!validPwd(np)){showMsg('prSecMsg','err','⚠ New password needs 6+ chars, 1 uppercase, 1 number, 1 symbol.');return}
+  if(np!==cf){showMsg('prSecMsg','err','⚠ New passwords do not match.');return}
+  cu.pwd=np;const u=DB.users.find(x=>x.id===cu.id);if(u)u.pwd=np;sv();
+  $('pr-curpwd').value='';$('pr-newpwd').value='';$('pr-cfmpwd').value='';
+  showMsg('prSecMsg','ok','✅ Password changed successfully! Stay secure 🔒');
+}
+
+function handlePrPhoto(e){
+  const f=e.target.files[0];if(!f)return;
+  if(f.size>3*1024*1024){showMsg('prInfoMsg','err','⚠ Photo too large. Max 3MB.');return}
+  const r=new FileReader();
+  r.onload=ev=>{
+    if(cu){cu.avatar=ev.target.result;const u=DB.users.find(x=>x.id===cu.id);if(u)u.avatar=ev.target.result;sv();}
+    $('prAvImg').src=ev.target.result;$('prAvImg').style.display='block';$('prAvInit').style.display='none';
+    $('profAvImg').src=ev.target.result;$('profAvImg').style.display='block';$('profInit').style.display='none';
+  };
+  r.readAsDataURL(f);
+}
+
+function prTab(t){
+  ['info','security','bills','rma'].forEach(s=>{
+    const sec=$('prs-'+s),qlink=$('pqt-'+s);
+    if(sec)sec.className='pr-section'+(s===t?' act':'');
+    if(qlink)qlink.className='pr-qlink'+(s===t?' active-tab':'');
+  });
+  if(t==='bills')renderBillList();
+  if(t==='rma')renderPrRMAs();
+}
+
+// ═══ BILL MANAGEMENT ═══
+function getBills(){return JSON.parse(localStorage.getItem('v9_bills_'+(cu?.id||'guest'))||'[]');}
+function saveBills(bills){localStorage.setItem('v9_bills_'+(cu?.id||'guest'),JSON.stringify(bills));if($('prBillCnt'))$('prBillCnt').textContent=bills.length;}
+
+function handleBillUpload(e){
+  const files=[...e.target.files];e.target.value='';
+  files.forEach(f=>{
+    if(f.size>5*1024*1024){showMsg('billMsg','err','⚠ '+f.name+' too large (max 5MB).');return}
+    const r=new FileReader();
+    r.onload=ev=>{
+      const bills=getBills();
+      bills.unshift({id:Date.now()+Math.random(),name:f.name,type:f.type,size:f.size,date:new Date().toISOString().split('T')[0],data:ev.target.result});
+      saveBills(bills);renderBillList();
+      showMsg('billMsg','ok','✅ '+f.name+' uploaded successfully!');
+    };
+    r.readAsDataURL(f);
+  });
+}
+
+function handleBillDrop(e){
+  e.preventDefault();$('billDropZone').classList.remove('drag');
+  const files=[...e.dataTransfer.files];
+  if(!files.length)return;
+  const fakeE={target:{files,value:''},};handleBillUpload(fakeE);
+}
+
+function renderBillList(){
+  const bills=getBills();
+  const el=$('billList');if(!el)return;
+  if(!bills.length){el.innerHTML='<div style="text-align:center;padding:22px;color:var(--gr)"><div style="font-size:36px;margin-bottom:8px">📂</div><p>No bills uploaded yet</p></div>';return}
+  el.innerHTML=bills.map(b=>{
+    const ico=b.type?.includes('pdf')?'📄':b.type?.includes('image')?'🖼️':'📄';
+    const size=(b.size/1024).toFixed(1)+'KB';
+    return `<div class="bill-item">
+      <div class="bill-item-ico">${ico}</div>
+      <div class="bill-item-info"><div class="bill-item-name">${b.name}</div><div class="bill-item-meta">${b.date} • ${size}</div></div>
+      <button class="bill-dl-btn" onclick="dlBill('${b.id}')">⬇ Download</button>
+      <button class="bill-del-btn" onclick="delBill('${b.id}')">🗑️</button>
+    </div>`;
+  }).join('');
+}
+
+function dlBill(id){
+  const b=getBills().find(x=>String(x.id)===String(id));if(!b)return;
+  const a=document.createElement('a');a.href=b.data;a.download=b.name;a.click();
+}
+
+function delBill(id){
+  if(!confirm('Delete this bill?'))return;
+  const bills=getBills().filter(x=>String(x.id)!==String(id));
+  saveBills(bills);renderBillList();
+  showMsg('billMsg','inf','🗑️ Bill deleted.');
+}
+
+// Download RMA repair bill as PDF-style text
+function dlRMABill(rmaId){
+  const r=DB.rmas.find(x=>x.rmaId===rmaId);if(!r)return;
+  const c=`A.P. ENTERPRISES — REPAIR BILL
+GSTIN: 07BXNPS063Q12ZR
+208 Raja House, Nehru Place, New Delhi – 110019
+Phone: +91 9891375767 | Email: info@apenterprises.com
+
+${'='.repeat(50)}
+RMA REPAIR INVOICE
+${'='.repeat(50)}
+RMA ID    : ${r.rmaId}
+Date      : ${r.date}${r.updated?'\nUpdated   : '+r.updated:''}
+
+CUSTOMER DETAILS
+Name      : ${r.name}
+Phone     : ${r.phone}
+Email     : ${r.email||'N/A'}
+User ID   : ${r.userId}
+
+DEVICE DETAILS
+Device    : ${r.device}
+Brand     : ${r.brand||'N/A'}
+Serial No : ${r.serial||'N/A'}
+Problem   : ${r.problem}
+
+REPAIR DETAILS
+Technician: ${r.tech||'Pending'}
+Status    : ${gSL(r.status)}
+ETA       : ${r.eta?r.eta+' days':'TBD'}
+Notes     : ${r.notes||'—'}
+${r.invoice?'Invoice # : '+r.invoice:''}
+${'─'.repeat(50)}
+REPAIR COST : ₹${r.cost?r.cost.toLocaleString('en-IN'):'TBD'}
+${'='.repeat(50)}
+Thank you for trusting A.P. Enterprises!
+WhatsApp: https://wa.me/919891375767`;
+  const blob=new Blob([c],{type:'text/plain'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`RMA_Bill_${rmaId}.txt`;a.click();
+}
+
+// Upload a bill file for an RMA
+function uploadRMABill(rmaId,input){
+  const f=input.files[0];if(!f)return;
+  if(f.size>5*1024*1024){alert('File too large. Max 5MB.');return}
+  const r2=new FileReader();
+  r2.onload=ev=>{
+    const rma=DB.rmas.find(x=>x.rmaId===rmaId);if(!rma)return;
+    rma.billFile={name:f.name,type:f.type,data:ev.target.result,date:new Date().toISOString().split('T')[0]};
+    sv();renderRMAbills();renderPrRMAs();
+    alert('✅ Bill uploaded for '+rmaId+'!');
+  };
+  r2.readAsDataURL(f);
+  input.value='';
+}
+
+function renderRMAbills(){
+  const el=$('rmaBillList');if(!el)return;
+  const rmas=cu?DB.rmas.filter(r=>r.email===cu.email):[];
+  if(!rmas.length){el.innerHTML='<p style="color:var(--gr);padding:14px;text-align:center">No RMA bills found.</p>';return}
+  el.innerHTML=rmas.map(r=>`
+    <div class="bill-item" style="flex-wrap:wrap">
+      <div class="bill-item-ico">🔧</div>
+      <div class="bill-item-info" style="min-width:150px">
+        <div class="bill-item-name">${r.rmaId}</div>
+        <div class="bill-item-meta">${r.device} — <span style="color:var(--grn);font-weight:700">${gSL(r.status)}</span></div>
+        <div class="bill-item-meta">Cost: ${r.cost?'₹'+r.cost.toLocaleString('en-IN'):'TBD'}</div>
+      </div>
+      <div style="display:flex;gap:7px;flex-wrap:wrap">
+        <button class="bill-dl-btn" onclick="dlRMABill('${r.rmaId}')">⬇ Bill</button>
+        ${r.billFile?`<button class="bill-dl-btn" style="background:var(--grn)" onclick="dlUploadedRMABill('${r.rmaId}')">📥 ${r.billFile.name}</button>`:''}
+        <label class="bill-dl-btn" style="background:var(--org);cursor:pointer">📤 Upload<input type="file" accept=".pdf,.jpg,.png,.doc" style="display:none" onchange="uploadRMABill('${r.rmaId}',this)"></label>
+      </div>
+    </div>`).join('');
+}
+
+function dlUploadedRMABill(rmaId){
+  const r=DB.rmas.find(x=>x.rmaId===rmaId);if(!r?.billFile)return;
+  const a=document.createElement('a');a.href=r.billFile.data;a.download=r.billFile.name;a.click();
+}
+
+function renderPrRMAs(){
+  const el=$('prRMAList');if(!el)return;
+  const rmas=cu?DB.rmas.filter(r=>r.email===cu.email):[];
+  if(!rmas.length){el.innerHTML='<p style="color:var(--gr);text-align:center;padding:18px">No RMAs found. Register one below!</p>';return}
+  el.innerHTML=rmas.map(r=>buildRMACard(r)).join('');
+}
+
+// Add bill download button to RMA card
+const _origBuildRMACard=buildRMACard;
+window.buildRMACard=function(r){
+  const card=_origBuildRMACard(r);
+  return card.replace('📄 Request Invoice','📄 Request Invoice</button><button style="background:var(--org);color:#fff;border:none;padding:5px 12px;border-radius:8px;cursor:pointer;font-size:12.5px;font-weight:700" onclick="dlRMABill(\''+r.rmaId+'\')">⬇ Download Bill');
+};
+
+// Dashboard profile tab — also add profile page shortcut
+const _origDbTab=dbTab;
+window.dbTab=function(t){
+  _origDbTab(t);
+  if(t==='profile'){
+    // Sync profile inputs with current user
+    if(cu){$('pn').value=cu.name||'';$('pp').value=cu.phone||'';$('pe').value=cu.email||'';$('pa').value=cu.address||'';}
+  }
+};
+
+// Add "Open Full Profile" button to dashboard profile panel
+(function(){
+  const dp=document.getElementById('dp-profile');
+  if(dp){const btn=document.createElement('div');btn.style.cssText='margin-top:14px;padding-top:14px;border-top:1px solid var(--bd)';btn.innerHTML='<button onclick="openProfilePage()" style="background:linear-gradient(135deg,var(--blue),#1976d2);color:#fff;border:none;padding:11px 22px;border-radius:22px;font-weight:800;font-size:13.5px;cursor:pointer;display:inline-flex;align-items:center;gap:8px"><span>🖊️</span> Open Full Profile Editor</button>';dp.querySelector('.dbcard')?.appendChild(btn);}
+})();
+
+// Responsive profile page
+function addProfilePageMQ(){
+  const style=document.createElement('style');
+  style.textContent=`@media(max-width:820px){.pr-grid{grid-template-columns:1fr!important}.pr-side{flex-direction:row;flex-wrap:wrap;gap:12px}.pr-av-card{flex:1;min-width:220px}.pr-quick-card{flex:1;min-width:200px}}@media(max-width:600px){.pr-2col{grid-template-columns:1fr!important}.pr-full{grid-column:unset!important}}`;
+  document.head.appendChild(style);
+}
+addProfilePageMQ();
+
+// ── INIT ── render everything on page load so home page is always populated
+renderSvcGrid();
+renderSvcDetail();
+renderClients();
+renderProducts();
+</script>
+</body>
+</html>

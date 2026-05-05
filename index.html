@@ -570,10 +570,297 @@ footer{background:#020810;padding:46px 5% 22px;border-top:1px solid rgba(192,57,
 /* hidden inputs */
 .hf{display:none}
 
-@media(max-width:1024px){.hi{grid-template-columns:1fr}.hlc{display:none}.ag{grid-template-columns:1fr}.chgrid{grid-template-columns:1fr}.pdgrid{grid-template-columns:1fr}.sdc{grid-template-columns:1fr}.fg{grid-template-columns:1fr 1fr}}
-@media(max-width:900px){.ctgrid,.lgrid{grid-template-columns:1fr;gap:24px}.cart-sb{width:100%;right:-100%}}
-@media(max-width:768px){nav{padding:0 3%}.nl{display:none}.hbg{display:flex}section{padding:52px 4%}.sbar{grid-template-columns:repeat(2,1fr)}.hstats{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:480px){.hbtns{flex-direction:column}.pgrid{grid-template-columns:1fr 1fr}.rg{grid-template-columns:1fr}.acards,.pf{grid-template-columns:1fr}.fg{grid-template-columns:1fr}}
+/* ═══════════════════════════════════════════════
+   RESPONSIVE — Desktop → Tablet → Mobile
+   Breakpoints: 1200 | 1024 | 900 | 768 | 600 | 480 | 380
+   ═══════════════════════════════════════════════ */
+
+/* ── LARGE DESKTOP (>1200px) ── */
+@media(min-width:1200px){
+  .hi{gap:80px}
+  .pgrid{grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
+  .tgrid{grid-template-columns:repeat(3,1fr)}
+}
+
+/* ── TABLET LANDSCAPE / SMALL DESKTOP (≤1024px) ── */
+@media(max-width:1024px){
+  /* Hero */
+  .hi{grid-template-columns:1fr;gap:0}
+  .hlc{display:none}
+  .htit{font-size:clamp(34px,5vw,56px)}
+  .hstats{grid-template-columns:repeat(2,1fr);width:100%}
+  /* About */
+  .ag{grid-template-columns:1fr;gap:32px}
+  /* Founder */
+  #founder-sec .hi-inner,
+  #founder-sec>div>div:first-child{display:grid;grid-template-columns:220px 1fr;gap:28px}
+  /* Checkout */
+  .chgrid{grid-template-columns:1fr}
+  .ordsumm{position:static}
+  /* Product detail */
+  .pdgrid{grid-template-columns:1fr;gap:20px}
+  /* Services detail */
+  .sdc{grid-template-columns:70px 1fr;gap:16px}
+  /* Footer */
+  .fg{grid-template-columns:1fr 1fr;gap:28px}
+  /* Dashboard */
+  .asgrid{grid-template-columns:repeat(2,1fr)}
+  /* Profile */
+  .pr-grid{grid-template-columns:1fr}
+  .pr-side{flex-direction:row;flex-wrap:wrap;gap:14px}
+  .pr-av-card{flex:1;min-width:220px}
+  .pr-quick-card{flex:1;min-width:180px}
+}
+
+/* ── TABLET PORTRAIT (≤900px) ── */
+@media(max-width:900px){
+  /* Nav */
+  .nl{display:none}
+  .hbg{display:flex}
+  /* Sections */
+  section{padding:56px 4%}
+  /* Contact & Location grids */
+  .ctgrid,.lgrid{grid-template-columns:1fr;gap:22px}
+  /* Map height */
+  .mframe{height:280px}
+  /* Cart sidebar full width */
+  .cart-sb{width:100%;right:-100%}
+  /* Stats bar */
+  .sbar{grid-template-columns:repeat(2,1fr)}
+  .si{padding:20px 10px}
+  .si .num{font-size:30px}
+  /* Hero stats */
+  .hstats{grid-template-columns:repeat(2,1fr)}
+  .hstat{padding:12px 16px}
+  /* Founder section */
+  #founder-sec>div>div:first-of-type{max-width:200px;margin:0 auto}
+  #founder-sec>div{grid-template-columns:1fr!important;gap:24px!important}
+  /* Dashboard head */
+  .dbhead{flex-direction:column;align-items:flex-start;gap:10px}
+  .dbtabs{gap:6px}
+  .dbtab{padding:7px 13px;font-size:12px}
+  /* Testimonials */
+  .tgrid{grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
+  /* Checkout 2-col fields */
+  .ch2{grid-template-columns:1fr}
+}
+
+/* ── MOBILE LANDSCAPE / LARGE PHONE (≤768px) ── */
+@media(max-width:768px){
+  /* Nav */
+  nav{padding:0 4%}
+  .nl{display:none}
+  .hbg{display:flex}
+  .nt{font-size:17px}
+  .ns{font-size:9px}
+  /* Ticker */
+  .tl{font-size:10px;padding:3px 9px}
+  .ti{font-size:11.5px;margin:0 14px}
+  /* Hero */
+  .hw{padding:90px 5% 52px}
+  .htit{font-size:clamp(30px,8vw,48px)}
+  .hsub{font-size:16px}
+  .hdesc{font-size:14px}
+  .hbtns{flex-wrap:wrap;gap:10px}
+  .hbtns .br,.hbtns .bo{width:100%;justify-content:center;text-align:center}
+  .hstats{grid-template-columns:repeat(2,1fr);width:100%}
+  .hstat{padding:10px 12px}
+  .hstat .n{font-size:22px}
+  /* Stats bar */
+  .sbar{grid-template-columns:repeat(2,1fr)}
+  .si{padding:18px 10px}
+  .si .num{font-size:28px}
+  .si .ico{font-size:22px}
+  /* Sections */
+  section{padding:48px 4%}
+  .sh{margin-bottom:34px}
+  .stit{font-size:clamp(24px,5.5vw,36px)}
+  /* About */
+  .ag{grid-template-columns:1fr;gap:24px}
+  .acards{grid-template-columns:1fr}
+  .abadges{gap:6px}
+  /* Founder */
+  #founder-sec>div{grid-template-columns:1fr!important;gap:22px!important;text-align:center}
+  #founder-sec>div>div:first-of-type{width:180px;margin:0 auto}
+  /* Services cards */
+  .scgrid{grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:9px}
+  /* Services request form */
+  #srf{grid-template-columns:1fr!important}
+  /* Clients */
+  .clgrid{grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:9px}
+  /* Testimonials */
+  .tgrid{grid-template-columns:1fr;gap:12px}
+  /* Location */
+  .lgrid{grid-template-columns:1fr;gap:18px}
+  .mframe{height:240px;border-radius:10px}
+  /* Contact */
+  .ctgrid{grid-template-columns:1fr;gap:18px}
+  /* Footer */
+  .fg{grid-template-columns:1fr 1fr;gap:24px}
+  .fb{grid-column:1/-1}
+  .fbot{flex-direction:column;align-items:center;text-align:center;gap:8px}
+  /* Shop */
+  .pgrid{grid-template-columns:repeat(auto-fill,minmax(165px,1fr));gap:12px}
+  .spctrls{flex-direction:column;gap:8px}
+  .sp-inp,.sp-sel{width:100%}
+  /* Product detail */
+  .pdgrid{grid-template-columns:1fr;gap:16px}
+  /* Checkout */
+  #checkout-page{padding:76px 3% 50px}
+  .chgrid{grid-template-columns:1fr;gap:14px}
+  .ch2{grid-template-columns:1fr}
+  .ordsumm{position:static}
+  /* Dashboard */
+  #dash-page{padding:76px 3% 50px}
+  .dbhead{flex-direction:column;align-items:flex-start;gap:8px}
+  .dbhead h1{font-size:19px}
+  .dbtabs{gap:5px}
+  .dbtab{padding:7px 12px;font-size:12px}
+  .asgrid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .pf{grid-template-columns:1fr}
+  .orow{flex-direction:column;align-items:flex-start;gap:8px}
+  /* RMA */
+  .rg{grid-template-columns:1fr}
+  .tig{grid-template-columns:1fr}
+  .stepper{overflow-x:auto;padding-bottom:8px}
+  .slbl{font-size:8px;max-width:46px}
+  /* Profile page */
+  #profile-page{padding:76px 3% 50px}
+  .prhead{padding:22px 4% 18px}
+  .prhead h1{font-size:22px}
+  .pr-grid{grid-template-columns:1fr;gap:14px}
+  .pr-side{flex-direction:column;gap:12px}
+  .pr-av-card{padding:20px}
+  .pr-2col{grid-template-columns:1fr}
+  .pr-full{grid-column:unset}
+  /* Bills */
+  .bill-item{flex-wrap:wrap;gap:8px}
+  /* Modal */
+  .mov{padding:10px}
+  .mb{padding:22px 18px;border-radius:16px}
+  .mb.wide,.mb.med{max-width:100%}
+  /* Cart FAB position */
+  .cart-fab{bottom:16px;right:16px;width:46px;height:46px;font-size:20px}
+  .scroll-top{right:70px;bottom:16px}
+}
+
+/* ── MOBILE PORTRAIT (≤600px) ── */
+@media(max-width:600px){
+  /* Hero */
+  .htit{font-size:clamp(26px,9vw,40px)}
+  .hbtns .br,.hbtns .bo{font-size:13px;padding:10px 18px}
+  .hstats{grid-template-columns:repeat(2,1fr)}
+  /* Stats bar — stack 2×2 */
+  .sbar{grid-template-columns:repeat(2,1fr)}
+  /* Services page detail */
+  .sdc{grid-template-columns:1fr;gap:12px}
+  .sdc .sdico{width:56px;height:56px;margin:0 auto}
+  .sdc-content{text-align:left}
+  /* Shop */
+  .pgrid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .pcard .pbody{padding:10px}
+  .pnam{font-size:12.5px}
+  .ppr-m{font-size:18px}
+  .pacts{gap:5px}
+  .btn-cart,.btn-buy{font-size:11px;padding:8px 6px}
+  /* Profile 2col always 1col */
+  .pr-2col{grid-template-columns:1fr!important}
+  /* Footer */
+  .fg{grid-template-columns:1fr;gap:22px}
+  /* Dashboard tabs wrap nicely */
+  .dbtabs{gap:5px}
+  .dbtab{font-size:11.5px;padding:6px 10px}
+  /* Checkout */
+  .chcard{padding:16px}
+  /* RMA */
+  .rcard{padding:18px 14px}
+  .rtabs{gap:6px}
+  /* Ticker */
+  .tl{display:none}
+  /* OTP boxes */
+  .otpd{width:40px;height:46px;font-size:18px}
+  /* Admin float panel */
+  .afloat{left:50%;transform:translateX(-50%);bottom:14px;white-space:nowrap}
+}
+
+/* ── SMALL PHONES (≤480px) ── */
+@media(max-width:480px){
+  /* Nav */
+  .logo-circle{width:40px;height:40px}
+  .logo-ring{width:40px;height:40px}
+  .nt{font-size:15px;letter-spacing:.5px}
+  nav{height:58px}
+  .ticker{margin-top:58px;top:58px}
+  .mmenu{top:58px}
+  /* Hero */
+  .hw{padding:80px 4% 44px}
+  .htag{font-size:10px;padding:5px 12px}
+  .hbtns{flex-direction:column}
+  .hbtns .br,.hbtns .bo{width:100%;text-align:center;justify-content:center}
+  .hstats{grid-template-columns:repeat(2,1fr)}
+  /* Stats bar single column on very small */
+  .sbar{grid-template-columns:repeat(2,1fr)}
+  /* Sections */
+  section{padding:40px 4%}
+  .stit{font-size:clamp(22px,7vw,32px)}
+  /* Founder inline */
+  #founder-sec>div{gap:18px!important}
+  /* Shop */
+  .pgrid{grid-template-columns:1fr 1fr;gap:9px}
+  /* Dashboard */
+  .asgrid{grid-template-columns:1fr 1fr;gap:8px}
+  .ascard .asn{font-size:24px}
+  .orow{padding:10px}
+  /* Profile */
+  .pr-av-big{width:90px;height:90px;font-size:32px}
+  .pr-card{padding:18px 14px}
+  .pr-savebtn{padding:10px 20px;font-size:13px}
+  /* RMA stepper — horizontal scroll */
+  .stepper{flex-wrap:nowrap;overflow-x:auto;padding-bottom:10px;gap:0}
+  .sdot{width:28px;height:28px;font-size:12px}
+  .slbl{font-size:7.5px;max-width:40px}
+  /* Cart */
+  .citem{flex-direction:column;gap:8px}
+  /* Modal */
+  .mb{padding:18px 14px}
+  .mb h2{font-size:20px}
+  .otpbox{gap:6px}
+  .otpd{width:36px;height:42px;font-size:16px}
+  /* Footer */
+  .fg{grid-template-columns:1fr}
+  /* Admin float */
+  .afloat{font-size:10px;padding:7px 10px}
+}
+
+/* ── VERY SMALL (≤380px) ── */
+@media(max-width:380px){
+  .nt{display:none}
+  .pgrid{grid-template-columns:1fr}
+  .hstats{grid-template-columns:1fr 1fr}
+  .sbar{grid-template-columns:1fr 1fr}
+  .pacts{flex-direction:column}
+  .btn-cart,.btn-buy{width:100%}
+  .pr-stats{gap:5px}
+  .pr-stat .n{font-size:18px}
+  .dbtab{font-size:11px;padding:5px 8px}
+  .rg{grid-template-columns:1fr}
+  .bill-item{flex-direction:column;align-items:flex-start}
+  .otpd{width:32px;height:38px;font-size:14px}
+}
+
+/* ── TOUCH / HOVER MEDIA ── */
+@media(hover:none){
+  /* Remove hover transforms on touch devices to prevent sticky states */
+  .pcard:hover,.acard:hover,.clcard:hover,.sc:hover,.laddr:hover{transform:none}
+  .br:hover,.bg:hover,.pr-savebtn:hover{transform:none}
+}
+
+/* ── PRINT ── */
+@media print{
+  nav,.ticker,.cart-fab,.scroll-top,.afloat,.hbg,.mmenu{display:none!important}
+  .page{display:block!important}
+  body{font-size:12pt}
+}
 </style>
 </head>
 <body>
@@ -623,12 +910,16 @@ footer{background:#020810;padding:46px 5% 22px;border-top:1px solid rgba(192,57,
   <button class="hbg" id="hbg"><span></span><span></span><span></span></button>
 </nav>
 <div class="mmenu" id="mmenu">
-  <a onclick="G('main');scrollTo(0,0);cmm()">Home</a>
-  <a onclick="G('svcpage');cmm()">Services</a>
+  <a onclick="G('main');scrollTo(0,0);cmm()">🏠 Home</a>
+  <a onclick="G('svcpage');cmm()">⚙️ Services</a>
   <a onclick="G('shop');cmm()">🛒 Shop</a>
-  <a onclick="G('rma');cmm()">🔧 RMA</a>
-  <a onclick="openAuth('login');cmm()">Login</a>
-  <a onclick="G('main');setTimeout(()=>Q('#contact-sec').scrollIntoView({behavior:'smooth'}),80);cmm()">Contact</a>
+  <a onclick="G('rma');cmm()">🔧 RMA Tracking</a>
+  <a onclick="G('main');setTimeout(()=>Q('#contact-sec').scrollIntoView({behavior:'smooth'}),80);cmm()">📞 Contact</a>
+  <div style="height:1px;background:rgba(255,255,255,.1);margin:6px 0"></div>
+  <a id="mmLogin" onclick="openAuth('login');cmm()">🔓 Login / Register</a>
+  <a id="mmDash" style="display:none" onclick="G('dash');cmm()">📊 Dashboard</a>
+  <a id="mmProfile" style="display:none" onclick="openProfilePage();cmm()">👤 My Profile</a>
+  <a id="mmLogout" style="display:none;color:#ff8a80" onclick="logout();cmm()">🚪 Logout</a>
 </div>
 
 <!-- TICKER -->
@@ -1445,7 +1736,7 @@ if(DB.logo)applyLogo(DB.logo);
 const TI=['🏭 MSME Certified','😊 100,000+ Happy Customers','📦 50,000+ Products','20+ Client Organisations','🔧 Networking Repair Specialists','📷 Surveillance System Experts','🛒 GeM Listed Seller','📲 WhatsApp: +91 9891375767','✅ Govt. Registered 2016','🛍️ Online Shop — 100+ Products','🔧 RMA Live Tracking'];
 (()=>{const d=[...TI,...TI];$('tt').innerHTML=d.map(t=>`<span class="ti"><span class="td"></span>${t}</span>`).join('');})();
 
-//Brands
+// ── BRANDS ──
 const brands=[{n:'Dell',l:'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Dell_logo_2016.svg/120px-Dell_logo_2016.svg.png'},
 {n:'Microsoft',l:'https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original'},
 {n:'Nvidia',l:'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/NVIDIA_logo.svg/960px-NVIDIA_logo.svg.png'},
@@ -1729,6 +2020,11 @@ function loginOK(user,isAdm){
   $('dbTitle').textContent=isAdmin?'Admin Dashboard':`${user.name}'s Dashboard`;
   $('dbBadge').textContent=isAdmin?'Admin':'Customer';
   $('navLogin').style.display='none';$('navDash').style.display='block';$('navProfile').style.display='block';
+  // Mobile menu sync
+  if($('mmLogin'))$('mmLogin').style.display='none';
+  if($('mmDash'))$('mmDash').style.display='block';
+  if($('mmProfile'))$('mmProfile').style.display='block';
+  if($('mmLogout'))$('mmLogout').style.display='block';
   if(isAdmin){
     document.body.classList.add('admin-mode');
     $('adminTabBtn').style.display='inline-block';
@@ -1743,7 +2039,7 @@ function loginOK(user,isAdm){
   if(user.avatar){$('profAvImg').src=user.avatar;$('profAvImg').style.display='block';$('profInit').style.display='none';}
   G('dash');dbTab('orders');renderUserOrds();renderUserRMAs();
 }
-function logout(){cu=null;document.body.classList.remove('admin-mode');$('navLogin').style.display='block';$('navDash').style.display='none';$('navProfile').style.display='none';$('adminTabBtn').style.display='none';$('addProdBtn').style.display='none';renderProducts();renderSvcGrid();renderClients();renderSvcDetail();G('main');scrollTo(0,0);}
+function logout(){cu=null;document.body.classList.remove('admin-mode');$('navLogin').style.display='block';$('navDash').style.display='none';$('navProfile').style.display='none';$('adminTabBtn').style.display='none';$('addProdBtn').style.display='none';if($('mmLogin'))$('mmLogin').style.display='block';if($('mmDash'))$('mmDash').style.display='none';if($('mmProfile'))$('mmProfile').style.display='none';if($('mmLogout'))$('mmLogout').style.display='none';renderProducts();renderSvcGrid();renderClients();renderSvcDetail();G('main');scrollTo(0,0);}
 function sendReset(){const em=$('femail').value.trim();if(!em||!/\S+@\S+\.\S+/.test(em)){showMsg('forgotMsg','err','⚠ Enter valid email.');return}const u=DB.users.find(x=>x.email===em)||em===ADMIN.e;if(u)showMsg('forgotMsg','ok','✉️ Reset link sent! (Connect backend to activate)');else showMsg('forgotMsg','err','❌ No account with this email. Please register first.');}
 
 // ── PROFILE ──
@@ -2105,12 +2401,7 @@ window.dbTab=function(t){
 })();
 
 // Responsive profile page
-function addProfilePageMQ(){
-  const style=document.createElement('style');
-  style.textContent=`@media(max-width:820px){.pr-grid{grid-template-columns:1fr!important}.pr-side{flex-direction:row;flex-wrap:wrap;gap:12px}.pr-av-card{flex:1;min-width:220px}.pr-quick-card{flex:1;min-width:200px}}@media(max-width:600px){.pr-2col{grid-template-columns:1fr!important}.pr-full{grid-column:unset!important}}`;
-  document.head.appendChild(style);
-}
-addProfilePageMQ();
+// Responsive handled via CSS media queries
 
 // ── INIT ── render everything on page load so home page is always populated
 renderSvcGrid();
